@@ -222,79 +222,36 @@ En plus du Processus de Hawkes, l'échange suggère d'explorer l'Analyse de Surv
 ---
 
 ## 8. L'Architecture Complète (Cloud / Data Lake / Graph DB)
+*(Le schéma d'architecture complet a été déplacé dans la Section 3.1)*
 
-Pour pallier la fragmentation des "Silos" (Police, Justice, École, Santé), la CGIP nécessite une architecture Data-Centric moderne. Ce schéma n'agit pas comme une base de données de production transactionnelle, mais comme une plateforme de renseignement analytique.
+### Le Rôle Central de l'Entity Resolution (Le palliatif au Registre National)
+Dans les pays nordiques, l'interopérabilité est garantie par un "Identifiant Unique" (*Personnummer*). En France, c'est anticonstitutionnel. L'Entity Resolution n'est donc pas une simple "Feature". **C'est la brique fondamentale qui simule mathématiquement un identifiant unique** pour lier le Data Lake (où les dossiers sont isolés et les noms mal orthographiés) et le Graph (où l'individu devient un nœud unique). Si cette couche échoue, tout le modèle IA aval s'effondre.
 
-```text
-☁️🧮 Architecture technique : Cloud + Data Lake + Graph DB + ML
+---
 
-                   ┌──────────────────────────────┐
-                   │      SOURCES DE DONNÉES      │
-                   │──────────────────────────────│
-                   │ - Police (PV, enquêtes)      │
-                   │ - Justice (procédures)       │
-                   │ - École (signalements)       │
-                   │ - Signalements citoyens      │
-                   └──────────────┬───────────────┘
-                                  ▼
-        ┌──────────────────────────────────────────────┐
-        │            INGESTION LAYER (ETL/ELT)         │
-        │─────────────────────────────────────────────│
-        │ - APIs sécurisées                            │
-        │ - Batch + streaming (Kafka-like)             │
-        │ - Normalisation et Anonymisation (Hash)      │
-        └──────────────┬───────────────────────────────┘
-                       ▼
-        ┌──────────────────────────────────────────────┐
-        │              DATA LAKE (RAW)                 │
-        │──────────────────────────────────────────────│
-        │ Stockage brut (Documents, PV, historiques)   │
-        └──────────────┬───────────────────────────────┘
-                       ▼
-┌──────────────────────────┐              ┌──────────────────────────┐
-│ DATA PROCESSING LAYER    │              │ ENTITY RESOLUTION LAYER  │
-│──────────────────────────│              │──────────────────────────│
-│ - nettoyage              │              │ - fusion identités       │
-│ - extraction NLP         │              │ - matching probabiliste  │
-└──────────────┬───────────┘              └──────────────┬───────────┘
-               └────────────────────┬────────────────────┘
-                                    ▼
-                 ┌────────────────────────────────────┐
-                 │     FEATURE STORE (ML-ready)       │
-                 │────────────────────────────────────│
-                 │ - temporelles, comportementales,   │
-                 │   géographiques, embeddings NLP    │
-                 └──────────────┬─────────────────────┘
-                                ▼
-        ┌───────────────────────┴────────────────────────┐
-┌──────────────────────────────┐          ┌──────────────────────────────┐
-│     GRAPH DATABASE           │          │   DATA WAREHOUSE (BI)        │
-│──────────────────────────────│          │──────────────────────────────│
-│ Neo4j / JanusGraph-like      │          │ SQL analytique (BigQuery)    │
-│ Nodes: personnes, lieux      │          │ - statistiques globales      │
-│ Edges: relation, signalement │          │ - audits et conformité       │
-└──────────────┬───────────────┘          └──────────────┬───────────────┘
-               └────────────────────┬────────────────────┘
-                                    ▼
-                 ┌────────────────────────────────────┐
-                 │         ML / AI LAYER              │
-                 │────────────────────────────────────│
-                 │ - Risk scoring (XGBoost)           │
-                 │ - Graph Neural Networks (GNN)      │
-                 └──────────────┬─────────────────────┘
-                                ▼
-        ┌──────────────────────────────────────────────┐
-        │          DECISION SUPPORT LAYER              │
-        │──────────────────────────────────────────────│
-        │ - alertes magistrats (Dashboard XAI)         │
-        └──────────────┬───────────────────────────────┘
-                       ▼
-        ┌──────────────────────────────────────────────┐
-        │        USERS (HUMAN-IN-THE-LOOP)             │
-        │──────────────────────────────────────────────│
-        │ - magistrats, enquêteurs, protection enfance │
-        └──────────────────────────────────────────────┘
+## 9. Dictionnaire de Données (Dualité SQL / Graph)
+
+Pour éviter la "contamination de la preuve", la CGIP utilise deux bases de données distinctes.
+
+#### 1. Modèle SQL (La vérité administrative immuable)
+*   **Person** : `person_id`, `national_id_hash`, `birth_date`, `status`
+*   **Institution** : `institution_id`, `type`, `name`
+*   **Event** : `event_id`, `person_id`, `institution_id`, `event_type`, `severity`, `timestamp`
+*   **Legal_Case** : `case_id`, `status`, `offense_type`
+
+#### 2. Modèle Graph (La reconstruction de la réalité)
+*   **Nœuds** : `(:Person)`, `(:Institution)`, `(:Event)`, `(:Location)`
+*   **Arêtes Factuelles** : `-[:HAS_EVENT]->`, `-[:RECORDED_BY]->`, `-[:ASSOCIATED_WITH]->`, `-[:OCCURRED_AT]->`
+*   **Arêtes Latentes (Générées par l'IA)** : `-[:RISK_SIGNAL {weight: 0.7}]->` (Calculées en temps réel par inférence).
+
+#### 3. Payload Kafka (L'Événement Standardisé)
+```json
+{
+  "event_id": "uuid",
+  "type": "school_report | police_report | social_report",
+  "person_id": "uuid",
+  "timestamp": "2026-06-06T10:00:00Z",
+  "severity": 3,
+  "metadata": {"source": "school", "text": "incident violent"}
+}
 ```
-
-### Le Rôle Central de l'Entity Resolution
-L'Entity Resolution n'est pas une simple "Feature". **C'est le point de bascule** entre le Data Lake (où les dossiers sont isolés et les noms mal orthographiés) et le Graph (où l'individu devient un nœud unique). Si cette couche échoue, tout le modèle IA aval s'effondre.

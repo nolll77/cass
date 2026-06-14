@@ -59,37 +59,81 @@ Voici comment l'information se perd mathématiquement dans le modèle français 
 
 La CGIP implémente une architecture à 5 couches qui ne juge rien, mais qui fusionne, détecte et priorise :
 
-```text
-       ┌──────────────────────────────┐
-       │  Sources Multiples (Silos)   │
-       │  Cassiopée, TAJ, Civil Tech  │
-       └─────────────┬──────────────┘
-                     ▼
-       ┌──────────────────────────────┐
-       │  Data Ingestion Layer        │
-       │  (ETL + Hachage CNIL)        │
-       └─────────────┬──────────────┘
-                     ▼
-       ┌──────────────────────────────┐
-       │  Identity Resolution Layer   │
-       │  (Dédoublonnage Bayesien)    │
-       └─────────────┬──────────────┘
-                     ▼
-       ┌──────────────────────────────┐
-       │  Civic Knowledge Graph       │
-       │  (Neo4j : Nœuds & Arêtes)    │
-       └─────────────┬──────────────┘
-       ┌─────────────┴──────────────┐
-       ▼                            ▼
-┌──────────────────┐     ┌────────────────────┐
-│ ML Risk Engine   │     │ Investigation AI   │
-│ (Score Hawkes)   │     │ (Similarité GNN)   │
-└──────────────────┘     └────────────────────┘
-                     ▼
-       ┌──────────────────────────────┐
-       │ Human Decision Layer         │
-       │ (Alerte Magistrat / Juge)    │
-       └──────────────────────────────┘
+```mermaid
+graph TD
+    subgraph "🌐 1. Sources (Silos Institutionnels)"
+        P[Police / Gendarmerie <br/> LRPPN / TAJ]
+        J[Justice <br/> Cassiopée]
+        S[Social / École <br/> Signalements]
+    end
+
+    subgraph "🛡️ 2. Ingestion & Sécurité (SecNumCloud)"
+        API_GW[API Gateway / Firewalls]
+        KAFKA[Kafka Event Streaming <br/> Flux d'événements brut]
+    end
+
+    subgraph "🗄️ 3. Data Lake (Entity Resolution) [🟢 ZONE VERTE]"
+        BRONZE[(Bronze: Raw JSON)]
+        ER[Entity Resolution Engine <br/> Déduplication & Anonymisation]
+        SILVER[(Silver: Cleaned Entities)]
+    end
+
+    subgraph "⚖️ 4. La Dualité de la Vérité (Stockage)"
+        SQL[(PostgreSQL <br/> Vérité Administrative <br/> Événements factuels)]
+        NEO4J[(Neo4j Graph DB <br/> Vérité Analytique <br/> Réseau & Trajectoires)]
+    end
+
+    subgraph "🧠 5. IA Multi-Model Layer [🟡 ZONE JAUNE]"
+        FEAT[Feature Store <br/> Fenêtres glissantes 30j/90j]
+        ANOMALY[Isolation Forest <br/> Alerte Immédiate]
+        TEMP[Hawkes Process <br/> Escalade Temporelle]
+        GNN[Graph Neural Network <br/> Centralité Sociale]
+        SCORE[Scoring & SHAP <br/> Calcul du S_risk]
+    end
+
+    subgraph "🖥️ 6. Décision Humaine [🔴 LE MUR DE DÉCISION]"
+        FASTAPI[FastAPI Backend <br/> RBAC & Kill-Switch]
+        DASH[React Dashboard <br/> Explicabilité visuelle]
+        MAGISTRAT((Magistrat / Juge))
+    end
+
+    %% Flux de données
+    P --> API_GW
+    J --> API_GW
+    S --> API_GW
+    
+    API_GW --> KAFKA
+    KAFKA --> BRONZE
+    BRONZE --> ER
+    ER --> SILVER
+    
+    SILVER --> SQL
+    SILVER --> NEO4J
+    
+    %% Streaming temps réel
+    KAFKA -.-> ANOMALY
+    
+    %% Batch / Micro-batch
+    SQL --> FEAT
+    NEO4J --> FEAT
+    
+    FEAT --> TEMP
+    FEAT --> GNN
+    
+    ANOMALY --> SCORE
+    TEMP --> SCORE
+    GNN --> SCORE
+    
+    SCORE --> FASTAPI
+    SQL --> FASTAPI
+    NEO4J --> FASTAPI
+    
+    FASTAPI --> DASH
+    DASH --> MAGISTRAT
+    
+    style SCORE fill:#f9e79f,stroke:#f1c40f
+    style MAGISTRAT fill:#f5b7b1,stroke:#e74c3c
+    style ER fill:#abebc6,stroke:#2ecc71
 ```
 
 L'architecture classique souffre de **8 Points de Rupture Institutionnels** (Les "Casses") :
@@ -137,7 +181,10 @@ Pour éviter le cauchemar de la police prédictive ("Minority Report"), la loi e
 2. **Le Droit à l'Oubli (Time Decay Function)** : La force d'un lien diminue avec le temps. Un signalement vieux de 10 ans sans récidive n'a presque plus de poids.
 3. **Le Kill-Switch Moteur DPIA** : Un interrupteur logiciel bloque en temps réel toute computation qui dévierait vers du profilage illégal.
 
-> **La CGIP ne fait jamais de "justice prédictive". Elle fait de la *Fusion d'Information* pour générer une recommandation : `REVUE HUMAINE RECOMMANDÉE`.**
+> **RÈGLE D'OR JURIDIQUE : La CGIP ne prédit jamais des individus (Zone Rouge RGPD), elle détecte des trajectoires et des situations à risque (Zone Jaune). Le système fait de la *Fusion d'Information* pour générer une recommandation : `REVUE HUMAINE RECOMMANDÉE`. L'IA ne prend aucune décision légale.**
+
+### 2.3. L'Interopérabilité vs Le Registre Centralisé (Le Hack Français)
+Le vrai bloqueur étatique n'est pas technologique, c'est la **Gouvernance des données**. Dans les pays nordiques, un identifiant unique (*Personnummer*) connecte tout. En France, c'est inconstitutionnel. La CGIP utilise l'**Entity Resolution** (IA d'appariement) pour recréer virtuellement le lien entre les silos administratifs, sans jamais construire un Registre National Unique illégal.
 
 ---
 

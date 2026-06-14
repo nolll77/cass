@@ -129,16 +129,25 @@ $$
 
 ## 4. Modélisation du Risque et Alerting
 
-### Score Cumulatif de Vulnérabilité (Trigger Events)
+### 4.1. Extraction des Features (Feature Engineering)
+Avant le scoring, le pipeline extrait trois types de dimensions du flux Kafka :
+*   **Temporelles :** nb événements 30j/90j, accélération des événements, intervalle moyen entre incidents.
+*   **Sociales (Graph) :** Degree centrality, nb de connexions multi-institutions, clusters suspects.
+*   **Comportementales :** Répétition du type d’événements, escalade de gravité, multi-sources concordantes.
+
+### 4.2. Score de Risque Temps Réel (Event-Driven)
 **Formule :**
 $$
-\Huge S_{vuln} = 0.35 \cdot R_{temp} + 0.25 \cdot R_{comp} + 0.25 \cdot R_{graph} + 0.15 \cdot W_{sev}
+\Huge S_{risk} = 0.35 \cdot R_{temp} + 0.30 \cdot R_{graph} + 0.20 \cdot W_{trend} + 0.15 \cdot S_{cross}
 $$
-*   **Quoi :** Addition linéaire pondérée de 4 macro-features de risque pour produire un score interprétable.
-*   **Légende :** $S_{vuln}$ : Score total, $R_{temp}$ : Risque Temporel (accélération, délais), $R_{comp}$ : Risque Comportemental (répétition, proximité), $R_{graph}$ : Risque Topologique (centralité réseau), $W_{sev}$ : Poids de Sévérité institutionnelle.
-*   **Pourquoi :** Éviter l'effet "boîte noire" d'un réseau de neurones pur. Fournir au magistrat un calcul arithmétique simple, compréhensible et opposable juridiquement pour justifier le déclenchement d'une "Revue Humaine".
-*   **Inputs :** Le vecteur des événements désambiguïsés (Entity Resolution) et structurés dans le Feature Store.
-*   **Outputs :** Un score pondéré classé en trois seuils stricts (ex: 0-0.3: Surveillance, 0.4-0.7: Revue Locale, 0.7+: Alerte URGENT).
+*   **Quoi :** Addition linéaire pondérée de 4 macro-features calculées à la volée.
+*   **Légende :** $S_{risk}$ : Score total. $R_{temp}$ : Risque Temporel (accélération). $R_{graph}$ : Risque Topologique (centralité/connexions). $W_{trend}$ : Escalade de la gravité (Severity Trend). $S_{cross}$ : Signaux multi-sources (Cross-source signals : École + Police).
+*   **Pourquoi :** Éviter l'effet "boîte noire" d'un réseau de neurones pur. Fournir au magistrat un calcul mathématique décryptable (SHAP).
+*   **Avertissement Légal (Axiome RGPD) :** Ce score de risque évalue une **Situation** (un `[Event]` ou un `[ContextNode]`), il n'évalue **JAMAIS un Individu** (`[Person]`). Profiler pénalement un individu via un algorithme est illégal en Europe (Zone Rouge).
+*   **Outputs :** Un score continu qui détermine le niveau d'alerte.
+    *   $S_{risk} > 0.85$ : 🔴 NIVEAU ROUGE (Urgence Magistrat).
+    *   $S_{risk} > 0.65$ : 🟠 NIVEAU ORANGE (Surveillance Humaine).
+    *   $S_{risk} \le 0.65$ : 🟢 NIVEAU VERT (Passif).
 *   **Dépendance Amont :** Processus de Hawkes, Inférence Causale.
 *   **Dépendance Aval :** Interface Dashboard (Notification à l'utilisateur final).
 *   **Complexité Algorithmique :** O(N) — Simple somme, calcul immédiat.

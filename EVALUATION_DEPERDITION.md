@@ -34,8 +34,11 @@ Le repo local (le `README.md` initial et l'`INDEX_CERVEAU_CENTRAL.md`) avait **t
   1. Fragmentation des données (Justice $\neq$ Police $\neq$ École).
   2. Saisie humaine non standardisée (Perte de structure = IA inutilisable).
   3. Absence de vision globale ("Dossier" vs "Réseau").
-  4. Temps de réaction (Le temps judiciaire n'est pas le temps réel).
+  4. Latence systémique (Le temps judiciaire n'est pas le temps réel). L'absence de pipeline Event-Driven (Kafka) empêche de déclencher une alerte immédiate lors d'un pic de signaux.
   5. Identité mouvante (Absence de clé unique fiable inter-administrations).
+  6. Confusion Légal vs Probabiliste (Absence d'une base SQL de vérité séparée du Graphe prédictif, ce qui brise l'État de droit).
+  7. Le Fantasme de la Prédiction Individuelle (Essayer de prédire le comportement d'une personne plutôt que d'évaluer la dangerosité d'une situation contextuelle).
+  8. L'Omission de la Gouvernance (La croyance naïve que l'IA résout la fragmentation, alors que le vrai bloqueur est légal : "Qui a le droit de voir quoi ?").
 - **La conséquence :** Sans ces exemples, le projet paraissait abstrait. Un développeur qui lit le repo initial ne comprend pas profondément *pourquoi* on utilise un Temporal Graph Network au lieu d'une simple base SQL comme Cassiopée, ni comment s'interfacer avec l'existant. Il code le système à l'aveugle.
 
 ### Pilier 3 : Le Cadre Légal et Éthique (Ce qui était totalement ignoré)

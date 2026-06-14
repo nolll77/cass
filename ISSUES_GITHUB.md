@@ -103,6 +103,55 @@ L'objectif est d'organiser le projet open-source / institutionnel en séparant c
 - **Périmètre Gouvernance (Réservé à l'Auteur) :** L'interface finale ne doit PAS afficher un score brut sans afficher immédiatement les 3 facteurs principaux (Top Drivers) qui l'expliquent.
 
 ## MILESTONE : Couche H - Case Management System
+### Issue — [XAI] #011 — Dashboard Enquêteur (Vue Graphe & SHAP)
+**Labels:** frontend, xai, difficulty: medium
+- **Contexte Analytique :** Fournir l'interface "Human-in-the-Loop".
+- **Périmètre Technique (Ouvert aux contributions) :** App Streamlit ou React/FastAPI. Affichage au centre du graphe (les dossiers liés) et sur le côté l'explicabilité SHAP (`+0.31 -> répétition`).
+- **Périmètre Gouvernance (Réservé à l'Auteur) :** Le bouton d'action doit être un "Kill-Switch" d'invalidation humaine pour forcer l'IA à apprendre de ses erreurs.
+
+## MILESTONE : Couche Temps Réel (Event-Driven)
+### Issue — [Data] #012 — Ingestion Streaming (Kafka)
+**Labels:** data-engineering, streaming, difficulty: hard
+- **Contexte Analytique :** Remplacer les requêtes batch (Dossiers) par un flux continu (Événements).
+- **Périmètre Technique (Ouvert aux contributions) :** Setup d'un topic Kafka pour ingérer en temps réel les signaux de la Civil Tech ou de l'École et déclencher la pipeline d'Entity Resolution à la volée.
+- **Périmètre Gouvernance (Réservé à l'Auteur) :** Gestion de la surcharge (Rate limiting) pour éviter des attaques DDoS via faux signalements civils.
+
+### Issue — [ML] #013 — Moteur Anomaly Detection Temps Réel
+**Labels:** ml, anomaly-detection, difficulty: medium
+- **Contexte Analytique :** Lever une alerte avant même que le modèle temporel lourd n'ait convergé.
+- **Périmètre Technique :** Modèle `Isolation Forest` sur le flux Kafka.
+
+## MILESTONE : Le Double Modèle de Données (Dual Truth)
+### Issue — [Data] #014 — Déploiement Base SQL (Vérité Administrative)
+**Labels:** data-engineering, sql, difficulty: easy
+- **Contexte Analytique :** Créer la source de "Vérité Froide" (Les événements réels).
+- **Périmètre Technique :** Schéma PostgreSQL (Tables `Person`, `Institution`, `Event`, `Legal_Case`, `Alert`).
+
+### Issue — [Data] #015 — Ontologie Graphe Neo4j (Vérité Analytique)
+**Labels:** data-engineering, neo4j, difficulty: medium
+- **Contexte Analytique :** Traduire les Events en un graphe continu.
+- **Périmètre Technique :** Création des nœuds et des arêtes factuelles et latentes (`HAS_EVENT`, `RISK_SIGNAL`).
+
+### Issue — [ML] #016 — Pipeline Feature Engineering
+**Labels:** ml, data-engineering, difficulty: medium
+- **Contexte Analytique :** Transformer les événements bruts en matrices mathématiques pour XGBoost/Hawkes.
+- **Périmètre Technique :** Code Python calculant sur des fenêtres glissantes (30j/90j) les features Temporelles, Sociales (Centralité) et Comportementales.
+
+### Issue — [Legal] #017 — Moteur de Conformité (Garde-Fou Zone Rouge)
+**Labels:** legal, security, difficulty: hard
+- **Contexte Analytique :** Empêcher techniquement l'IA de prendre une décision ou de "prédire" une personne.
+- **Périmètre Technique :** Implémentation du `kill_switch.py`. L'algorithme doit bloquer toute requête tentant d'exécuter une sanction automatique ou un profilage individuel non supervisé.
+
+### Issue — [Legal] #018 — Gouvernance et Contrôle d'Accès (RBAC Multi-Agences)
+**Labels:** legal, security, infrastructure, difficulty: medium
+- **Contexte Analytique :** Définir "Qui a le droit de voir quoi ?" pour éviter le Registre National Orwellien.
+- **Périmètre Technique :** Implémenter un système de *Role-Based Access Control* stricts au-dessus du Graph. Un policier ne voit pas les notes du psychologue scolaire, il ne voit que le "Niveau d'Alerte" global de la situation.
+
+### Issue — [DevOps] #019 — Infrastructure as Code (SecNumCloud)
+**Labels:** devops, infrastructure, security, difficulty: hard
+- **Contexte Analytique :** Préparer le déploiement sur un Cloud souverain européen (OVH/Scaleway) respectant les directives CNIL.
+- **Périmètre Technique :** Scripts Terraform pour provisionner les clusters Kubernetes (Kafka, Postgres, Neo4j, FastAPI) avec chiffrement AES-256 at-rest.
+
 ### Issue — [Front] #011 — API Backend FastAPI
 **Labels:** backend, api, difficulty: easy
 - **Contexte Analytique :** Permettre l'interrogation du graphe de manière standardisée.
