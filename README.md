@@ -25,15 +25,15 @@
 
 ## 📖 1. MANIFESTE ÉPISTÉMOLOGIQUE : LA RUPTURE DES SILOS
 
-Le projet **Cass / CGIP (Civic Graph Intelligence Platform)** est né d'un constat implacable et systémique sur le fonctionnement de l'appareil d'État moderne (Justice, Police, Éducation Nationale, Services Sociaux).
+Le projet **Cass / CGIP (Civic Graph Intelligence Platform)** est né d'un constat implacable et systémique sur le fonctionnement de l'appareil public moderne (Justice, Police, Éducation Nationale, Services Sociaux).
 
 ### 1.1. L'Anatomie des 8 Failles Systémiques
-Régulièrement, les sociétés font face à des tragédies à risques (comme l'affaire tragique que nous nommerons "Affaire L."). L'audit post-mortem de ces affaires révèle une vérité structurelle : **toutes les informations pré-existaient, mais l'État était incapable de les relier**.
+Régulièrement, les sociétés font face à des tragédies à risques (comme l'affaire tragique que nous nommerons "Affaire L."). L'audit post-mortem de ces affaires révèle une vérité structurelle : **toutes les informations pré-existaient, mais l'administration était incapable de les relier**.
 
 Voici comment l'information se perd mathématiquement dans le modèle français actuel :
 
 ```text
-🔁 LE PARADOXE DES SILOS (Pourquoi l'État est aveugle)
+🔁 LE PARADOXE DES SILOS (Pourquoi l'administration est aveugle)
 
 [ ÉVÉNEMENT INITIAL T=0 ]
            │
@@ -48,11 +48,11 @@ Voici comment l'information se perd mathématiquement dans le modèle français 
 
 ## 📚 Documentation Fondamentale
 
-- **[La Genèse du Projet (PRD)](GENESE_DU_PROJET.md)** : Les 9 blocs de fondation, les failles systémiques de l'État (Affaire L.), et la doctrine éthique.
+- **[La Genèse du Projet (PRD)](GENESE_DU_PROJET.md)** : Les 9 blocs de fondation, les failles systémiques de l'administration (Affaire L.), et la doctrine éthique.
 - **[Benchmark International](BENCHMARK_INTERNATIONAL.md)** : Étude comparative des systèmes étrangers et français. Analyse des outils individuellement, versus la France, et recherche des similitudes/schémas transversaux entre pays pour prouver la nécessité technologique de la CGIP.
 - **[Spécifications Techniques](FICHIER_TECHNIQUE.md)** : L'architecture de la "Machine à Détecter", les contraintes des silos (Cassiopée, FIJAISV, SALVAC) et l'intégration Civil Tech.
 - **[Le Socle Mathématique](SOCLE_MATHEMATIQUE.md)** : Les équations pures (GNN, Processus de Hawkes, Time Decay, DPIA Kill-Switch) qui gouvernent le système sans boîte noire.
-- **[Gap Analysis (Déperdition)](EVALUATION_DEPERDITION.md)** : Pourquoi l'approche Graphe surpasse l'approche SQL historique de l'État.
+- **[Gap Analysis (Déperdition)](EVALUATION_DEPERDITION.md)** : Pourquoi l'approche Graphe surpasse l'approche SQL historique de l'administration.
 - **[Pistes Non Explorées (Le Frigo)](PISTES_NON_EXPLOREES.md)** : Le backlog intellectuel recensant 100% des concepts théoriques évoqués mais laissés en attente.
 
 ## 🧩 L'Architecture Idéale : Civic Graph Intelligence Platform (CGIP)
@@ -144,7 +144,7 @@ L'architecture classique souffre de **8 Points de Rupture Institutionnels** (Les
 5. **Casse #5 (Absence de Boucle de Retour)** : L'école ou la police qui signale n'est jamais alertée en retour de l'évolution judiciaire.
 6. **Casse #6 (Mémoire Fragmentée)** : Il n'existe aucune timeline centralisée des événements pour un individu.
 7. **Casse #7 (Identités Multiples)** : Les orthographes varient ("J. Dupont" vs "Jean Dupont"), empêchant la liaison des dossiers.
-8. **Casse #8 (Séparation Étatique)** : Le RGPD et le Droit Pénal bloquent structurellement le croisement des données pour éviter la surveillance de masse.
+8. **Casse #8 (Séparation Souverain)** : Le RGPD et le Droit Pénal bloquent structurellement le croisement des données pour éviter la surveillance de masse.
 
 ### 1.2. La Réalité est un Graphe
 La CGIP propose une rupture totale d'épistémologie de la donnée. La réalité à risque n'est pas une table SQL. C'est un **Graphe Orienté**.
@@ -184,7 +184,7 @@ Pour éviter le cauchemar de la police prédictive ("Minority Report"), la loi e
 > **RÈGLE D'OR JURIDIQUE : La CGIP ne prédit jamais des individus (Zone Rouge RGPD), elle détecte des trajectoires et des situations à risque (Zone Jaune). Le système fait de la *Fusion d'Information* pour générer une recommandation : `REVUE HUMAINE RECOMMANDÉE`. L'IA ne prend aucune décision légale.**
 
 ### 2.3. L'Interopérabilité vs Le Registre Centralisé (Le Hack Français)
-Le vrai bloqueur étatique n'est pas technologique, c'est la **Gouvernance des données**. Dans les pays nordiques, un identifiant unique (*Personnummer*) connecte tout. En France, c'est inconstitutionnel. La CGIP utilise l'**Entity Resolution** (IA d'appariement) pour recréer virtuellement le lien entre les silos administratifs, sans jamais construire un Registre National Unique illégal.
+Le vrai bloqueur souverain n'est pas technologique, c'est la **Gouvernance des données**. Dans les pays nordiques, un identifiant unique (*Personnummer*) connecte tout. En France, c'est inconstitutionnel. La CGIP utilise l'**Entity Resolution** (IA d'appariement) pour recréer virtuellement le lien entre les silos administratifs, sans jamais construire un Registre National Unique illégal.
 
 ---
 
@@ -329,7 +329,7 @@ Le simulateur va :
 > *"Le code fait loi (Lessig). Dans la CGIP, la loi fait le code."*
 
 
-## Architecture de Confiance : "France Justice 2.0"
+## Architecture de Confiance : "Architecture Souveraine"
 
 Le système n'est pas un fichier centralisé (Big Brother), mais un **Réseau Fédéré sur Cloud Souverain**.
 

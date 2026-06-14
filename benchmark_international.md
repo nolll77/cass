@@ -1,6 +1,6 @@
-# Benchmark International et Analyse de l'Écosystème (Systèmes Étatiques vs CGIP)
+# Benchmark International et Analyse de l'Écosystème (Systèmes Souverains vs CGIP)
 
-Ce document recense, compare et analyse les différents systèmes étatiques et outils policiers évoqués lors de la conception de la **CGIP (Civic Graph Intelligence Platform)**. L'objectif est de comprendre pourquoi les approches actuelles, même à l'étranger, ne répondent qu'imparfaitement au problème de la "fragmentation des signaux" mis en lumière par l'affaire Lyhanna.
+Ce document recense, compare et analyse les différents systèmes souverains et outils policiers évoqués lors de la conception de la **CGIP (Civic Graph Intelligence Platform)**. L'objectif est de comprendre pourquoi les approches actuelles, même à l'étranger, ne répondent qu'imparfaitement au problème de la "fragmentation des signaux" mis en lumière par l'affaire Lyhanna.
 
 ## 1. L'Approche Sérielle (Canada, Belgique vs France)
 
@@ -35,9 +35,9 @@ Face à la lenteur des institutions, de nouveaux outils civils émergent (approu
 
 ---
 
-## 4. Comparaison Matricielle des Modèles Étatiques (L'Approche Data)
+## 4. Comparaison Matricielle des Modèles Souverains (L'Approche Data)
 
-Lorsqu'on cherche à fusionner l'information policière, juridique et civile, on se heurte à des modèles culturels extrêmement différents. La CGIP doit se positionner par rapport à ces architectures internationales. Le tableau ci-dessous confronte la logique de la France (Silo) face au pragmatisme (UK) et à l'État social intégré (Scandinavie : Suède, Danemark, Norvège, Finlande).
+Lorsqu'on cherche à fusionner l'information policière, juridique et civile, on se heurte à des modèles culturels extrêmement différents. La CGIP doit se positionner par rapport à ces architectures internationales. Le tableau ci-dessous confronte la logique de la France (Silo) face au pragmatisme (UK) et à l'administration social intégré (Scandinavie : Suède, Danemark, Norvège, Finlande).
 
 | Axe d'analyse | 🇫🇷 France | 🇬🇧 Royaume-Uni | 🇸🇪🇩🇰🇳🇴🇫🇮 Scandinavie |
 | :--- | :--- | :--- | :--- |
@@ -63,7 +63,7 @@ La CGIP assume de s'inspirer du "Care" scandinave, mais en le protégeant techni
 
 ## 5. Focus Analytique : La Macro-Gouvernance (France vs UK vs Pays Nordiques)
 
-Conformément à l'analyse proactive, l'étude des modèles étatiques révèle que la technologie seule ne résout rien. C'est l'architecture institutionnelle qui conditionne l'algorithme.
+Conformément à l'analyse proactive, l'étude des modèles souverains révèle que la technologie seule ne résout rien. C'est l'architecture institutionnelle qui conditionne l'algorithme.
 
 ### (1) Analyse Individuelle des Modèles
 *   **🇫🇷 France (Le Modèle Cloisonné)** : Données en silos stricts (Police $\neq$ Justice $\neq$ Social). Aucune interopérabilité automatique. Forte dépendance au traitement manuel.
@@ -113,7 +113,7 @@ Conformément à l'analyse proactive requise par la doctrine du projet, voici la
 *   **L'Effet Boîte Noire** : Palantir ne donne pas le code de son algorithme. Un magistrat français ne peut pas condamner quelqu'un sur la base d'un calcul propriétaire invérifiable. C'est pourquoi la CGIP exige de l'Open Source et de l'Explicabilité (SHAP).
 
 ### (3) Le Fil Rouge Géopolitique : L'Idéologie de la "Data Supremacy"
-Si l'on relie les États-Unis (Palantir), le Royaume-Uni (qui a massivement acheté Palantir) et la Chine (qui a sa propre version d'État), on trouve un **fil rouge idéologique profond** : la croyance que "La quantité absolue de données crée la sécurité absolue". 
+Si l'on relie les États-Unis (Palantir), le Royaume-Uni (qui a massivement acheté Palantir) et la Chine (qui a sa propre version public), on trouve un **fil rouge idéologique profond** : la croyance que "La quantité absolue de données crée la sécurité absolue". 
 *   **Le problème** : Cette approche génère une **sur-connexion algorithmique (Apophénie)**. Le logiciel commence à voir des complots à risque là où il n'y a que des coïncidences statistiques, ce qui amène à la discrimination (biais racial de PredPol).
 *   **La réponse de la CGIP** : La CGIP s'oppose à la *Data Supremacy* en implémentant une **Data Frugality**. C'est pour cela qu'elle sépare la "Base SQL" (Vérité Légale) de la "Base Graph" (Hypothèse), et impose le "Kill-Switch" (le Droit de bloquer le modèle). La CGIP ne veut pas "tout savoir", elle veut "repérer l'escalade temporelle".
 
@@ -145,11 +145,11 @@ Conformément à la directive d'analyse, l'évocation des systèmes US et UK a d
 ### 2. Confrontation avec le Modèle Français (La CGIP)
 - La France souffre d'un cloisonnement extrême (Secret de l'instruction vs Secret médical vs Secret administratif). 
 - Le MASH anglais prouve qu'il est légalement possible de partager la donnée sensible en Europe si la loi encadre "l'intérêt vital". 
-- Cependant, le Fusion Center américain est le repoussoir absolu : l'État français (CNIL) n'acceptera jamais un tel aspirateur à données sans contrôle.
+- Cependant, le Fusion Center américain est le repoussoir absolu : l'administration français (CNIL) n'acceptera jamais un tel aspirateur à données sans contrôle.
 - **La réponse CGIP** : La plateforme est le compromis parfait. Elle permet l'efficacité d'un MASH (vision 360°) mais remplace la "co-localisation physique humaine" par un **Data Lake crypté par Hachage**. Elle offre la puissance d'un Fusion Center tout en imposant les limites éthiques européennes via un *Kill-Switch* algorithmique.
 
 ### 3. Le Fil Rouge
-Les USA (2001) et le UK (2007) ont brisé leurs silos d'État **uniquement après un traumatisme national majeur**. Le fil rouge n'est pas la technologie (qui existe déjà), mais le courage politique de décloisonner la donnée. La CGIP anticipe le "traumatisme Lyhanna" pour provoquer cette mutation structurelle en France par la technologie.
+Les USA (2001) et le UK (2007) ont brisé leurs silos public **uniquement après un traumatisme national majeur**. Le fil rouge n'est pas la technologie (qui existe déjà), mais le courage politique de décloisonner la donnée. La CGIP anticipe le "traumatisme Lyhanna" pour provoquer cette mutation structurelle en France par la technologie.
 
 # ÉTUDE COMPARATIVE 2 : La Fracture des Systèmes (USA, UK, NL)
 
@@ -186,7 +186,7 @@ Le tableau synthétique est implacable :
 La Chine a une *Graph DB Populationnelle* implicite. La CGIP refuse ce modèle. Le Graphe de la CGIP ne contient pas la "Population", il ne contient que les "Dossiers" (les nœuds ne naissent que lorsqu'un événement institutionnel est créé).
 
 ### 3. Le Fil Rouge (L'Échec Structurel)
-Le fil rouge ultime se dégage : **Ce n'est jamais un problème d'algorithme (ML)**. La réussite de la Chine n'est pas due à un meilleur XGBoost, mais à une structure étatique qui écrase les silos institutionnels par la force. Aux USA et en Europe, la friction juridique bloque cette fusion.
+Le fil rouge ultime se dégage : **Ce n'est jamais un problème d'algorithme (ML)**. La réussite de la Chine n'est pas due à un meilleur XGBoost, mais à une structure souverain qui écrase les silos institutionnels par la force. Aux USA et en Europe, la friction juridique bloque cette fusion.
 La CGIP est la première architecture à proposer la résolution de ce paradoxe : casser les silos (comme la Chine) tout en garantissant la transparence légale (comme l'Europe) grâce à la *Privacy by Design* (Hachage) et au *Kill-Switch Algorithmique*.
 
 ### 4. La Preuve Algorithmique (Simulation P001)

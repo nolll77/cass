@@ -20,7 +20,7 @@ L'ingestion de la matière brute issue du premier échange démontre les nécess
 - `[Personne] -[:EMPLOI_AU_SEIN_DE]-> [Institution]`
 - `[Institution] -[:CLASSE_SANS_SUITE]-> [Plainte]`
 
-### 1.3 Contraintes Systèmes (Inputs et Ingestion - Les Silos de l'État)
+### 1.3 Contraintes Systèmes (Inputs et Ingestion - Les Silos de l'administration)
 Le système doit être conçu pour se sur-coupler au "Labyrinthe" des bases existantes, chacune souffrant de son propre biais de spécialisation :
 - **Cassiopée** (Justice) : *Système de Gestion de Procédures*. Il ignore les signaux faibles non-judiciarisés.
 - **TAJ** (Traitement d'Antécédents Judiciaires) : Fichier de police/gendarmerie, massivement utilisé mais centré sur l'enquête locale.
@@ -202,7 +202,7 @@ L'échange valide la chaîne de traitement suivante, qui devient le pipeline can
 
 ```mermaid
 graph TD
-    A["Données Brutes Multi-Sources<br/>(Silos Étatiques)"] --> B{"Entity Resolution<br/>(Dédoublonnage NLP)"}
+    A["Données Brutes Multi-Sources<br/>(Silos Souverains)"] --> B{"Entity Resolution<br/>(Dédoublonnage NLP)"}
     B --> C[/"Graph Database Neo4j<br/>(Topologie)"\]
     C --> D("Analyse Temporelle<br/>(Hawkes Process / Survival Analysis)")
     D --> E("Scoring Supervisé<br/>(Agrégation du Risque cumulatif)")

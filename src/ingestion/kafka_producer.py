@@ -31,7 +31,7 @@ class CGIPProducer:
 
     def publish_event(self, source_system: str, event_data: dict):
         """
-        Format standardisé d'un événement entrant dans l'État.
+        Format standardisé d'un événement entrant dans l'administration.
         """
         payload = {
             "metadata": {

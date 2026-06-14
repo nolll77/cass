@@ -7,7 +7,7 @@
 
 **Piliers logiques déduits :**
 1. **État des lieux (Le Monde A) :** Le drame perçu comme un fait isolé. La fragmentation de l'information judiciaire et l'impuissance face à l'accumulation des signaux faibles (plaintes classées, signalements ignorés). *Cas d'étude initial : Affaire Lyhanna.*
-2. **Mécanismes (Le Monde B) :** L'anatomie du silence. L'étude des infrastructures de données étatiques (Cassiopée, Viclas) et de leur incapacité structurelle à relier les nœuds d'un même réseau prédateur. 
+2. **Mécanismes (Le Monde B) :** L'anatomie du silence. L'étude des infrastructures de données souverains (Cassiopée, Viclas) et de leur incapacité structurelle à relier les nœuds d'un même réseau prédateur. 
 3. **Projections (L'Alternative) :** La reconstruction empirique. Puisque l'institution ne lie pas les données, la société civile (ou le chercheur) reconstruit les ponts grâce au Text & Data Mining (OSINT) sur la littérature publique (presse, décisions de justice).
 
 **Le Framework "Triptyque" :**
@@ -32,7 +32,7 @@
 - Chapitre 6 : Les 8 points de rupture et "la boucle brisée" (De l'école à la justice : dissection d'un continuum informationnel inexistant).
 
 **TOME III : L'INFRASTRUCTURE DE RECOUVREMENT (LA PREUVE EMPIRIQUE)**
-*L'ingénierie civile face au silence étatique : rebâtir le signal.*
+*L'ingénierie civile face au silence souverain : rebâtir le signal.*
 - Chapitre 7 : Contourner le monopole de la donnée (L'extraction OSINT et la constitution du Dataset).
 - Chapitre 8 : L'Architecture JOS (Le "Palantir Européen" : Data Access Layer RGPD, Federated Data Lake et Neo4j).
 - Chapitre 9 : Feature Engineering et Modélisation du Risque (GNN, Link Prediction avec GraphSAGE, et le Benchmark International).
@@ -42,4 +42,4 @@
 *L'évolution de la cognition institutionnelle (Les 12 Niveaux).*
 - Le défi du XXIe siècle pour la justice n'est plus de collecter l'information, mais de transformer une information fragmentée en une *connaissance exploitable* (Le saut du Niveau 1 au Niveau 12).
 - Le passage d'une IA réactive (le jugement) à une IA proactive et asynchrone (l'alerte explicable).
-- L'horizon technologique : L'IA des Trajectoires (Temporal GNN et Event Sequence Modeling) pour une modélisation dynamique respectueuse de l'État de Droit.
+- L'horizon technologique : L'IA des Trajectoires (Temporal GNN et Event Sequence Modeling) pour une modélisation dynamique respectueuse de l'administration de Droit.

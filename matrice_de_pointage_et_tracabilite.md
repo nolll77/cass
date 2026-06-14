@@ -21,7 +21,7 @@ Lier de manière incontestable chaque élément brut (ex: une équation) à son 
 | Justice Operating System (JOS) & Knowledge Graph | Tome III - Chap. 8 (Structurer l'invisible) | Modèle d'architecture cible (Théorique) |
 | Architecture Technique Cloud/Graph DB | Tome III - Chap. 8 (L'Architecture JOS) | Schéma SQL relationnel vs Neo4j |
 | Feature Engineering & Modélisation GNN | Tome III - Chap. 9 (Feature Engineering) | Message Passing, Link Prediction et GraphSAGE |
-| Benchmark International (USA, UK, CN, Nordiques) | Tome III - Chap. 9 (Modélisation) | Comparaison des choix architecturaux d'État |
+| Benchmark International (USA, UK, CN, Nordiques) | Tome III - Chap. 9 (Modélisation) | Comparaison des choix architecturaux public |
 | Framework Éthique Zone 1/2/3 | Tome III - Chap. 10 (L'éthique de la prédiction) | Rule Engine et limitation décisionnelle de l'IA |
 | Le "Palantir Européen" (Modèle Hybride FR/UK) | Tome III - Chap. 10 (Modèle Hybride) | Graphe fédéré et Data Access Layer (RGPD) |
 | Le blocage politique (RGPD, CNIL, Silos) | Tome III - Chap. 10 (Les blocages démocratiques) | Contraintes de déploiement en France |

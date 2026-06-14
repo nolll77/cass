@@ -37,9 +37,9 @@ Ce deuxième échange poursuit l'analyse de l'affaire Lyhanna avec :
 - Une frise chronologique détaillée reliant chaque événement à l'âge des victimes (de 7 à 17 ans).
 
 ### 2. L'analyse du problème (Le paradoxe asymétrique)
-Ce bloc met en lumière une faille asymétrique de l'État :
-- **L'hyper-réactivité physique a posteriori :** Dès que le drame est public, l'État déploie une force logistique colossale pour chercher un corps.
-- **L'hypo-réactivité informationnelle a priori :** Avant le drame, l'État n'a pas été capable de croiser 6 événements distincts étalés sur 9 ans.
+Ce bloc met en lumière une faille asymétrique de l'administration :
+- **L'hyper-réactivité physique a posteriori :** Dès que le drame est public, l'administration déploie une force logistique colossale pour chercher un corps.
+- **L'hypo-réactivité informationnelle a priori :** Avant le drame, l'administration n'a pas été capable de croiser 6 événements distincts étalés sur 9 ans.
 
 ### 3. Ce que cela fonde pour le Projet
 - **La justification éthique :** Le projet CGIP vise à rééquilibrer cette asymétrie. Il est plus éthique, moins coûteux, et plus protecteur de déployer de la puissance de calcul (GNN, IA) en prévention pour relier des dossiers informatiques, que de déployer des centaines de gendarmes en réaction dans les forêts.
@@ -67,7 +67,7 @@ Ce bloc illustre la difficulté de la "Désambiguïsation". Dans la vraie vie (e
 ### 1. La matière brute fournie
 Ce quatrième échange franchit un cap analytique majeur. Il contient :
 - Une représentation textuelle et conceptuelle (ASCII Art) du réseau à risque présumé, articulé non pas autour des relations entre victimes, mais autour des **contextes de vulnérabilité** (École, Domicile, Espace public) liés au suspect central.
-- Une liste formelle de **8 vulnérabilités systémiques** de l'appareil d'État, générée par l'IA en réponse à la chronologie des faits.
+- Une liste formelle de **8 vulnérabilités systémiques** de l'appareil public, générée par l'IA en réponse à la chronologie des faits.
 
 **Le Schéma ASCII d'origine :**
 ```text
@@ -82,7 +82,7 @@ lycéenne (2020)    enfant 10–11 ans     (disparition 2026)
                    mineure 2026
 ```
 
-### 2. L'analyse du problème (La dissection de l'échec d'État)
+### 2. L'analyse du problème (La dissection de l'échec public)
 Les 8 points soulevés par l'IA d'origine sont le diagnostic clinique exact de la maladie que la plateforme CGIP doit soigner :
 1. **Fragmentation (Silos) :** Police vs École vs Parquet.
 2. **Délais (Latence) :** Années entre signalement et enquête.
@@ -103,13 +103,13 @@ Ces 8 points ne sont pas juste des constats, ce sont les **Spécifications Fonct
 ## BLOC 5 : La Tension Éthique et le Mythe de la "Vue Globale"
 
 ### 1. La matière brute fournie
-Ce cinquième échange aborde frontalement la question de la responsabilité de la justice et du design de l'appareil d'État.
+Ce cinquième échange aborde frontalement la question de la responsabilité de la justice et du design de l'appareil public.
 - L'utilisateur interroge la responsabilité individuelle : *"C'est la faute de la magistrate d'Auch ?"*
 - L'IA démontre qu'il ne s'agit pas d'une faute humaine, mais d'une **limite structurelle** (la magistrate n'a pas accès à un fichier centralisé national ni aux alertes scolaires lointaines).
 - L'IA décrit ensuite de manière hypothétique ce que serait une "Vue globale centralisée" parfaite.
 - Enfin, l'IA dresse la liste des 5 raisons pour lesquelles ce système centralisé n'existe pas en France : Protection des libertés, Risque de fausses corrélations, Fragmentation volontaire (séparation des pouvoirs), RGPD, et la Logique de la justice (qui juge des actes concrets, pas des profils).
 
-### 2. L'analyse du problème (Le "Minority Report" vs l'État de Droit)
+### 2. L'analyse du problème (Le "Minority Report" vs l'administration de Droit)
 Ce bloc pose la plus grande difficulté philosophique et juridique du projet. 
 Si on construit la CGIP comme un "Aspirateur Total" qui fusionne tout en un profil permanent de suspicion, on viole frontalement les principes fondamentaux du Droit Européen (Présomption d'innocence, droit à l'oubli). À l'inverse, si on maintient les silos tels quels, des drames se reproduiront à cause de la "fragmentation volontaire".
 
@@ -161,7 +161,7 @@ Ce septième échange aborde directement l'implémentation algorithmique de la f
 ### 2. L'analyse du problème (Prédiction vs Fusion)
 Ce bloc rappelle une vérité juridique implacable : "Signalement ≠ preuve", "Plainte ≠ condamnation". La plateforme ne doit donc pas baser son fonctionnement sur le postulat que le suspect est coupable. Elle doit baser son fonctionnement sur l'identification d'une vulnérabilité systémique ("plusieurs événements concernant des mineurs sur plusieurs années"). 
 
-Le grand danger d'un outil comme l'AFST est le profilage (predictive policing). L'État français s'y refuse formellement.
+Le grand danger d'un outil comme l'AFST est le profilage (predictive policing). L'administration français s'y refuse formellement.
 
 ### 3. Ce que cela fonde pour le Projet
 - **Validation du socle algorithmique** : L'enchaînement `Entity Resolution -> Graph Database -> Hawkes Process -> Alerte` proposé dans l'échange est devenu l'ossature technique formelle de la CGIP. 
@@ -179,7 +179,7 @@ Ce huitième échange décortique l'écosystème réel des fichiers de police et
 - **La réalité opérationnelle de SALVAC** : C'est un outil formidable, mais géré manuellement par 7 analystes pour toute la France, et réservé aux crimes violents "sans mobile" déjà qualifiés.
 
 ### 2. L'analyse du problème (La Super-Fragmentation)
-Ce bloc révèle la cause profonde du dysfonctionnement de l'État dans l'affaire Lyhanna. Le problème n'est pas le manque d'outils, c'est leur sur-spécialisation en silos :
+Ce bloc révèle la cause profonde du dysfonctionnement de l'administration dans l'affaire Lyhanna. Le problème n'est pas le manque d'outils, c'est leur sur-spécialisation en silos :
 - `CASSIOPÉE` = Gestion judiciaire pure.
 - `TAJ` = Antécédents de police.
 - `FIJAISV` = Registre post-condamnation.
@@ -199,7 +199,7 @@ Dans le cas de Lyhanna, le suspect naviguait sous le radar de SALVAC (car il n'y
 ### 1. La matière brute fournie
 Ce neuvième échange oppose deux extrêmes du spectre analytique :
 - **L'hyper-spécialisation policière (Top-Down)** : SALVAC (France) et ViCLAS (Canada/Belgique) qui cherchent la *similarité à risque* (Affaire A = Affaire B) sur des meurtres ou viols déjà actés.
-- **La Civil Tech (Bottom-Up)** : L'émergence d'applications labellisées par l'État pour protéger et écouter les victimes dès les premiers signaux faibles : *App-Elles*, *UMAY*, *Ti3rs* (messagerie sécurisée anti-injures), et *Mémo de Vie* (coffre-fort numérique de preuves).
+- **La Civil Tech (Bottom-Up)** : L'émergence d'applications labellisées par l'administration pour protéger et écouter les victimes dès les premiers signaux faibles : *App-Elles*, *UMAY*, *Ti3rs* (messagerie sécurisée anti-injures), et *Mémo de Vie* (coffre-fort numérique de preuves).
 
 ### 2. L'analyse du problème (La Déconnexion)
 Le débat soulève une vérité cruelle :
@@ -235,7 +235,7 @@ Le texte met le doigt sur le point de rupture conceptuel des systèmes actuels :
 ## BLOC 11 : Les 8 Points de Rupture (Le Continuum Informationnel)
 
 ### 1. La matière brute fournie
-Ce onzième échange cartographie le flux exact de l'information (École → Police → Justice) et identifie 8 "Casses" (points de rupture) qui expliquent pourquoi l'État échoue à détecter les trajectoires à risques avant le drame.
+Ce onzième échange cartographie le flux exact de l'information (École → Police → Justice) et identifie 8 "Casses" (points de rupture) qui expliquent pourquoi l'administration échoue à détecter les trajectoires à risques avant le drame.
 
 ### 2. L'analyse du problème (La Séparation des Logiques)
 L'analyse montre que le système n'est pas "buggé", il est conçu par design comme une succession de logiques étanches :
@@ -262,7 +262,7 @@ Ce douzième échange formalise techniquement la nature du moteur d'IA de la CGI
 - **L'impératif XAI (Explainable AI)** : L'utilisation des valeurs SHAP pour justifier chaque score.
 
 ### 2. L'analyse du problème (Science-Fiction vs Réalisme Judiciaire)
-Ce bloc tranche un débat philosophique majeur : l'État ne peut pas déployer un système de type "Minority Report" (Boîte noire affirmant "Cet individu est dangereux"). Le modèle ML de la CGIP est un outil purement statistique et administratif.
+Ce bloc tranche un débat philosophique majeur : l'administration ne peut pas déployer un système de type "Minority Report" (Boîte noire affirmant "Cet individu est dangereux"). Le modèle ML de la CGIP est un outil purement statistique et administratif.
 L'alerte générée par le modèle ne dit pas une vérité morale, elle dit : *"Attention, cette chronologie rassemble toutes les caractéristiques statistiques d'une trajectoire qui dégénère"*.
 
 Les limites soulevées sont les vrais murs porteurs juridiques :
@@ -282,7 +282,7 @@ Les limites soulevées sont les vrais murs porteurs juridiques :
 Ce treizième échange fournit l'architecture technique cloud complète ("Data Lake + Graph DB + ML pipeline") et l'identification exacte des 5 raisons pour lesquelles les systèmes actuels (comme Cassiopée) s'effondrent face à la réalité complexe.
 
 ### 2. L'analyse du problème (Où ça casse aujourd'hui)
-L'État opère actuellement selon une **Logique de Silo**. Le système échoue non pas par manque de volonté humaine, mais pour des raisons structurelles d'ingénierie data :
+L'administration opère actuellement selon une **Logique de Silo**. Le système échoue non pas par manque de volonté humaine, mais pour des raisons structurelles d'ingénierie data :
 1. **Fragmentation des données** : Justice $\neq$ Police $\neq$ École.
 2. **Saisie non standardisée** : Les mêmes faits sont décrits différemment par différents acteurs (perte de structure).
 3. **Absence de Graphe** : Cassiopée voit des dossiers isolés, pas des réseaux de comportements (Mode Tabulaire vs Mode Graphe).
@@ -317,7 +317,7 @@ Le danger pour la CGIP est de glisser techniquement vers le modèle chinois en v
 ## BLOC 15 : Le Paradigme Temps Réel (Event-Driven) et l'Inspiration Scandinave
 
 ### 1. La matière brute fournie
-Ce quinzième échange propulse la CGIP dans la dimension du "Temps Réel". Il propose une architecture *Event-Driven* avec *Kafka*, et compare les modèles d'intégration étatique en s'inspirant fortement de l'État-providence scandinave (Suède, Danemark).
+Ce quinzième échange propulse la CGIP dans la dimension du "Temps Réel". Il propose une architecture *Event-Driven* avec *Kafka*, et compare les modèles d'intégration souverain en s'inspirant fortement de l'administration-providence scandinave (Suède, Danemark).
 
 ### 2. L'analyse du problème (La Latence et la Philosophie du Droit)
 - **Le Problème Technique (Latence)** : Les anciens systèmes ("ancien monde") empilent des dossiers statiques et attendent une requête humaine pour être lus.
@@ -336,7 +336,7 @@ Ce quinzième échange propulse la CGIP dans la dimension du "Temps Réel". Il p
 Ce seizième échange apporte l'architecture concrète des bases de données. Il pose un principe fondamental : la séparation stricte entre la **Vérité Juridique** (Base SQL) et la **Vérité Analytique** (Base Graph Neo4j), avec un pipeline d'ingestion *Event-Driven* et un *Feature Engineering* précis.
 
 ### 2. L'analyse du problème (La Contamination de la Preuve)
-- **Le Problème Technique et Légal** : L'État ne peut pas fonder une procédure pénale sur un "lien probabiliste" calculé par une IA. Si l'IA se trompe et écrit dans le dossier judiciaire, c'est l'effondrement de l'État de droit.
+- **Le Problème Technique et Légal** : L'administration ne peut pas fonder une procédure pénale sur un "lien probabiliste" calculé par une IA. Si l'IA se trompe et écrit dans le dossier judiciaire, c'est l'effondrement de l'administration de droit.
 - **La Solution Architecturale** : Le système doit être clivé en deux. Une base SQL (froide, stricte, certifiée) qui enregistre ce qui s'est *réellement* passé, et une base Graphe (chaude, probabiliste, exploratoire) qui dessine ce qui *pourrait* se passer.
 
 ### 3. Les 3 Risques Structurels (Le Serment d'Hippocrate de la CGIP)
@@ -366,10 +366,10 @@ Ce dix-septième échange fixe le cadre légal absolu de l'IA en Europe (RGPD / 
 ## BLOC 18 : La Gouvernance des Données (France vs UK vs Pays Nordiques)
 
 ### 1. La matière brute fournie
-Ce dix-huitième échange fournit l'architecture macro-étatique de 3 systèmes. Il révèle que le blocage français n'est pas algorithmique, il est culturel et structurel.
+Ce dix-huitième échange fournit l'architecture macro-souverain de 3 systèmes. Il révèle que le blocage français n'est pas algorithmique, il est culturel et structurel.
 
 ### 2. L'analyse du problème (L'Illusion Technologique)
-- **Le Mythe** : L'État français pense qu'il lui manque "un meilleur logiciel" ou "plus d'IA".
+- **Le Mythe** : L'administration français pense qu'il lui manque "un meilleur logiciel" ou "plus d'IA".
 - **La Réalité** : Le vrai différenciateur des systèmes performants (UK, Scandinavie) n'est **PAS la technologie**. C'est (1) La Gouvernance (qui voit quoi ?), (2) L'Interopérabilité (les systèmes se parlent), et (3) La Culture (Prévention vs Répression).
 
 ### 3. La Synthèse Architecturale de la CGIP
@@ -462,12 +462,12 @@ La CGIP pose une **doctrine absolue de séparation des pouvoirs technologiques**
 - **SQL** = La vérité administrative officielle (System of record).
 - **Graphe** = Les relations inférées (Le contexte dynamique).
 - **ML** = L'aide à l'analyse probabiliste (Jamais la décision finale).
-Cette séparation est la clé de voûte de l'auditabilité exigée par le Conseil d'État et la CNIL.
+Cette séparation est la clé de voûte de l'auditabilité exigée par le Conseil public et la CNIL.
 
 ## BLOC 11 : Le Mur de la Réalité Terrain
 
 ### 1. La matière brute fournie
-Le texte projette le pipeline ML industriel mais liste surtout les 5 causes de mort clinique des projets d'IA d'État.
+Le texte projette le pipeline ML industriel mais liste surtout les 5 causes de mort clinique des projets d'IA public.
 
 ### 2. L'analyse du problème (Là où ça casse)
 Même avec le meilleur XGBoost, le système s'effondrera si :
@@ -491,10 +491,10 @@ La culture française oppose frontalement le Droit (réaction à un fait, indivi
 ### 3. Ce que cela fonde pour le Projet
 Cela légitime **toutes** les barrières techniques que nous avons codées (Le Sas RGPD, le RBAC, le bridage XGBoost). La CGIP ne fait pas du "pré-crime" individuel à l'anglo-saxonne, elle fait de la "topologie de risque" soumise au magistrat. Le projet n'est acceptable que parce qu'il intègre ces blocages non pas comme des freins, mais comme des *cahiers des charges architecturaux*.
 
-## BLOC 13 : La Vision "France Justice 2.0" (Souveraineté et Fédération)
+## BLOC 13 : La Vision "Architecture Souveraine" (Souveraineté et Fédération)
 
 ### 1. La matière brute fournie
-Le texte définit l'architecture idéale et réaliste pour l'État : un système "100% cloud souverain", qui unifie la donnée *sans* la centraliser dans un méga-fichier (illégal).
+Le texte définit l'architecture idéale et réaliste pour l'administration : un système "100% cloud souverain", qui unifie la donnée *sans* la centraliser dans un méga-fichier (illégal).
 
 ### 2. La Proof of Need
 Pour contourner la guerre des ministères (où personne ne veut céder le contrôle de ses données) et la méfiance citoyenne, la CGIP ne doit pas être un "Big Brother centralisé". Elle doit être un "Réseau fédéré sécurisé avec intelligence distribuée". C'est la seule porte de sortie politique viable.

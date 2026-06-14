@@ -5,7 +5,7 @@ Ce document répond à la question : *"Combien de pourcentage le repo local avai
 La mesure de cet écart n'est pas purement quantitative, mais **qualitative, architecturale et philosophique**. 
 
 ## Méthodologie d'évaluation (Gap Analysis)
-Pour évaluer un projet informatique d'État de cette envergure, on le divise en trois piliers vitaux :
+Pour évaluer un projet informatique public de cette envergure, on le divise en trois piliers vitaux :
 1. **La Statique Technique** : L'architecture (Les serveurs, le code, la topologie).
 2. **La Dynamique Fonctionnelle** : Le "Pourquoi" et le "Comment" (Les cas d'usage réels, l'échec de l'existant).
 3. **Le Cadre Légal et Éthique** : Les contraintes de la société (RGPD, présomption d'innocence).
@@ -27,16 +27,16 @@ Le repo local (le `README.md` initial et l'`INDEX_CERVEAU_CENTRAL.md`) avait **t
 *Score de capture initial : ~15%*
 
 - **La perte 1 (Le Récit Criminologique) :** Toute l'analyse de l'affaire Lyhanna (la chronologie 2017-2026, les 8 failles systémiques, la fragmentation entre l'école et la police). 
-- **La perte 2 (Logique Dossier vs Logique Individu) :** Le repo avait oublié que l'État travaille en "Logique de Dossier". Il manquait l'étape cruciale de l'*Identity Resolution Layer*, qui permet de fusionner informatiquement les identités dispersées dans plusieurs institutions.
-- **La perte 3 (L'ignorance de SALVAC/ViCLAS) :** L'État possède déjà un système d'analyse sérielle (*SALVAC*). Si le repo initial l'ignore, le projet CGIP passe pour un doublon inutile. L'intérêt de la CGIP est d'automatiser (via NLP et Graphes) l'ingestion des signaux faibles que SALVAC ne peut pas traiter manuellement.
+- **La perte 2 (Logique Dossier vs Logique Individu) :** Le repo avait oublié que l'administration travaille en "Logique de Dossier". Il manquait l'étape cruciale de l'*Identity Resolution Layer*, qui permet de fusionner informatiquement les identités dispersées dans plusieurs institutions.
+- **La perte 3 (L'ignorance de SALVAC/ViCLAS) :** L'administration possède déjà un système d'analyse sérielle (*SALVAC*). Si le repo initial l'ignore, le projet CGIP passe pour un doublon inutile. L'intérêt de la CGIP est d'automatiser (via NLP et Graphes) l'ingestion des signaux faibles que SALVAC ne peut pas traiter manuellement.
 - **La perte 4 (L'absence de Boucle de Retour) :** Le code initial était un "trou noir" (il aspirait la donnée pour faire un graphe). Il ignorait le *Casse #5* : le manque systémique de retour d'information vers l'émetteur (l'école). La CGIP ne doit pas seulement agréger, elle doit **redistribuer l'alerte**.
-- **La perte 5 (L'aveuglement sur l'Architecture "Silo" de l'État) :** Le projet oubliait *pourquoi* le système actuel échoue réellement : 
+- **La perte 5 (L'aveuglement sur l'Architecture "Silo" de l'administration) :** Le projet oubliait *pourquoi* le système actuel échoue réellement : 
   1. Fragmentation des données (Justice $\neq$ Police $\neq$ École).
   2. Saisie humaine non standardisée (Perte de structure = IA inutilisable).
   3. Absence de vision globale ("Dossier" vs "Réseau").
   4. Latence systémique (Le temps judiciaire n'est pas le temps réel). L'absence de pipeline Event-Driven (Kafka) empêche de déclencher une alerte immédiate lors d'un pic de signaux.
   5. Identité mouvante (Absence de clé unique fiable inter-administrations).
-  6. Confusion Légal vs Probabiliste (Absence d'une base SQL de vérité séparée du Graphe prédictif, ce qui brise l'État de droit).
+  6. Confusion Légal vs Probabiliste (Absence d'une base SQL de vérité séparée du Graphe prédictif, ce qui brise l'administration de droit).
   7. Le Fantasme de la Prédiction Individuelle (Essayer de prédire le comportement d'une personne plutôt que d'évaluer la dangerosité d'une situation contextuelle).
   8. L'Omission de la Gouvernance (La croyance naïve que l'IA résout la fragmentation, alors que le vrai bloqueur est légal : "Qui a le droit de voir quoi ?").
 - **La conséquence :** Sans ces exemples, le projet paraissait abstrait. Un développeur qui lit le repo initial ne comprend pas profondément *pourquoi* on utilise un Temporal Graph Network au lieu d'une simple base SQL comme Cassiopée, ni comment s'interfacer avec l'existant. Il code le système à l'aveugle.
@@ -46,7 +46,7 @@ Le repo local (le `README.md` initial et l'`INDEX_CERVEAU_CENTRAL.md`) avait **t
 
 Le repo local initial était devenu un projet "techno-solutionniste" pur. Il avait oublié **la tension fondamentale** au cœur de la discussion d'origine avec l'IA.
 - **La perte :** Le débat sur le "Profilage permanent de suspicion", le risque des "fausses corrélations", et le choc frontal avec les principes fondamentaux du Droit.
-- **La conséquence :** Un logiciel d'État développé sans ces contraintes est mort-né. Il sera censuré par la CNIL ou le Conseil d'État dès le premier jour. Le repo initial avait oublié de spécifier les garde-fous (Pondération des données, Time-To-Live, Moteur DPIA).
+- **La conséquence :** Un logiciel public développé sans ces contraintes est mort-né. Il sera censuré par la CNIL ou le Conseil public dès le premier jour. Le repo initial avait oublié de spécifier les garde-fous (Pondération des données, Time-To-Live, Moteur DPIA).
 
 ---
 
@@ -54,7 +54,7 @@ Le repo local initial était devenu un projet "techno-solutionniste" pur. Il ava
 
 Le repo local initial n'avait capturé que "la carrosserie et le moteur" de la voiture.
 Il avait perdu :
-1. **La destination** (Pourquoi on construit ça : pour soigner les 8 failles systémiques de l'État).
+1. **La destination** (Pourquoi on construit ça : pour soigner les 8 failles systémiques de l'administration).
 2. **Le code de la route** (La doctrine éthique et le cadre légal du Graphe).
 
 On peut estimer l'écart total (la perte de la valeur intellectuelle de la conversation) à environ **60% du fondement du projet**.
@@ -69,7 +69,7 @@ La méthode repose sur l'**Alignement Architectural** (Architecture Alignment) e
 
 ### Étape 1 : Le "Pourquoi" (La Boussole)
 - **Document à utiliser :** `GENESE_DU_PROJET.md`
-- **Méthode :** Ce document est notre *Product Requirements Document* (PRD) ou Cahier des Charges. Avant de coder une fonctionnalité, on regarde le tableau des "8 Vulnérabilités de l'État". Si une ligne de code ne répond pas à l'une de ces vulnérabilités, elle ne doit pas exister.
+- **Méthode :** Ce document est notre *Product Requirements Document* (PRD) ou Cahier des Charges. Avant de coder une fonctionnalité, on regarde le tableau des "8 Vulnérabilités de l'administration". Si une ligne de code ne répond pas à l'une de ces vulnérabilités, elle ne doit pas exister.
 
 ### Étape 2 : Le "Quoi" (La Transformation en Backlog)
 - **Document à utiliser :** `EVALUATION_DEPERDITION.md`
@@ -120,7 +120,7 @@ Dans la CGIP, la fonction `compute_proximity(graph)` calcule le chemin le plus c
 
 ## Dystopie vs Dysfonctionnement
 
-La matrice de comparaison mondiale montre que l'État français a choisi le dysfonctionnement plutôt que la dystopie. La Chine possède 5/5 en "Intégration multi-domaines", là où la France peine à dépasser 1/5.
+La matrice de comparaison mondiale montre que l'administration français a choisi le dysfonctionnement plutôt que la dystopie. La Chine possède 5/5 en "Intégration multi-domaines", là où la France peine à dépasser 1/5.
 La CGIP n'est pas un système de "Surveillance" (comme la Chine) car elle ne collecte pas la donnée citoyenne permanente. Elle n'est qu'un système de "Rapprochement" des données institutionnelles avérées.
 
 ### 4. La Preuve Algorithmique (Simulation P001)
@@ -141,7 +141,7 @@ Le modèle CGIP résout l'aveuglement en instanciant une **Double Base de Donné
 
 ## Le Problème des Erreurs Humaines
 
-L'un des échecs silencieux de Cassiopée est l'erreur humaine de saisie (nom mal orthographié, champ date manquant). La CGIP pallie cela en utilisant la Couche de Résolution d'Entité avant même l'ingestion dans Neo4j. Spark nettoiera les erreurs de saisie que l'État produit par fatigue.
+L'un des échecs silencieux de Cassiopée est l'erreur humaine de saisie (nom mal orthographié, champ date manquant). La CGIP pallie cela en utilisant la Couche de Résolution d'Entité avant même l'ingestion dans Neo4j. Spark nettoiera les erreurs de saisie que l'administration produit par fatigue.
 
 ## Le Principe du "Garbage In, Danger Out"
 
