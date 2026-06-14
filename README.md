@@ -28,7 +28,7 @@
 Le projet **Cass / CGIP (Civic Graph Intelligence Platform)** est né d'un constat implacable et systémique sur le fonctionnement de l'appareil d'État moderne (Justice, Police, Éducation Nationale, Services Sociaux).
 
 ### 1.1. L'Anatomie des 8 Failles Systémiques
-Régulièrement, les sociétés font face à des tragédies criminelles (comme l'affaire tragique que nous nommerons "Affaire L."). L'audit post-mortem de ces affaires révèle une vérité structurelle : **toutes les informations pré-existaient, mais l'État était incapable de les relier**.
+Régulièrement, les sociétés font face à des tragédies à risques (comme l'affaire tragique que nous nommerons "Affaire L."). L'audit post-mortem de ces affaires révèle une vérité structurelle : **toutes les informations pré-existaient, mais l'État était incapable de les relier**.
 
 Voici comment l'information se perd mathématiquement dans le modèle français actuel :
 
@@ -147,7 +147,7 @@ L'architecture classique souffre de **8 Points de Rupture Institutionnels** (Les
 8. **Casse #8 (Séparation Étatique)** : Le RGPD et le Droit Pénal bloquent structurellement le croisement des données pour éviter la surveillance de masse.
 
 ### 1.2. La Réalité est un Graphe
-La CGIP propose une rupture totale d'épistémologie de la donnée. La réalité criminelle n'est pas une table SQL. C'est un **Graphe Orienté**.
+La CGIP propose une rupture totale d'épistémologie de la donnée. La réalité à risque n'est pas une table SQL. C'est un **Graphe Orienté**.
 
 ```text
 🧠 LE CHANGEMENT DE PARADIGME (Réseau de Victimes et de Contextes)

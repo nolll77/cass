@@ -13,12 +13,12 @@ Ce document recense, compare et analyse les différents systèmes étatiques et 
 ### La version française : SALVAC
 - **Quoi :** *Système d'Analyse des Liens de la Violence Associée aux Crimes*. Importé du Canada (dérivé de ViCLAS) et géré par l'OCRVP.
 - **Base de données :** Environ 13 000 affaires enregistrées. Géré par un groupe très restreint (7 analystes).
-- **Le problème structurel :** SALVAC ne voit *que* les affaires pénales lourdes enregistrées (viols, meurtres). Il compare `AFFAIRE A <-> AFFAIRE B` pour trouver une *Similarité Criminelle*. Il est aveugle aux signaux faibles, aux incidents scolaires ou aux alertes des services sociaux. Il ne détecte pas une "trajectoire" de risque de manière globale, il détecte un tueur en série déjà en action.
+- **Le problème structurel :** SALVAC ne voit *que* les affaires pénales lourdes enregistrées (viols, meurtres). Il compare `AFFAIRE A <-> AFFAIRE B` pour trouver une *Similarité à risque*. Il est aveugle aux signaux faibles, aux incidents scolaires ou aux alertes des services sociaux. Il ne détecte pas une "trajectoire" de risque de manière globale, il détecte un tueur en série déjà en action.
 
 ## 2. Le Labyrinthe Français (L'Approche Administrative)
 
 La France souffre d'une sur-fragmentation de ses silos institutionnels. Le problème n'est pas le manque de données, mais l'incapacité à les croiser en temps réel :
-- **Cassiopée (Justice) :** Système de gestion administrative des procédures. Il gère des *dossiers*, pas des *biographies criminelles*.
+- **Cassiopée (Justice) :** Système de gestion administrative des procédures. Il gère des *dossiers*, pas des *biographies à risques*.
 - **TAJ (Police/Gendarmerie) :** Traitement des Antécédents Judiciaires. Essentiellement une base de consultation locale post-plainte.
 - **FIJAISV (Condamnations) :** Fichier des auteurs d'infractions sexuelles. Il exige une condamnation ou une mise en examen grave. Un simple signalement classé sans suite n'y figure pas.
 
@@ -96,7 +96,7 @@ Conformément à la doctrine d'analyse proactive, il est crucial d'étudier pour
 
 ### (3) Le Fil Rouge (L'Axe Anglo-Saxon du "Risk Management")
 *   Entre les USA (COMPAS) et le UK (OASys), on retrouve la même obsession : Le **Risk Management**. Le droit anglo-saxon est utilitariste : il préfère anticiper un comportement dangereux par la probabilité mathématique pour protéger la société. Le droit français (latin) est moral : il juge un acte précis déjà commis, présumant l'innocence pour l'avenir.
-*   **La Synthèse CGIP** : La CGIP absorbe le Risk Management britannique (pour la rapidité d'alerte), mais refuse son application à l'individu. La CGIP attribue le risque à la *situation environnementale* de l'enfant, jamais à son *âme* criminelle. C'est la seule voie de passage légale en Europe.
+*   **La Synthèse CGIP** : La CGIP absorbe le Risk Management britannique (pour la rapidité d'alerte), mais refuse son application à l'individu. La CGIP attribue le risque à la *situation environnementale* de l'enfant, jamais à son *âme* à risque. C'est la seule voie de passage légale en Europe.
 
 ---
 
@@ -106,7 +106,7 @@ Conformément à l'analyse proactive requise par la doctrine du projet, voici la
 
 ### (1) Analyse Individuelle du Modèle US
 *   **Fonctionnement** : Palantir est une plateforme de "Forward-Chaining". Elle avale des pétaoctets de données non structurées (fichiers de police, appels télécoms, plaques d'immatriculation, réseaux sociaux) et cartographie l'univers entier sans filtre initial.
-*   **Objectif** : Révéler le réseau criminel global par force brute algorithmique.
+*   **Objectif** : Révéler le réseau à risque global par force brute algorithmique.
 
 ### (2) Confrontation Directe face à la France (L'Incompatibilité CNIL)
 *   **Le principe de "Finalité"** : En France, la CNIL exige qu'une donnée collectée pour une raison A (ex: suivi scolaire) ne puisse pas être utilisée pour une raison B (enquête policière) sans cadre légal strict. Palantir brise ce concept en fusionnant tout.
@@ -114,7 +114,7 @@ Conformément à l'analyse proactive requise par la doctrine du projet, voici la
 
 ### (3) Le Fil Rouge Géopolitique : L'Idéologie de la "Data Supremacy"
 Si l'on relie les États-Unis (Palantir), le Royaume-Uni (qui a massivement acheté Palantir) et la Chine (qui a sa propre version d'État), on trouve un **fil rouge idéologique profond** : la croyance que "La quantité absolue de données crée la sécurité absolue". 
-*   **Le problème** : Cette approche génère une **sur-connexion algorithmique (Apophénie)**. Le logiciel commence à voir des complots criminels là où il n'y a que des coïncidences statistiques, ce qui amène à la discrimination (biais racial de PredPol).
+*   **Le problème** : Cette approche génère une **sur-connexion algorithmique (Apophénie)**. Le logiciel commence à voir des complots à risque là où il n'y a que des coïncidences statistiques, ce qui amène à la discrimination (biais racial de PredPol).
 *   **La réponse de la CGIP** : La CGIP s'oppose à la *Data Supremacy* en implémentant une **Data Frugality**. C'est pour cela qu'elle sépare la "Base SQL" (Vérité Légale) de la "Base Graph" (Hypothèse), et impose le "Kill-Switch" (le Droit de bloquer le modèle). La CGIP ne veut pas "tout savoir", elle veut "repérer l'escalade temporelle".
 
 ## Conclusion : Le Paradigme d'Intégration (CGIP)
@@ -128,9 +128,9 @@ Face à ces modèles (Silos Administratifs + Analyse Sérielle Manuelle + Apps C
 
 | Caractéristique | Cassiopée / TAJ | SALVAC / ViCLAS | CGIP (La Solution) |
 | :--- | :--- | :--- | :--- |
-| **Objectif** | Gestion procédurale | Identification de séries criminelles | **Prévention du risque par trajectoire** |
+| **Objectif** | Gestion procédurale | Identification de séries à risques | **Prévention du risque par trajectoire** |
 | **Périmètre** | Faits qualifiés judiciairement | Crimes sexuels/violents graves | **Multi-sources (Faible + Fort, Judiciaire + Scolaire)** |
-| **Méthode** | Requête SQL classique | Humaine (156 items manuels) | **Graphes Criminels & Processus de Hawkes** |
+| **Méthode** | Requête SQL classique | Humaine (156 items manuels) | **Graphes à risque & Processus de Hawkes** |
 | **Connectivité** | Silos fermés | Silos fermés | **Data Mesh (Extraction des métadonnées)** |
 
 

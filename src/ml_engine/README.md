@@ -31,3 +31,19 @@ Le pipeline ML XGBoost et son Rule Engine Légal structurent le cœur analytique
 ```
 
 Le Cœur analytique de la machine est en place. L'étape suivante consiste en l'intégration de jeux de données massifs (Dataset) afin d'éprouver et d'entraîner l'architecture.
+
+
+---
+
+## Le Modèle GNN (Graph Neural Network)
+
+Le cerveau profond de la CGIP est en place avec le modèle GNN (Script : `gnn_model.py`).
+
+### 1. Les Mathématiques pures
+Les équations formelles du *Message Passing* (Agrégation + Mise à jour de la matrice de poids) qui propulsent l'algorithme GraphSAGE ont été modélisées. L'objectif est de rendre auditable la manière dont le modèle mathématique "absorbe" le risque d'un individu via son entourage (à K=2, c'est-à-dire l'ami de l'ami).
+
+### 2. Le Code PyTorch (`gnn_model.py`)
+L'architecture du réseau de neurones a été codée en PyTorch Geometric. Le GNN traverse deux couches convolutives (`SAGEConv`). La méthode `get_social_signature(node_id)` prend le sous-graphe d'un suspect (ex: P001) et écrase la topologie sociale de Neo4j en un Vecteur Dense Incompréhensible de dimension `[1, 128]`.
+
+### 3. L'Encapsulation
+L'encapsulation est parfaite : La "Boîte Noire" du Deep Learning est isolée ici. Ce script PyTorch ne prend **aucune** décision juridique. Il se contente de générer cette "ADN sociale" (les 128 nombres) qui sera ensuite envoyée à notre script XGBoost (`risk_scorer.py`), seul habilité à formuler la probabilité, elle-même verrouillée par notre Bouclier Légal RGPD.

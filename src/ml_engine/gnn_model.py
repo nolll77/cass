@@ -14,14 +14,14 @@ except ImportError:
             # En réalité, SAGEConv agrège les voisins de manière complexe
             return self.lin(torch.cat([x, x], dim=-1))
 
-class CriminalGraphSAGE(torch.nn.Module):
+class SocialGraphSAGE(torch.nn.Module):
     """
     Architecture GraphSAGE (Sample and Aggregate) pour la CGIP.
     Objectif : Compresser le contexte social (Graphe Neo4j) d'un suspect en un vecteur Dense [1, 128].
     Aucune décision n'est prise ici. Le modèle crache uniquement une "signature".
     """
     def __init__(self, in_channels: int, hidden_channels: int, out_channels: int = 128):
-        super(CriminalGraphSAGE, self).__init__()
+        super(SocialGraphSAGE, self).__init__()
         
         # Couche 1 : K=1 (Agrégation des voisins directs : complices, amis proches)
         self.conv1 = SAGEConv(in_channels, hidden_channels)
@@ -77,7 +77,7 @@ if __name__ == "__main__":
     
     # 3. Instanciation du Modèle GNN
     # Entrée=3, Couche Cachée=64, Sortie=128
-    model = CriminalGraphSAGE(in_channels=num_node_features, hidden_channels=64, out_channels=embedding_dim)
+    model = SocialGraphSAGE(in_channels=num_node_features, hidden_channels=64, out_channels=embedding_dim)
     
     # 4. Simulation : On demande l'ADN social du Suspect 'P001' (Index 0)
     signature_P001 = model.get_social_signature(0, x_fake, edge_index_fake)

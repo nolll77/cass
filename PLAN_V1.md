@@ -3,7 +3,7 @@
 *Ce document est un organisme vivant. Il sera réécrit itérativement à chaque "Next?".*
 
 ## Macro-Vision : La Faille des Signaux Faibles (Du fait divers à l'architecture de la donnée)
-*L'échec systémique de la centralisation judiciaire face à la récidive sexuelle et criminelle.*
+*L'échec systémique de la centralisation judiciaire face à la récidive sexuelle et à risque.*
 
 **Piliers logiques déduits :**
 1. **État des lieux (Le Monde A) :** Le drame perçu comme un fait isolé. La fragmentation de l'information judiciaire et l'impuissance face à l'accumulation des signaux faibles (plaintes classées, signalements ignorés). *Cas d'étude initial : Affaire Lyhanna.*

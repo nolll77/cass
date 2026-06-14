@@ -66,7 +66,7 @@ Ce bloc illustre la difficulté de la "Désambiguïsation". Dans la vraie vie (e
 
 ### 1. La matière brute fournie
 Ce quatrième échange franchit un cap analytique majeur. Il contient :
-- Une représentation textuelle et conceptuelle (ASCII Art) du réseau criminel présumé, articulé non pas autour des relations entre victimes, mais autour des **contextes de vulnérabilité** (École, Domicile, Espace public) liés au suspect central.
+- Une représentation textuelle et conceptuelle (ASCII Art) du réseau à risque présumé, articulé non pas autour des relations entre victimes, mais autour des **contextes de vulnérabilité** (École, Domicile, Espace public) liés au suspect central.
 - Une liste formelle de **8 vulnérabilités systémiques** de l'appareil d'État, générée par l'IA en réponse à la chronologie des faits.
 
 **Le Schéma ASCII d'origine :**
@@ -198,7 +198,7 @@ Dans le cas de Lyhanna, le suspect naviguait sous le radar de SALVAC (car il n'y
 
 ### 1. La matière brute fournie
 Ce neuvième échange oppose deux extrêmes du spectre analytique :
-- **L'hyper-spécialisation policière (Top-Down)** : SALVAC (France) et ViCLAS (Canada/Belgique) qui cherchent la *similarité criminelle* (Affaire A = Affaire B) sur des meurtres ou viols déjà actés.
+- **L'hyper-spécialisation policière (Top-Down)** : SALVAC (France) et ViCLAS (Canada/Belgique) qui cherchent la *similarité à risque* (Affaire A = Affaire B) sur des meurtres ou viols déjà actés.
 - **La Civil Tech (Bottom-Up)** : L'émergence d'applications labellisées par l'État pour protéger et écouter les victimes dès les premiers signaux faibles : *App-Elles*, *UMAY*, *Ti3rs* (messagerie sécurisée anti-injures), et *Mémo de Vie* (coffre-fort numérique de preuves).
 
 ### 2. L'analyse du problème (La Déconnexion)
@@ -235,7 +235,7 @@ Le texte met le doigt sur le point de rupture conceptuel des systèmes actuels :
 ## BLOC 11 : Les 8 Points de Rupture (Le Continuum Informationnel)
 
 ### 1. La matière brute fournie
-Ce onzième échange cartographie le flux exact de l'information (École → Police → Justice) et identifie 8 "Casses" (points de rupture) qui expliquent pourquoi l'État échoue à détecter les trajectoires criminelles avant le drame.
+Ce onzième échange cartographie le flux exact de l'information (École → Police → Justice) et identifie 8 "Casses" (points de rupture) qui expliquent pourquoi l'État échoue à détecter les trajectoires à risques avant le drame.
 
 ### 2. L'analyse du problème (La Séparation des Logiques)
 L'analyse montre que le système n'est pas "buggé", il est conçu par design comme une succession de logiques étanches :
@@ -354,7 +354,7 @@ Ce dix-septième échange fixe le cadre légal absolu de l'IA en Europe (RGPD / 
 
 ### 2. Le Changement de Paradigme Fondamental (L'Axiome Légal)
 - **Le Danger** : Le système américain ou chinois cherche à prédire *qui* va commettre un crime. Cela viole la présomption d'innocence européenne.
-- **La Règle d'Or de la CGIP** : **"Le système n'est pas conçu pour prédire des individus, mais pour détecter des situations."** L'IA ne dit jamais "M. Dupont est un criminel". Elle dit : "La convergence spatio-temporelle de ces 4 événements autour de M. Dupont nécessite une vérification humaine."
+- **La Règle d'Or de la CGIP** : **"Le système n'est pas conçu pour prédire des individus, mais pour détecter des situations."** L'IA ne dit jamais "M. Dupont est un à risque". Elle dit : "La convergence spatio-temporelle de ces 4 événements autour de M. Dupont nécessite une vérification humaine."
 
 ### 3. La Cartographie des Zones dans le Projet
 - **ZONE VERTE (100% Autorisée)** : C'est notre couche d'*Entity Resolution* et d'*Ingestion NLP*. Nettoyer, dédupliquer, structurer. L'IA agit ici comme un super-secrétaire.
@@ -399,7 +399,7 @@ La CGIP ne doit pas être vendue comme un "logiciel miracle", mais comme un outi
 Le texte fournit le premier squelette de données réelles (anonymisées sous forme de tables relationnelles `events`, `persons`, `relations`, etc.) simulant le parcours d'un suspect (P001).
 
 ### 2. L'analyse du problème (La mécanique de l'escalade)
-Le tableau de données prouve factuellement la mécanique de l'escalade criminelle : P001 commence avec un score de risque de 35 en 2017 (signalement isolé). Le cloisonnement fait qu'en 2024, le score théorique monte à 62, mais aucune institution n'a la vision globale pour le voir.
+Le tableau de données prouve factuellement la mécanique de l'escalade à risque : P001 commence avec un score de risque de 35 en 2017 (signalement isolé). Le cloisonnement fait qu'en 2024, le score théorique monte à 62, mais aucune institution n'a la vision globale pour le voir.
 
 ### 3. Ce que cela fonde pour le Projet
 Ce jeu de données valide l'axiome fondamental de la CGIP : "Le système ne prédit pas la culpabilité, il détecte un pattern de risque administratif". P001 n'a jamais été jugé coupable avant 2026, mais son pattern administratif hurlait à l'anomalie.

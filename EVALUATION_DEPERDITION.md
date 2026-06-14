@@ -93,7 +93,7 @@ La méthode repose sur l'**Alignement Architectural** (Architecture Alignment) e
 
 L'architecture Graphe + Data Lake résout structurellement les limites du système judiciaire actuel :
 1. **Liaison Automatique** : Relie l'information A (Police) à l'information B (École) sans intervention humaine.
-2. **Vision 360°** : Permet de voir un profil criminel en devenir, et non pas une succession de petits délits "classés sans suite".
+2. **Vision 360°** : Permet de voir un profil à risque en devenir, et non pas une succession de petits délits "classés sans suite".
 3. **Détection Précoce** : L'alerte est levée avant le passage à l'acte grave.
 4. **Diminution de la charge mentale** : L'enquêteur ne lit plus 100 pages de rapports, l'IA lui pointe le graphe critique.
 

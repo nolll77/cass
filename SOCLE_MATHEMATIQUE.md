@@ -34,7 +34,7 @@ $$
 *   **Dépendance Amont :** Le Moteur de Confiance (Confidence Engine).
 *   **Dépendance Aval :** Agrégation de Risque, Processus de Hawkes.
 *   **Complexité Algorithmique :** O(1) — Une multiplication instantanée.
-*   **Contraintes & Hypothèses (Assumptions) :** Le risque de récidive criminelle d'un individu s'évapore mécaniquement et prévisiblement avec le temps s'il ne fait pas de nouvelles vagues dans le système institutionnel.
+*   **Contraintes & Hypothèses (Assumptions) :** Le risque de récidive à risque d'un individu s'évapore mécaniquement et prévisiblement avec le temps s'il ne fait pas de nouvelles vagues dans le système institutionnel.
 *   **Limites / Biais (Edge Cases) :** Si un agresseur part vivre à l'étranger pendant 10 ans (donc zéro signalement en France), le système va mathématiquement effacer son passif. À son retour, il sera vu à tort par la machine comme un profil totalement vierge et inoffensif.
 
 ### Le Kill-Switch RGPD (DPIA Constraint)
@@ -80,7 +80,7 @@ $$
 $$
 *   **Quoi :** Modèle de processus ponctuel auto-excitant mesurant l'intensité temporelle d'événements stochastiques.
 *   **Légende :** $\lambda(t)$ : Taux de dangerosité à l'instant $t$, $\mu$ : bruit de fond (hasard), $t_i$ : timestamp des faits passés, $\alpha$ : saut d'intensité à chaque fait, $\beta$ : vitesse de retombée de l'urgence.
-*   **Pourquoi :** Capter mathématiquement la "vélocité" criminelle. Trois signalements administratifs en 10 ans, c'est du bruit. Trois signalements en 6 mois, c'est une escalade (effet de réplique sismique) qui précède un drame.
+*   **Pourquoi :** Capter mathématiquement la "vélocité" à risque. Trois signalements administratifs en 10 ans, c'est du bruit. Trois signalements en 6 mois, c'est une escalade (effet de réplique sismique) qui précède un drame.
 *   **Inputs :** Vecteur des dates (timestamps) des incidents liés au suspect.
 *   **Outputs :** Score d'escalade (scalaire dynamique).
 *   **Dépendance Amont :** Entity Resolution (pour lier les faits à une seule personne).
@@ -107,7 +107,7 @@ $$
 *   **Dépendance Aval :** Inférence Causale (DoWhy).
 *   **Complexité Algorithmique :** O(V + E) en inférence par couche — Très rapide pour interroger la base, mais l'entraînement préalable du modèle sur les serveurs nécessite de gros GPUs.
 *   **Contraintes & Hypothèses (Assumptions) :** Si la personne A et la personne B fréquentent exactement le même réseau de lieux sociaux toxiques, au même moment, avec les mêmes modes opératoires (patterns), elles partagent la même sphère de risque.
-*   **Limites / Biais (Edge Cases) :** Le danger absolu de la corrélation illusoire : l'algorithme va relier artificiellement un plombier innocent à un réseau criminel uniquement parce qu'il a été embauché pour réparer l'évier du collège à l'heure exacte d'une agression dans la cour.
+*   **Limites / Biais (Edge Cases) :** Le danger absolu de la corrélation illusoire : l'algorithme va relier artificiellement un plombier innocent à un réseau à risque uniquement parce qu'il a été embauché pour réparer l'évier du collège à l'heure exacte d'une agression dans la cour.
 
 ### Inférence Causale (Backdoor Criterion - DoWhy)
 **Formule :**
@@ -172,7 +172,7 @@ Ces variables mesurent l'accélération (Modèle de Hawkes).
 Ces variables captent le "Gang" ou l'influence du milieu via l'algorithme *Node2Vec*.
 4. `degree_centrality` : Nombre de liens directs du nœud `[P]`.
 5. `risk_proximity_score` : Le PageRank inversé calculant la distance (nombre de sauts) entre `[P]` et des individus déjà classés "Rouge". (Si les 3 meilleurs amis de X sont incarcérés, son risque environnemental explose).
-6. `triadic_closure_rate` : À quelle vitesse le réseau criminel autour de `[P]` se referme et se densifie.
+6. `triadic_closure_rate` : À quelle vitesse le réseau à risque autour de `[P]` se referme et se densifie.
 
 #### 🟡 Catégorie C : Les Features Multi-Sources (La Transversalité)
 C'est ici que l'approche CGIP pulvérise l'approche "Silo" de la Police.
@@ -192,7 +192,7 @@ Lorsqu'un Magistrat (Zone Rouge) reçoit l'alerte sur son Dashboard, le système
 **La compliance RGPD impose d'afficher le diagramme de force SHAP :**
 - 🟥 Pousse le risque vers le HAUT (+0.40) : `source_diversity_index` = 3 (L'école, l'hôpital et la police ont tous les trois sonné l'alarme en moins de 30 jours).
 - 🟥 Pousse le risque vers le HAUT (+0.30) : `escalation_slope` = +2.5 (La gravité des actes monte).
-- 🟦 Pousse le risque vers le BAS (-0.15) : `risk_proximity_score` = Faible (La personne n'a aucun lien avec un réseau criminel existant).
+- 🟦 Pousse le risque vers le BAS (-0.15) : `risk_proximity_score` = Faible (La personne n'a aucun lien avec un réseau à risque existant).
 
 👉 **Conclusion du Magistrat** : Il ne s'agit pas d'un profil de "gang", mais d'une crise familiale ou personnelle grave et isolée en pleine explosion temporelle. Il peut ordonner une mesure d'assistance éducative ciblée. Le code a aidé la justice, sans la remplacer.
 
@@ -240,7 +240,7 @@ $$
 *   **Dépendance Amont :** Ingestion NLP (Transformation des textes en vecteurs).
 *   **Dépendance Aval :** GNN (Création d'une arête probabiliste `IS_SIMILAR_TO`).
 *   **Complexité Algorithmique :** O(1) pour deux affaires, mais O(N²) pour comparer toute une base SQL. D'où l'absolue nécessité d'utiliser un Graphe.
-*   **Contraintes & Hypothèses (Assumptions) :** Un délinquant/criminel est psychologiquement routinier. Il reproduit des schémas d'action (idiosyncrasie) identifiables statistiquement.
+*   **Contraintes & Hypothèses (Assumptions) :** Un individu/à risque est psychologiquement routinier. Il reproduit des schémas d'action (idiosyncrasie) identifiables statistiquement.
 *   **Limites / Biais (Edge Cases) :** Si l'auteur modifie intentionnellement ou par accident son mode opératoire d'une victime à l'autre (ex: change de véhicule), le score $\delta$ s'effondre et SALVAC devient aveugle. La CGIP devra compenser cela avec les liens contextuels (DoWhy).
 
 ---
@@ -260,7 +260,7 @@ $$
 *   **Dépendance Amont :** Graphes Causaux, Feature Engineering Pipeline.
 *   **Dépendance Aval :** Interface Enquêteur (Human Alerting).
 *   **Complexité Algorithmique :** Rapide en production (arbres de décision ou inférence GNN de type Node2Vec/GraphSAGE).
-*   **Contraintes & Hypothèses (Assumptions) :** Le modèle assume que des labels purement administratifs ($y=1$ pour multi-plaintes ou affaire sensible) sont une approximation suffisante du risque criminel futur d'une trajectoire.
+*   **Contraintes & Hypothèses (Assumptions) :** Le modèle assume que des labels purement administratifs ($y=1$ pour multi-plaintes ou affaire sensible) sont une approximation suffisante du risque à risque futur d'une trajectoire.
 *   **Limites / Biais (Edge Cases) :** Le risque de prophétie autoréalisatrice et les biais de signalement (over-policing sur certaines populations). La machine peut confondre forte corrélation et causalité, transformant un faisceau de rumeurs en "escalade", d'où la nécessité absolue de l'XAI (Explainable AI - SHAP) et de la Revue Humaine.
 
 
@@ -334,7 +334,7 @@ model = xgb.XGBClassifier(
 
 ## XI. Équations du Graph Neural Network (GraphSAGE)
 
-Pour extraire l'ADN social des suspects (Centralité et Proximité Criminelle) de manière prédictive, la CGIP utilise l'algorithme **GraphSAGE**. Contrairement à un GCN transductif, GraphSAGE permet de générer des vecteurs d'apprentissage (Embeddings) "à la volée" pour de nouveaux profils sans ré-entraîner toute la base de données.
+Pour extraire l'ADN social des suspects (Centralité et Proximité à risque) de manière prédictive, la CGIP utilise l'algorithme **GraphSAGE**. Contrairement à un GCN transductif, GraphSAGE permet de générer des vecteurs d'apprentissage (Embeddings) "à la volée" pour de nouveaux profils sans ré-entraîner toute la base de données.
 
 ### 1. L'Équation d'Agrégation (Message Passing)
 Un individu s'imprègne du risque de son entourage direct. À chaque itération $k$, l'algorithme agrège les vecteurs des voisins $\mathcal{N}(v)$ de la personne $v$ :
@@ -344,7 +344,7 @@ $$ h_{\mathcal{N}(v)}^{k} = 	ext{AGGREGATE}_{k} \Big( \{ h_u^{k-1}, orall u \in
 *(La fonction AGGREGATE peut être une moyenne (`Mean`), un réseau de neurones (`Pool`), ou un LSTM. La CGIP utilise la moyenne pour l'explicabilité juridique).*
 
 ### 2. L'Équation de Mise à Jour (Update)
-Une fois les "messages" du voisinage reçus, on fusionne l'ancienne signature criminelle de l'individu avec la nouvelle, via une matrice de poids $W^k$ et une fonction d'activation non-linéaire $\sigma$ (ex: ReLU) :
+Une fois les "messages" du voisinage reçus, on fusionne l'ancienne signature à risque de l'individu avec la nouvelle, via une matrice de poids $W^k$ et une fonction d'activation non-linéaire $\sigma$ (ex: ReLU) :
 
 $$ h_v^k = \sigma \Big( W^k \cdot 	ext{CONCAT} ig( h_v^{k-1}, h_{\mathcal{N}(v)}^k ig) \Big) $$
 
