@@ -241,3 +241,8 @@ L'objectif est d'organiser le projet open-source / institutionnel en séparant c
 **Labels:** ml, compliance, frontend
 - **Contexte :** Un lien détecté par le GNN sans explication est inutilisable par un magistrat (Boîte noire).
 - **Action :** Implémenter un système générant des "Attention Maps" ou des sous-graphes explicatifs répondant à la question : "Pourquoi la machine propose-t-elle de lier ces deux dossiers ?".
+
+### Issue — [Frontend] #032 — Interface de Visualisation Graphe (Timeline & Clusters)
+**Labels:** frontend, ux, graph-viz
+- **Contexte :** L'enquêteur doit pouvoir interroger le graphe ("où concentrer les ressources ?").
+- **Action :** Créer une interface web (ex: React + D3.js ou Neo4j Bloom) pour afficher le sous-graphe explicatif renvoyé par le GNN, avec une Timeline interactive des événements (`E1 -> E2 -> E3`).

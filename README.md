@@ -358,3 +358,20 @@ L'Intelligence Artificielle de la CGIP ne décide jamais. Elle agit dans une San
 
 ### Le Moteur GNN (Link Prediction)
 L'Intelligence Artificielle ne score pas les individus. Son rôle principal est le **Link Prediction** : détecter les affaires isolées qui partagent une empreinte topologique (Même mode opératoire, même réseau étendu) pour suggérer des rapprochements de dossiers aux magistrats.
+
+### Simulation Visuelle du Graphe d'Enquête
+
+La plateforme convertit une chronologie fragmentée en un graphe dynamique :
+
+```text
+         [E1 Disparition]
+                  │
+                  ▼
+        [E2 Ouverture enquête]
+                  │
+                  ▼
+        [E3 Perquisition domicile]
+              /                     ▼          ▼
+        [L1 domicile]  [P_Suspect]
+```
+*(Ce graphe permet au modèle ML de repérer la concentration spatiale et l'accélération temporelle d'une crise).*

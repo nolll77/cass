@@ -89,3 +89,7 @@ Il s'agit du "frigo" intellectuel du projet CGIP. Lorsqu'un sujet est exploré, 
 - [ ] Modéliser un Temporal GNN (TGN) complet : Event stream -> dynamic graph -> evolving embeddings.
 - [ ] Concevoir l'architecture du Subgraph Justification Engine (Moteur d'Explicabilité).
 - [ ] Analyser les méthodes pour rendre le modèle de clustering CNIL-compatible sans perdre 80% de performance.
+
+- [ ] Extraction automatique des sous-graphes explicatifs (Sub-graph Explainer).
+- [ ] Simulation d'un GNN qui "rate" un lien critique (cas réel de limite IA).
+- [ ] Design d'un système d'alerte officiellement acceptable par la CNIL pour le graphe temps réel.

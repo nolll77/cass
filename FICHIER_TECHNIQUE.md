@@ -414,3 +414,24 @@ Le schéma Neo4j s'enrichit :
 - **Temporel** : `delta_time_between_events`, `burst_activity_score`
 - **Comportemental** : `escalation_pattern`
 - **Topologique** : `PageRank judiciaire`, `degree centrality`
+
+## XV. Modélisation Spécifique d'une Enquête (Cas Type)
+
+### 1. Enrichissement Ontologique (Nœuds & Arêtes)
+- **Nœuds Enquête** : `P_Victime`, `P_Témoin`, `Case_0 (Signalement)`, `L1 (Domicile)`.
+- **Arêtes Humaines** : `[REPORTED_SIGHTING]`, `[QUESTIONED_BY]`.
+- **Arêtes Événementielles** : `[triggers]`, `[expands_scope]`, `[located_at]`.
+
+### 2. Schéma Temporel d'une Enquête
+```text
+[E1 Disparition] -> triggers -> [E2 Ouverture enquête] -> triggers -> [E3 Perquisition]
+                                                                          |
+                                                                          v
+                                                                     [L1 Domicile]
+```
+
+### 3. Les 3 Patterns Cibles du GNN
+Le Message Passing du GNN est configuré pour détecter trois anomalies structurelles :
+1. **Concentration Spatiale** (ex: Domicile ↔ Zones de recherche ↔ Découverte).
+2. **Accélération Temporelle** (Burst Activity).
+3. **Convergence des flux** (Plusieurs sous-graphes qui fusionnent).

@@ -156,3 +156,7 @@ Le projet initial souffrait de l'aveuglement de Cassiopée, enfermé dans son si
 Si le GNN est surpuissant pour lier des dossiers isolés, le texte identifie les risques de déperdition inverses (la sur-interprétation) :
 1. **Biais de propagation** : Un dossier mal encodé à la source (erreur humaine) verra son erreur amplifiée par le réseau.
 2. **Faux positifs structurels** : Des clusters géographiques naturels peuvent être interprétés à tort comme de la criminalité organisée.
+
+## La Ligne de Temps (Timeline) face aux Silos
+
+Un outil administratif classique enregistre "E1 a eu lieu le 12", "E3 a eu lieu le 14". Il est aveugle à l'effet domino (`triggers`, `expands_scope`). La CGIP corrige cette déperdition en modélisant le temps et l'espace comme des vecteurs physiques : le GNN "voit" l'accélération temporelle et la densité spatiale.

@@ -506,3 +506,11 @@ Le texte détaille le design avancé d'un Graph Neural Network (GNN) appliqué a
 
 ### 2. L'Axe Philosophique
 L'objectif n'est plus l'évaluation individuelle, mais la détection de *structures relationnelles anormales* et la fusion d'enquêtes fragmentées. C'est le passage d'une logique de soupçon individuel (inacceptable) à une logique d'intelligence collective sur les dossiers (hautement souhaitable).
+
+## BLOC 15 : La Simulation de l'Enquête Dynamique
+
+### 1. La matière brute fournie
+Le texte simule un cas générique (disparition) pour illustrer la mécanique du Graphe. Il montre la transformation d'une enquête classique (basée sur l'intuition et des fichiers dispersés) en un système structuré dynamique.
+
+### 2. Le Paradigme Opérationnel
+Le but n'est pas de court-circuiter l'intuition de l'enquêteur, mais de lui offrir un outil de *visualisation augmentée* qui détecte des patterns impossibles à percevoir à l'œil nu (ex: la convergence de 50 flux d'enquête vers un même cluster spatio-temporel).

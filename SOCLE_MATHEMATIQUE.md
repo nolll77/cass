@@ -377,3 +377,22 @@ $$ 	ext{Score} = 	ext{MLP} \Big( [emb_i || emb_j || |emb_i - emb_j|] \Big) $$
 
 ### Entraînement et Fonction de Perte
 L'apprentissage se fait par *Binary Cross Entropy* avec pondération pour déséquilibre de classes (Class Imbalance Weighting), comparant de vrais liens confirmés par enquête à des paires aléatoires négatives.
+
+## XV. Format de Sortie Légal de l'IA (Output Structuré)
+
+Pour garantir la non-décision automatique, la sortie mathématique du GNN (le classifieur final) est strictement formatée. La machine n'infère jamais la culpabilité. Elle produit un output binaire :
+
+```json
+{
+  "Case_Link_Strength": {
+    "Suspect_to_L1": "HIGH",
+    "Temporal_Escalation": "HIGH"
+  },
+  "Explanation_Subgraph": {
+    "nodes_involved": 5,
+    "time_window_hours": 48,
+    "density_score": 0.89
+  }
+}
+```
+Ce format est la seule preuve admissible générée par la machine pour l'enquêteur.

@@ -226,3 +226,7 @@ La France bloque techniquement là où les Pays-Bas réussissent, à cause de la
 ### 3. Le "Fil Rouge"
 Le lien caché est le **Trademill de la Souveraineté de la Donnée**. Aucun ministère (Police vs Justice) ne veut abandonner son pouvoir sur sa base de données.
 La CGIP résout ce problème politique par le concept de **Fédération de Graphe** : Neo4j ne "vole" pas la donnée au TAJ ou à Cassiopée, il ne stocke que le lien (`Person-[INVOLVED_IN]->Event`), respectant l'ego et la souveraineté institutionnelle de chaque ministère.
+
+## Axe 5 : L'Output IA (Le Refus de la Prédiction Individuelle)
+
+Le texte simule un cas grave (disparition) et réitère la ligne rouge : `❌ ne jamais inférer la culpabilité`. Contrairement à des outils prédictifs policiers controversés (PredPol), la CGIP ne cible pas des individus avant le crime. Elle analyse une situation *déjà déclenchée* (E1: Disparition) pour optimiser les ressources de recherche. C'est ce qui la rend juridiquement viable en Europe.
