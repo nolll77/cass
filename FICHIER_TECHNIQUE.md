@@ -442,3 +442,13 @@ Face aux interdictions strictes de l'AI Act européen (en vigueur 2024-2026), l'
 - Elle ne déclenche **aucune** perquisition ou surveillance.
 - L'algorithme est bridé au "tri de dossiers" et à l'"extraction de relations entre entités".
 - La règle architecturale `Human-in-the-loop` est absolue : le magistrat est l'unique point de terminaison de la donnée.
+
+## XVII. Architecture Multi-Couches (Le Design Hybride)
+
+L'architecture est structurée en 6 couches (Layers) strictes :
+- **Couche 1 (Sources)** : Connecteurs vers les silos existants (Pas de fusion brute).
+- **Couche 2 (Data Lake)** : Stockage souverain (Niveaux 0, 1, 2).
+- **Couche 3 (Knowledge Graph)** : Le cœur du système (Neo4j).
+- **Couche 4 (ML Non Décisionnel)** : Modèles de liaison (GNN, Clustering) et modèles de risque populationnel agrégé.
+- **Couche 5 (Firewall Légal)** : Le "Rule Engine" qui bloque physiquement toute décision ou sanction automatique.
+- **Couche 6 (Interface)** : L'interface Magistrat (Explicabilité obligatoire par l'AI Act).

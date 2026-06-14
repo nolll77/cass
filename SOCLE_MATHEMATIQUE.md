@@ -401,3 +401,9 @@ Ce format est la seule preuve admissible générée par la machine pour l'enquê
 
 Les limites fixées par la CNIL et l'article 22 du RGPD (interdiction de la décision automatisée) valident à 100% le Rule Engine que nous avons codé (Chapitre X).
 Notre bridage mathématique (`max_depth=4` pour XGBoost, et plafonnement de certitude) est la traduction mathématique exacte de cette doctrine juridique. Un "Risk Score Individuel" pur est illégal ; c'est pourquoi notre modèle calcule une probabilité de "similarité structurelle" d'une affaire, et non une probabilité de récidive humaine.
+
+## XVII. Extension des Modèles de la Couche 4
+
+La Couche 4 (ML) inclut formellement :
+1. **Modèles de liaison** : Détection de similarité, clustering de modes opératoires, analyse de séquences temporelles.
+2. **Modèles de risque populationnel** : Calculs statistiques agrégés sur des zones géographiques ou des périodes (Interdiction du calcul individuel pur).

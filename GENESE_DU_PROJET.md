@@ -522,3 +522,11 @@ Le texte dissèque les barrières légales (RGPD, Directive Police-Justice, AI A
 
 ### 2. Le Changement de Paradigme (Le Silo est une Feature)
 L'analyse révèle une vérité contre-intuitive : en France, le cloisonnement des données (Justice / Police / Social) n'est pas qu'un retard technologique, c'est une **volonté constitutionnelle** de séparation des pouvoirs pour empêcher la surveillance automatisée. La CGIP respecte cette volonté : elle ne crée pas un "super dossier citoyen central", elle crée un maillage ponctuel et limité ("Human-in-the-loop").
+
+## BLOC 17 : Le Modèle Hybride Idéal (Europe)
+
+### 1. La matière brute fournie
+Le texte conceptualise la CGIP non plus comme un projet isolé, mais comme le prototype du "Modèle Hybride Idéal" européen, maximisant trois contraintes contradictoires : Le Droit (RGPD), l'Efficacité (Graphe), et l'Humain (Décision).
+
+### 2. Le Changement de Paradigme (La Donnée, pas l'IA)
+Le système ne "casse" pas sur un manque d'IA. Il casse sur la qualité de saisie, la fragmentation et la latence. La "Proof of Need" de la CGIP se déplace : la vraie révolution n'est pas le Machine Learning, c'est la structuration unifiée de la donnée sous forme de Graphe.

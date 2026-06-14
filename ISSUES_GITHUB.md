@@ -251,3 +251,8 @@ L'objectif est d'organiser le projet open-source / institutionnel en séparant c
 **Labels:** compliance, security, ai-act
 - **Contexte :** La CNIL exige une transparence sur les biais (L'IA pénalise-t-elle certains profils sociaux ou corrèle-t-elle abusivement territoire et criminalité ?).
 - **Action :** Implémenter un script d'audit régulier (Cron Job) qui analyse les prédictions XGBoost/GNN pour détecter d'éventuels biais géographiques ou démographiques, et bloquer le modèle si la variance dépasse un seuil de discrimination.
+
+### Issue — [Backend] #034 — Data Quality & Integrity Monitors
+**Labels:** backend, data-engineering
+- **Contexte :** Le problème majeur n'est pas l'IA, mais la qualité des données entrantes (incohérences, délais).
+- **Action :** Implémenter des moniteurs d'ingestion Kafka pour rejeter ou flagger les données aberrantes (ex: dates impossibles) avant qu'elles ne polluent le Graphe.

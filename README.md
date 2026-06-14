@@ -380,3 +380,22 @@ La plateforme convertit une chronologie fragmentée en un graphe dynamique :
 - ✅ **Human-In-The-Loop** : L'IA ne prend aucune décision judiciaire.
 - ✅ **Privacy by Design** : Pseudonymisation par hachage avant tout calcul.
 - ✅ **AI Act Compliant** : Classifié comme "Aide à l'enquête documentaire", aucun scoring individuel automatisé.
+
+### L'Architecture à 6 Couches
+
+La CGIP implémente le modèle Hybride Européen :
+
+```text
+[SOURCES (Police, Justice, Social)]
+    │         │          │
+    ▼         ▼          ▼
+[DATA LAKE SÉCURISÉ (Cloud Souverain)]
+              │
+[KNOWLEDGE GRAPH (Relations & Topologie)]
+              │
+[ML SANDBOX (Modèles Non Décisionnels)]
+              │
+[LEGAL FIREWALL (Anti-IA Autonome)]
+              │
+[INTERFACE MAGISTRAT (Explicabilité visuelle)]
+```

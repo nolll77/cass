@@ -164,3 +164,7 @@ Un outil administratif classique enregistre "E1 a eu lieu le 12", "E3 a eu lieu 
 ## Le Compromis entre Droit Individuel et Vision Globale
 
 Le texte met le doigt sur la faille systémique : `Excellence du cadre juridique = Lenteur de la circulation de l'information`. La CGIP comble ce vide en utilisant le Graphe. Au lieu de fusionner illégalement les bases de données (ce qui violerait le principe de "finalité"), le Graphe Neo4j ne fusionne que les *métadonnées de lien* pour alerter sur des patterns de séries criminelles, sans violer le secret du dossier source.
+
+## L'Illusion de l'IA face au "Garbage In"
+
+La déperdition fondamentale n'est pas un manque d'algorithmes sophistiqués. La déperdition réside dans : l'incohérence entre fichiers, les délais de transmission, et la saisie humaine faillible. La CGIP comble ce gap via sa Couche 3 (Knowledge Graph), qui agit comme un traducteur universel pour relier des entités mal orthographiées ou asynchrones.
