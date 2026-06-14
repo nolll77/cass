@@ -27,7 +27,7 @@
 ### Time Decay Function (Droit à l'oubli algorithmique)
 **Formule :**
 ```math
-C(t) = C_0 \cdot e^{-\lambda \cdot \Delta t}
+\Huge C(t) = C_0 \cdot e^{-\lambda \cdot \Delta t}
 ```
 *   **Quoi :** Décroissance exponentielle du poids d'une relation (Edge) dans le graphe.
 *   **Légende :** `C(t)` : Confidence Score actuel, `C_0` : Poids initial brut de l'événement (ex: 0.4 pour un signalement école), `\lambda` : coefficient de demi-vie légale, `\Delta t` : temps écoulé depuis l'événement.
@@ -43,7 +43,7 @@ C(t) = C_0 \cdot e^{-\lambda \cdot \Delta t}
 ### Le Kill-Switch RGPD (DPIA Constraint)
 **Formule :**
 ```math
-K(R) = \begin{cases} 1 & \text{si } \sum w_i R_i < \theta_{legal} \\ 0 & \text{sinon (Block)} \end{cases}
+\Huge K(R) = \begin{cases} 1 & \text{si } \sum w_i R_i < \theta_{legal} \\ 0 & \text{sinon (Block)} \end{cases}
 ```
 *   **Quoi :** Fonction indicatrice (Gate) qui coupe l'exécution d'un thread Python.
 *   **Légende :** `K(R)` : Interrupteur, `R_i` : métriques de risque RGPD (automatisation, données mineurs, volume), `\theta_{legal}` : plafond légal d'intrusion autorisé.
@@ -63,7 +63,7 @@ K(R) = \begin{cases} 1 & \text{si } \sum w_i R_i < \theta_{legal} \\ 0 & \text{s
 ### Entity Resolution (Distance de Jaro-Winkler)
 **Formule :**
 ```math
-d_{jw} = d_j + (\ell \cdot p \cdot (1 - d_j))
+\Huge d_{jw} = d_j + (\ell \cdot p \cdot (1 - d_j))
 ```
 *   **Quoi :** Mesure de similarité textuelle favorisant les chaînes qui commencent par les mêmes caractères.
 *   **Légende :** `d_{jw}` : Score final, `d_j` : distance de Jaro basique, `\ell` : longueur du préfixe commun, `p` : constante de pondération.
@@ -79,7 +79,7 @@ d_{jw} = d_j + (\ell \cdot p \cdot (1 - d_j))
 ### Processus de Hawkes (Détection de l'Escalade)
 **Formule :**
 ```math
-\lambda(t) = \mu + \sum_{t_i < t} \alpha \cdot e^{-\beta(t - t_i)}
+\Huge \lambda(t) = \mu + \sum_{t_i < t} \alpha \cdot e^{-\beta(t - t_i)}
 ```
 *   **Quoi :** Modèle de processus ponctuel auto-excitant mesurant l'intensité temporelle d'événements stochastiques.
 *   **Légende :** `\lambda(t)` : Taux de dangerosité à l'instant `t`, `\mu` : bruit de fond (hasard), `t_i` : timestamp des faits passés, `\alpha` : saut d'intensité à chaque fait, `\beta` : vitesse de retombée de l'urgence.
@@ -99,7 +99,7 @@ d_{jw} = d_j + (\ell \cdot p \cdot (1 - d_j))
 ### Graph Neural Network (Link Prediction)
 **Formule :**
 ```math
-\hat{y}_{u,v} = \sigma(\mathbf{z}_u^T \mathbf{z}_v) \quad \text{avec} \quad \mathbf{Z} = GNN(\mathbf{A}, \mathbf{X})
+\Huge \hat{y}_{u,v} = \sigma(\mathbf{z}_u^T \mathbf{z}_v) \quad \text{avec} \quad \mathbf{Z} = GNN(\mathbf{A}, \mathbf{X})
 ```
 *   **Quoi :** Calcul de la probabilité de l'existence d'une arête (lien) entre deux nœuds en effectuant un produit scalaire sur leurs vecteurs latents générés par un réseau de neurones sur graphe.
 *   **Légende :** `\hat{y}_{u,v}` : probabilité d'un lien caché entre personne `u` et événement `v`, `\mathbf{z}` : vecteur latent (embedding), `\mathbf{A}` : topologie du graphe (adjacence), `\mathbf{X}` : traits connus.
@@ -115,7 +115,7 @@ d_{jw} = d_j + (\ell \cdot p \cdot (1 - d_j))
 ### Inférence Causale (Backdoor Criterion - DoWhy)
 **Formule :**
 ```math
-P(Y \mid do(X)) = \sum_Z P(Y \mid X, Z) P(Z)
+\Huge P(Y \mid do(X)) = \sum_Z P(Y \mid X, Z) P(Z)
 ```
 *   **Quoi :** Isoler l'effet causal pur d'une variable `X` sur `Y` en bloquant mathématiquement toutes les autres portes de corrélation fallacieuses `Z` (confounders).
 *   **Légende :** `do(X)` : forcer mathématiquement la survenue de la cause, `Z` : variables de confusion bloquant le chemin 'Backdoor'.
@@ -141,7 +141,7 @@ Avant le scoring, le pipeline extrait trois types de dimensions du flux Kafka :
 ### 4.2. Score de Risque Temps Réel (Event-Driven)
 **Formule :**
 ```math
-S_{risk} = 0.35 \cdot R_{temp} + 0.30 \cdot R_{graph} + 0.20 \cdot W_{trend} + 0.15 \cdot S_{cross}
+\Huge S_{risk} = 0.35 \cdot R_{temp} + 0.30 \cdot R_{graph} + 0.20 \cdot W_{trend} + 0.15 \cdot S_{cross}
 ```
 *   **Quoi :** Addition linéaire pondérée de 4 macro-features calculées à la volée.
 *   **Légende :** `S_{risk}` : Score total. `R_{temp}` : Risque Temporel (accélération). `R_{graph}` : Risque Topologique (centralité/connexions). `W_{trend}` : Escalade de la gravité (Severity Trend). `S_{cross}` : Signaux multi-sources (Cross-source signals : École + Police).
@@ -210,7 +210,7 @@ La CGIP ne croit jamais aveuglément une donnée. Chaque relation (Arête) dans 
 Lorsqu'un nœud `[Personne]` est relié à un `[Event]`, le poids de l'arête est calculé ainsi :
 
 ```math
-W_{edge} = \text{Reliability}_{source} \times \text{Confidence}_{nlp} \times \text{Decay}(t)
+\Huge W_{edge} = \text{Reliability}_{source} \times \text{Confidence}_{nlp} \times \text{Decay}(t)
 ```
 
 1. `\text{Reliability}_{source}` (La fiabilité juridique) :
@@ -225,7 +225,7 @@ W_{edge} = \text{Reliability}_{source} \times \text{Confidence}_{nlp} \times \te
 Pour respecter le RGPD et la prescription pénale, un signalement ne peut pas avoir un impact infini dans le temps. L'algorithme applique une décroissance exponentielle :
 
 ```math
-\text{Decay}(t) = e^{-\lambda \Delta t}
+\Huge \text{Decay}(t) = e^{-\lambda \Delta t}
 ```
 
 - `\Delta t` : Le temps écoulé depuis l'événement (en mois ou années).
@@ -241,7 +241,7 @@ Pour respecter le RGPD et la prescription pénale, un signalement ne peut pas av
 **Formule :**
 
 ```math
-S_{serial}(A, B) = \frac{\sum_{k=1}^{156} w_k \cdot \delta(A_k, B_k)}{\sum_{k=1}^{156} w_k}
+\Huge S_{serial}(A, B) = \frac{\sum_{k=1}^{156} w_k \cdot \delta(A_k, B_k)}{\sum_{k=1}^{156} w_k}
 ```
 
 *   **Quoi :** Calcul d'une similarité de Jaccard/Cosinus pondérée entre deux affaires `A` et `B` sur les 156 variables comportementales (Modus Operandi). 
@@ -263,7 +263,7 @@ S_{serial}(A, B) = \frac{\sum_{k=1}^{156} w_k \cdot \delta(A_k, B_k)}{\sum_{k=1}
 **Formule Objective (Objectif ML) :**
 
 ```math
-\hat{y} = f(X_{temp}, X_{comp}, X_{graph}, X_{geo})
+\Huge \hat{y} = f(X_{temp}, X_{comp}, X_{graph}, X_{geo})
 ```
 
 *   **Quoi :** Estimer la probabilité qu'une trajectoire d'événements s'aggrave (escalade significative) dans les 12 prochains mois (`y=1` si escalade grave, `y=0` sinon). Produit un *Risk Score* et ses valeurs SHAP (Explainability).
@@ -353,7 +353,7 @@ Pour extraire l'ADN social des suspects (Centralité et Proximité à risque) de
 Un individu s'imprègne du risque de son entourage direct. À chaque itération `k`, l'algorithme agrège les vecteurs des voisins `\mathcal{N}(v)` de la personne `v` :
 
 ```math
-h_{\mathcal{N}(v)}^{k} = \text{AGGREGATE}_{k} \Big( \{ h_u^{k-1}, \forall u \in \mathcal{N}(v) \} \Big)
+\Huge h_{\mathcal{N}(v)}^{k} = \text{AGGREGATE}_{k} \Big( \{ h_u^{k-1}, \forall u \in \mathcal{N}(v) \} \Big)
 ```
 
 *(La fonction AGGREGATE peut être une moyenne (`Mean`), un réseau de neurones (`Pool`), ou un LSTM. La CGIP utilise la moyenne pour l'explicabilité juridique).*
@@ -362,14 +362,14 @@ h_{\mathcal{N}(v)}^{k} = \text{AGGREGATE}_{k} \Big( \{ h_u^{k-1}, \forall u \in 
 Une fois les "messages" du voisinage reçus, on fusionne l'ancienne signature à risque de l'individu avec la nouvelle, via une matrice de poids `W^k` et une fonction d'activation non-linéaire `\sigma` (ex: ReLU) :
 
 ```math
-h_v^k = \sigma \Big( W^k \cdot \text{CONCAT} \big( h_v^{k-1}, h_{\mathcal{N}(v)}^k \big) \Big)
+\Huge h_v^k = \sigma \Big( W^k \cdot \text{CONCAT} \big( h_v^{k-1}, h_{\mathcal{N}(v)}^k \big) \Big)
 ```
 
 ### 3. La Synthèse Absolue (Vector[128])
 Après `K=2` itérations (pour voir "l'ami de l'ami"), le vecteur final `z_v` contient toute l'information topologique. Il a une dimension exacte de 128.
 
 ```math
-z_v = h_v^K \quad \text{avec} \quad z_v \in \mathbb{R}^{128}
+\Huge z_v = h_v^K \quad \text{avec} \quad z_v \in \mathbb{R}^{128}
 ```
 
 **Règle d'Encapsulation** : `z_v` n'est pas un score de condamnation. C'est un vecteur mathématique neutre qui est ensuite passé au **XGBoost Classifier** (Chapitre 13), seul habilité à formuler la probabilité, elle-même soumise au **Bouclier Légal**.
@@ -392,7 +392,7 @@ La doctrine interdit le score individuel automatique. L'IA a pour seul but de "p
 Pour lier deux affaires `Case_i` et `Case_j`, la CGIP utilise une tête de prédiction (Link Prediction Head) robuste :
 
 ```math
-\text{Score} = \text{MLP} \Big( [emb_i || emb_j || |emb_i - emb_j|] \Big)
+\Huge \text{Score} = \text{MLP} \Big( [emb_i || emb_j || |emb_i - emb_j|] \Big)
 ```
 
 ### Entraînement et Fonction de Perte
