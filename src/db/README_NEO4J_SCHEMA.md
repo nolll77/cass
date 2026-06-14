@@ -13,5 +13,46 @@ Le script exécutable `neo4j_schema.cypher` contient :
 - **La performance (Index)** : Des index spécifiques ont été placés sur `geo_hash` (pour calculer la proximité spatiale) et sur `timestamp` (pour l'accélération temporelle).
 - **Le Pipeline d'Ingestion (MERGE)** : Les commandes d'ingestion "Upsert" (`MERGE`) que le backend Python utilisera pour injecter dynamiquement les plaintes, suspects et lieux ont été codées.
 
-### 2. Le Diagramme Entité-Relation (La Vue Architecte)
-Le schéma ontologique visuel massif est intégré dans le `FICHIER_TECHNIQUE.md`. Le diagramme Mermaid détaille les propriétés exactes de nos 6 Nœuds (`Person`, `Event`, `Case`, `Location`, `Institution`, `Document`) et nos 7 Arêtes (`INVOLVED_IN`, `TRIGGERS`, `OCCURRED_AT`, `ASSOCIATED_WITH`, etc.).
+### 2. Diagramme Entité-Relation (Mermaid)
+Voici la représentation visuelle de l'ontologie. Note : La temporalité est obligatoire sur TOUTES les arêtes (`timestamp` ou `start_date`), permettant l'analyse temporelle dynamique par le GNN (TGN).
+
+```mermaid
+erDiagram
+    PERSON {
+        string pseudo_id "Haché (RGPD)"
+        string age_band "Ex: 30-40"
+        string risk_flag "Manuel"
+    }
+    EVENT {
+        string event_id "Identifiant unique"
+        string type "Ex: PLAINTE, AUDITION"
+        int severity "1 à 5"
+        datetime timestamp "Obligatoire"
+    }
+    CASE {
+        string case_id "Dossier Judiciaire"
+        string status "OPEN/CLOSED"
+        string legal_basis "Article Code Pénal"
+    }
+    LOCATION {
+        string loc_id
+        string type "Ex: DOMICILE, ECOLE"
+        string geo_hash "Index Spatial"
+    }
+    INSTITUTION {
+        string inst_id
+        string ministry "Intérieur, Justice"
+    }
+    DOCUMENT {
+        string doc_id
+        string classification_level
+    }
+
+    PERSON ||--o{ EVENT : "INVOLVED_IN {role, timestamp}"
+    EVENT ||--o{ CASE : "TRIGGERS {delay_hours, timestamp}"
+    EVENT }o--|| LOCATION : "OCCURRED_AT {timestamp}"
+    PERSON }o--o{ PERSON : "ASSOCIATED_WITH {relation_type, start_date}"
+    CASE }o--o{ CASE : "RELATED_TO {confidence_score, timestamp}"
+    PERSON }o--o{ DOCUMENT : "MENTIONED_IN {timestamp}"
+    EVENT }o--|| INSTITUTION : "REPORTED_BY {timestamp}"
+```
