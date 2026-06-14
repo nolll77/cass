@@ -68,3 +68,7 @@ Il s'agit du "frigo" intellectuel du projet CGIP. Lorsqu'un sujet est exploré, 
 - [x] Lancer une simulation mathématique d'un système "Chinois" vs "UK" sur notre dataset P001
 - [ ] Achever le Pipeline temps réel complet (Kafka + Graph + ML + Alerting)
 - [ ] Écrire l'Analyse stricte des risques juridiques (RGPD vs AI Act vs US Law)
+
+- [ ] Modéliser le pipeline Kafka + Spark + Graph + ML (Architecture Temps Réel)
+- [ ] Écrire les mathématiques et le pseudo-code complet du modèle GNN (Graph Neural Network)
+- [ ] Réaliser le dump importable "Neo4j Complet" du dataset synthétique

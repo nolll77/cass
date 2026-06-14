@@ -448,3 +448,18 @@ La CGIP est une recherche du point d'équilibre parfait :
 - Techniquement aussi intégrée que la Chine (Graphe unifié).
 - Analytiquement aussi puissante que les USA (Data Lake / ML).
 - Légalement aussi transparente et ciblée que le Royaume-Uni (MASH / XAI).
+
+## BLOC 10 : La Doctrine des Trois Couches de Vérité
+
+### 1. La matière brute fournie
+Le texte introduit le "Data Schema Complet" structurant définitivement la base de la CGIP en séparant le SQL et le Graphe.
+
+### 2. L'analyse du problème (La Vérité vs La Probabilité)
+La loi exige la certitude (SQL), l'enquête exige le contexte (Graphe), et l'anticipation exige le scoring (ML). Les mélanger crée des erreurs judiciaires.
+
+### 3. Ce que cela fonde pour le Projet
+La CGIP pose une **doctrine absolue de séparation des pouvoirs technologiques** :
+- **SQL** = La vérité administrative officielle (System of record).
+- **Graphe** = Les relations inférées (Le contexte dynamique).
+- **ML** = L'aide à l'analyse probabiliste (Jamais la décision finale).
+Cette séparation est la clé de voûte de l'auditabilité exigée par le Conseil d'État et la CNIL.

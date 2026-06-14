@@ -313,3 +313,9 @@ Ce calcul normalisé prouve l'encerclement d'un individu par des victimes sans l
 Le `raw_score` issu de XGBoost subit un filtre pénal brutal :
 - **Règle de Multiplicité** : Si `event_count < 2` (source unique), alors `Score = Score * 0.7`. (Évite la condamnation algorithmique sur dénonciation calomnieuse unique).
 - **Règle d'Alerte** : Si `Score > 0.90` (Seuil critique), le système est mis en pause et renvoie le flag `CRITICAL_REVIEW_REQUIRED` au lieu de déclencher une action directe.
+
+## X. La Couche d'Intégration Vectorielle (Embeddings)
+
+Le schéma fige l'utilisation des algorithmes de plongement de graphe.
+Les algorithmes comme **GraphSAGE** ou **Node2Vec** sont mandatés pour transformer le sous-graphe d'un individu en un vecteur dense unidimensionnel (`vector[128]`). 
+C'est ce vecteur de 128 dimensions, couplé aux features tabulaires SQL, qui sera injecté dans l'arbre de décision final (XGBoost).

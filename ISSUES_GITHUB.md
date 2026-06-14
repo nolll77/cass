@@ -216,3 +216,8 @@ L'objectif est d'organiser le projet open-source / institutionnel en séparant c
 **Labels:** ml, python, difficulty: hard
 - **Contexte Analytique :** Coder le fichier `src/ml_engine/risk_scorer.py` en se basant sur le pseudo-code officiel.
 - **Périmètre Technique :** Le script doit orchestrer l'extraction des `features`, lancer le `predict_proba` d'un modèle XGBoost factice, appliquer le `apply_constraints()` et générer le JSON de sortie `{"risk_score", "explanation"}`.
+
+### Issue — [Data] #027 — Création des Schémas SQL (PostgreSQL)
+**Labels:** database, sql, backend
+- **Contexte Analytique :** Implémenter le socle SQL de vérité (`persons`, `events`, `cases`, `institutions`) sous forme de scripts de migration (ex: Alembic ou SQL brut).
+- **Périmètre Gouvernance :** Les Foreign Keys doivent être strictes pour garantir l'intégrité avant l'export vers Neo4j.

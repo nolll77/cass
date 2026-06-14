@@ -133,3 +133,8 @@ Une simulation mathématique a été codée (`src/ml_engine/simulate_world_model
 4. **CGIP (Notre Modèle)** : Le score est calculé purement sur la topologie du Graphe institutionnel. `institutions_involved = 5`, ce qui déclenche le `graph_bonus (+25)`. Le score final frôle le plafond (95). Mais le *Rule Engine* légal intervient : l'IA ne peut pas arrêter P001 ni dépasser le seuil d'intervention automatique. Elle émet une **Alerte CRITIQUE** à un magistrat humain qui a toute la vision 360° sous les yeux.
 
 La preuve algorithmique est éclatante. La CGIP bloque la fatalité française tout en brisant la mécanique dictatoriale chinoise.
+
+## La Fin de la Base Unique (Cassiopée)
+
+Cassiopée s'effondre car elle tente de forcer du contexte dans un modèle purement relationnel (SQL de l'an 2000). 
+Le modèle CGIP résout l'aveuglement en instanciant une **Double Base de Données** : le SQL garantit que le droit est respecté (Audit), tandis que la base Graphe génère la vision 360° en temps réel sans alourdir le système transactionnel.

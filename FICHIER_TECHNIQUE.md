@@ -339,3 +339,20 @@ L'ajout de l'architecture chinoise au benchmark nous donne une spécification en
 - **Interdiction formelle** de croiser la donnée de la Couche Zéro (Police/Justice/Social) avec de la donnée "Lifestyle" (mobilité, paiements, réseaux sociaux).
 - **Interdiction formelle** du ML non-supervisé ou du Computer Vision sur les comportements.
 La CGIP est strictement bornée aux événements institutionnels.
+
+## X. Schéma de Données (Core DB SQL vs Graph DB)
+
+Le stockage hybride est officiellement architecturé comme suit :
+
+### 1. SQL Core (PostgreSQL) - "System of Record"
+Structure rigide contenant la vérité juridique :
+- `persons` : Identité et flag de risque global.
+- `institutions` : Les acteurs.
+- `events` : La timeline centrale (Signalements, plaintes, etc.).
+- `cases` : Le regroupement légal ("L'Affaire" Pénale/Sociale).
+- `case_event_link` & `interactions` : Tables de jointure.
+
+### 2. Graph Database (Neo4j) - "Context Engine"
+Traduction du SQL en réseau :
+- **Nodes** : `Person`, `Event`, `Institution`, `Case`.
+- **Edges** : `[:INVOLVED_IN]`, `[:REPORTED]`, `[:CONNECTED_TO]`, `[:CONTAINS]`, `[:INVOLVES]`.
