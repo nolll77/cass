@@ -498,3 +498,11 @@ Le texte définit l'architecture idéale et réaliste pour l'administration : un
 
 ### 2. La Proof of Need
 Pour contourner la guerre des ministères (où personne ne veut céder le contrôle de ses données) et la méfiance citoyenne, la CGIP ne doit pas être un "Big Brother centralisé". Elle doit être un "Réseau fédéré sécurisé avec intelligence distribuée". C'est la seule porte de sortie politique viable.
+
+## BLOC 14 : Le Paradigme du GNN (Détection de Structures, pas d'Individus)
+
+### 1. La matière brute fournie
+Le texte détaille le design avancé d'un Graph Neural Network (GNN) appliqué aux dossiers judiciaires. Il stipule une règle d'or : le GNN ne "prédit" pas, il "connecte".
+
+### 2. L'Axe Philosophique
+L'objectif n'est plus l'évaluation individuelle, mais la détection de *structures relationnelles anormales* et la fusion d'enquêtes fragmentées. C'est le passage d'une logique de soupçon individuel (inacceptable) à une logique d'intelligence collective sur les dossiers (hautement souhaitable).

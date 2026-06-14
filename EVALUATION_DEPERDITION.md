@@ -150,3 +150,9 @@ Le texte souligne que les bases Cassiopée ou TAJ sont gangrenées par des saisi
 ## Le Pont Fédérateur vs Le Monolithe Cassiopée
 
 Le projet initial souffrait de l'aveuglement de Cassiopée, enfermé dans son silo ministériel. Mais la solution n'est pas de fusionner Cassiopée avec le TAJ (impossible juridiquement). Le gap est comblé par la **Data Fabric**. On passe d'une logique de *stockage mort* à une logique d'*interrogation dynamique* : le Graphe se construit à la volée en agrégeant les fragments de chaque Cloud ministériel.
+
+## Les Risques Structurels du GNN (Les Faux Positifs Topologiques)
+
+Si le GNN est surpuissant pour lier des dossiers isolés, le texte identifie les risques de déperdition inverses (la sur-interprétation) :
+1. **Biais de propagation** : Un dossier mal encodé à la source (erreur humaine) verra son erreur amplifiée par le réseau.
+2. **Faux positifs structurels** : Des clusters géographiques naturels peuvent être interprétés à tort comme de la criminalité organisée.

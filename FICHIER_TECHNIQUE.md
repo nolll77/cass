@@ -397,3 +397,20 @@ L'architecture physique de la CGIP est pensée pour un déploiement sur un **Clo
 
 ### La "Secure Data Fabric"
 Au lieu d'une base monolithique, le système utilise une *API Gateway Souveraine* et une *Federation Layer*. Neo4j interroge ces bases via des index et des tokens pseudonymisés (Identity Layer), sans jamais rapatrier la donnée brute textuelle de Niveau 0 dans son moteur de calcul.
+
+## XIV. Pipeline ML Avancé : GNN pour la Fusion de Dossiers
+
+### 1. Nœuds et Arêtes Supplémentaires
+Le schéma Neo4j s'enrichit :
+- **Nœuds** : `Document`
+- **Arêtes** : `(Person)-[MENTIONED_IN]->(Document)`, `(Case)-[RELATED_TO]->(Case)`, `(Case)-[SHARES_EVIDENCE]->(Case)`
+
+### 2. Le Pipeline d'Exécution GNN
+```text
+[Input Graph] -> [Node Embedding] -> [Message Passing (k hops)] -> [Aggregation (Mean/Attention)] -> [Case-Level Embedding] -> [Link Prediction Head]
+```
+
+### 3. Feature Engineering Structurant
+- **Temporel** : `delta_time_between_events`, `burst_activity_score`
+- **Comportemental** : `escalation_pattern`
+- **Topologique** : `PageRank judiciaire`, `degree centrality`

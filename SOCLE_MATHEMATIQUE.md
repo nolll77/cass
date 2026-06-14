@@ -368,3 +368,12 @@ La doctrine interdit le score individuel automatique. L'IA a pour seul but de "p
 1. **Détection d'Anomalies** : `Isolation Forest` (pour détecter un parcours atypique dans le réseau).
 2. **Graph Embedding local** : `Node2Vec` (pour la similarité stricte entre deux dossiers).
 3. **Temporal Clustering** : Mathématiques de séries temporelles pour détecter l'accélération des événements (Violence -> École -> Fugue).
+
+## XIV. Équations du Link Prediction (GNN)
+
+Pour lier deux affaires `Case_i` et `Case_j`, la CGIP utilise une tête de prédiction (Link Prediction Head) robuste :
+
+$$ 	ext{Score} = 	ext{MLP} \Big( [emb_i || emb_j || |emb_i - emb_j|] \Big) $$
+
+### Entraînement et Fonction de Perte
+L'apprentissage se fait par *Binary Cross Entropy* avec pondération pour déséquilibre de classes (Class Imbalance Weighting), comparant de vrais liens confirmés par enquête à des paires aléatoires négatives.

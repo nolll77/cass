@@ -236,3 +236,8 @@ L'objectif est d'organiser le projet open-source / institutionnel en séparant c
 **Labels:** backend, federation, cloud
 - **Contexte :** La CGIP ne doit pas taper directement en base SQL. Elle doit passer par un fédérateur inter-ministériel.
 - **Action :** Coder une API GraphQL ou un point d'entrée REST qui orchestre l'accès aux niveaux 0, 1, et 2 avec vérification HSM (Hardware Security Module).
+
+### Issue — [Machine Learning] #031 — Moteur d'Explicabilité (Subgraph Justification Engine)
+**Labels:** ml, compliance, frontend
+- **Contexte :** Un lien détecté par le GNN sans explication est inutilisable par un magistrat (Boîte noire).
+- **Action :** Implémenter un système générant des "Attention Maps" ou des sous-graphes explicatifs répondant à la question : "Pourquoi la machine propose-t-elle de lier ces deux dossiers ?".

@@ -85,3 +85,7 @@ Il s'agit du "frigo" intellectuel du projet CGIP. Lorsqu'un sujet est exploré, 
 - [ ] Réaliser une simulation complète d'un cas dossier complexe (Timeline + Détection GNN + Alertes) dans le pipeline Cloud Souverain.
 - [ ] Étudier les mathématiques du Temporal Clustering pour la prédiction de crise à très court terme.
 - [ ] Détailler l'architecture "Hardware Security Module (HSM)" et le chiffrement End-to-End.
+
+- [ ] Modéliser un Temporal GNN (TGN) complet : Event stream -> dynamic graph -> evolving embeddings.
+- [ ] Concevoir l'architecture du Subgraph Justification Engine (Moteur d'Explicabilité).
+- [ ] Analyser les méthodes pour rendre le modèle de clustering CNIL-compatible sans perdre 80% de performance.
