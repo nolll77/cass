@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>🏛️ Civic Graph Intelligence Platform (CGIP)</h1>
+  <h1>Civic Graph Intelligence Platform (CGIP)</h1>
   <p><b>Le Cerveau Artificiel Institutionnel : Graphes Causaux, Inférence Structurelle et IA Constitutionnelle.</b></p>
   <br>
   <img src="https://img.shields.io/badge/Status-Research_%26_Architecture-blue.svg" alt="Status">
