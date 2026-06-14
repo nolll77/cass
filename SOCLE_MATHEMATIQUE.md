@@ -27,7 +27,7 @@
 ### Time Decay Function (Droit à l'oubli algorithmique)
 **Formule :**
 $$
-\Huge C(t) = C_0 \cdot e^{-\lambda \cdot \Delta t}
+C(t) = C_0 \cdot e^{-\lambda \cdot \Delta t}
 $$
 *   **Quoi :** Décroissance exponentielle du poids d'une relation (Edge) dans le graphe.
 *   **Légende :** $C(t)$ : Confidence Score actuel, $C_0$ : Poids initial brut de l'événement (ex: 0.4 pour un signalement école), $\lambda$ : coefficient de demi-vie légale, $\Delta t$ : temps écoulé depuis l'événement.
@@ -43,7 +43,7 @@ $$
 ### Le Kill-Switch RGPD (DPIA Constraint)
 **Formule :**
 $$
-\Huge K(R) = \begin{cases} 1 & \text{si } \sum w_i R_i < \theta_{legal} \\ 0 & \text{sinon (Block)} \end{cases}
+K(R) = \begin{cases} 1 & \text{si } \sum w_i R_i < \theta_{legal} \\ 0 & \text{sinon (Block)} \end{cases}
 $$
 *   **Quoi :** Fonction indicatrice (Gate) qui coupe l'exécution d'un thread Python.
 *   **Légende :** $K(R)$ : Interrupteur, $R_i$ : métriques de risque RGPD (automatisation, données mineurs, volume), $\theta_{legal}$ : plafond légal d'intrusion autorisé.
@@ -63,7 +63,7 @@ $$
 ### Entity Resolution (Distance de Jaro-Winkler)
 **Formule :**
 $$
-\Huge d_{jw} = d_j + (\ell \cdot p \cdot (1 - d_j))
+d_{jw} = d_j + (\ell \cdot p \cdot (1 - d_j))
 $$
 *   **Quoi :** Mesure de similarité textuelle favorisant les chaînes qui commencent par les mêmes caractères.
 *   **Légende :** $d_{jw}$ : Score final, $d_j$ : distance de Jaro basique, $\ell$ : longueur du préfixe commun, $p$ : constante de pondération.
@@ -79,7 +79,7 @@ $$
 ### Processus de Hawkes (Détection de l'Escalade)
 **Formule :**
 $$
-\Huge \lambda(t) = \mu + \sum_{t_i < t} \alpha \cdot e^{-\beta(t - t_i)}
+\lambda(t) = \mu + \sum_{t_i < t} \alpha \cdot e^{-\beta(t - t_i)}
 $$
 *   **Quoi :** Modèle de processus ponctuel auto-excitant mesurant l'intensité temporelle d'événements stochastiques.
 *   **Légende :** $\lambda(t)$ : Taux de dangerosité à l'instant $t$, $\mu$ : bruit de fond (hasard), $t_i$ : timestamp des faits passés, $\alpha$ : saut d'intensité à chaque fait, $\beta$ : vitesse de retombée de l'urgence.
@@ -99,7 +99,7 @@ $$
 ### Graph Neural Network (Link Prediction)
 **Formule :**
 $$
-\Huge \hat{y}_{u,v} = \sigma(\mathbf{z}_u^T \mathbf{z}_v) \quad \text{avec} \quad \mathbf{Z} = GNN(\mathbf{A}, \mathbf{X})
+\hat{y}_{u,v} = \sigma(\mathbf{z}_u^T \mathbf{z}_v) \quad \text{avec} \quad \mathbf{Z} = GNN(\mathbf{A}, \mathbf{X})
 $$
 *   **Quoi :** Calcul de la probabilité de l'existence d'une arête (lien) entre deux nœuds en effectuant un produit scalaire sur leurs vecteurs latents générés par un réseau de neurones sur graphe.
 *   **Légende :** $\hat{y}_{u,v}$ : probabilité d'un lien caché entre personne $u$ et événement $v$, $\mathbf{z}$ : vecteur latent (embedding), $\mathbf{A}$ : topologie du graphe (adjacence), $\mathbf{X}$ : traits connus.
@@ -115,7 +115,7 @@ $$
 ### Inférence Causale (Backdoor Criterion - DoWhy)
 **Formule :**
 $$
-\Huge P(Y \mid do(X)) = \sum_Z P(Y \mid X, Z) P(Z)
+P(Y \mid do(X)) = \sum_Z P(Y \mid X, Z) P(Z)
 $$
 *   **Quoi :** Isoler l'effet causal pur d'une variable $X$ sur $Y$ en bloquant mathématiquement toutes les autres portes de corrélation fallacieuses $Z$ (confounders).
 *   **Légende :** $do(X)$ : forcer mathématiquement la survenue de la cause, $Z$ : variables de confusion bloquant le chemin 'Backdoor'.
@@ -141,7 +141,7 @@ Avant le scoring, le pipeline extrait trois types de dimensions du flux Kafka :
 ### 4.2. Score de Risque Temps Réel (Event-Driven)
 **Formule :**
 $$
-\Huge S_{risk} = 0.35 \cdot R_{temp} + 0.30 \cdot R_{graph} + 0.20 \cdot W_{trend} + 0.15 \cdot S_{cross}
+S_{risk} = 0.35 \cdot R_{temp} + 0.30 \cdot R_{graph} + 0.20 \cdot W_{trend} + 0.15 \cdot S_{cross}
 $$
 *   **Quoi :** Addition linéaire pondérée de 4 macro-features calculées à la volée.
 *   **Légende :** $S_{risk}$ : Score total. $R_{temp}$ : Risque Temporel (accélération). $R_{graph}$ : Risque Topologique (centralité/connexions). $W_{trend}$ : Escalade de la gravité (Severity Trend). $S_{cross}$ : Signaux multi-sources (Cross-source signals : École + Police).
@@ -233,7 +233,7 @@ $$ \text{Decay}(t) = e^{-\lambda \Delta t} $$
 ### Indice de Similarité Sérielle (Héritage SALVAC / ViCLAS)
 **Formule :**
 $$
-\Huge S_{serial}(A, B) = \frac{\sum_{k=1}^{156} w_k \cdot \delta(A_k, B_k)}{\sum_{k=1}^{156} w_k}
+S_{serial}(A, B) = \frac{\sum_{k=1}^{156} w_k \cdot \delta(A_k, B_k)}{\sum_{k=1}^{156} w_k}
 $$
 *   **Quoi :** Calcul d'une similarité de Jaccard/Cosinus pondérée entre deux affaires $A$ et $B$ sur les 156 variables comportementales (Modus Operandi). 
 *   **Légende :** $S_{serial}$ : Indice de similarité (ex: 0.87), $k$ : les 156 items (heure, arme, type de victime), $\delta$ : fonction d'égalité (1 si match, 0 sinon), $w_k$ : poids de l'item (un "rituel" a plus de poids qu'une "heure de la journée").
@@ -253,7 +253,7 @@ $$
 ### Modèle de Classification d'Escalade (Gradient Boosting / GNN)
 **Formule Objective (Objectif ML) :**
 $$
-\Huge \hat{y} = f(X_{temp}, X_{comp}, X_{graph}, X_{geo})
+\hat{y} = f(X_{temp}, X_{comp}, X_{graph}, X_{geo})
 $$
 *   **Quoi :** Estimer la probabilité qu'une trajectoire d'événements s'aggrave (escalade significative) dans les 12 prochains mois ($y=1$ si escalade grave, $y=0$ sinon). Produit un *Risk Score* et ses valeurs SHAP (Explainability).
 *   **Légende :** $\hat{y}$ : Probabilité d'escalade, $X_{temp}$ : Features temporelles (fréquence, accélération), $X_{comp}$ : Features comportementales (répétition même contexte), $X_{graph}$ : Features de graphe (centralité, connexions à risque), $X_{geo}$ : Densité spatiale.
