@@ -138,3 +138,7 @@ La preuve algorithmique est éclatante. La CGIP bloque la fatalité française t
 
 Cassiopée s'effondre car elle tente de forcer du contexte dans un modèle purement relationnel (SQL de l'an 2000). 
 Le modèle CGIP résout l'aveuglement en instanciant une **Double Base de Données** : le SQL garantit que le droit est respecté (Audit), tandis que la base Graphe génère la vision 360° en temps réel sans alourdir le système transactionnel.
+
+## Le Problème des Erreurs Humaines
+
+L'un des échecs silencieux de Cassiopée est l'erreur humaine de saisie (nom mal orthographié, champ date manquant). La CGIP pallie cela en utilisant la Couche de Résolution d'Entité avant même l'ingestion dans Neo4j. Spark nettoiera les erreurs de saisie que l'État produit par fatigue.

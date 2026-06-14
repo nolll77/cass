@@ -463,3 +463,19 @@ La CGIP pose une **doctrine absolue de séparation des pouvoirs technologiques**
 - **Graphe** = Les relations inférées (Le contexte dynamique).
 - **ML** = L'aide à l'analyse probabiliste (Jamais la décision finale).
 Cette séparation est la clé de voûte de l'auditabilité exigée par le Conseil d'État et la CNIL.
+
+## BLOC 11 : Le Mur de la Réalité Terrain
+
+### 1. La matière brute fournie
+Le texte projette le pipeline ML industriel mais liste surtout les 5 causes de mort clinique des projets d'IA d'État.
+
+### 2. L'analyse du problème (Là où ça casse)
+Même avec le meilleur XGBoost, le système s'effondrera si :
+1. **Les silos demeurent** (Pas de volonté politique).
+2. **La data est sale** (Champs manquants, fautes de frappe de greffiers dans Cassiopée).
+3. **Les biais persistent** (Sous-détection endémique des violences intra-familiales).
+4. **Pas de Timeline unifiée** (Chaque institution a son horloge).
+5. **Pas de boucle de feedback** (Le modèle n'apprend pas de ses erreurs judiciaires).
+
+### 3. Ce que cela fonde pour le Projet
+Le texte pose une conclusion historique : "Aucun pays démocratique n'a encore un système unifié complet en temps réel". La CGIP n'est donc pas la copie d'un système existant, c'est l'ambition de construire la première architecture d'intégration institutionnelle d'Europe.

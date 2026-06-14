@@ -319,3 +319,14 @@ Le `raw_score` issu de XGBoost subit un filtre pénal brutal :
 Le schéma fige l'utilisation des algorithmes de plongement de graphe.
 Les algorithmes comme **GraphSAGE** ou **Node2Vec** sont mandatés pour transformer le sous-graphe d'un individu en un vecteur dense unidimensionnel (`vector[128]`). 
 C'est ce vecteur de 128 dimensions, couplé aux features tabulaires SQL, qui sera injecté dans l'arbre de décision final (XGBoost).
+
+## X. Hyperparamètres du Modèle d'Évaluation (XGBoost)
+
+Le pseudo-code fige les hyperparamètres de base du modèle XGBoost Classifier. Il est volontairement bridé (max_depth faible) pour éviter l'overfitting et garder une certaine explicabilité (SHAP).
+```python
+model = xgb.XGBClassifier(
+    max_depth=4,         # Bridé pour éviter la "boîte noire" trop profonde
+    n_estimators=200,    # Robustesse statistique
+    learning_rate=0.05   # Apprentissage conservateur
+)
+```

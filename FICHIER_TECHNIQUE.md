@@ -356,3 +356,12 @@ Structure rigide contenant la vérité juridique :
 Traduction du SQL en réseau :
 - **Nodes** : `Person`, `Event`, `Institution`, `Case`.
 - **Edges** : `[:INVOLVED_IN]`, `[:REPORTED]`, `[:CONNECTED_TO]`, `[:CONTAINS]`, `[:INVOLVES]`.
+
+## X. Architecture Big Data (ETL & ML Pipeline)
+
+Le schéma global du système intègre l'écosystème Big Data industriel :
+1. **Data Lake (S3/HDFS)** : Reçoit la donnée brute.
+2. **Couche ETL (Apache Spark)** : Script PySpark qui nettoie, filtre (ex: `age < 18`), et agglomère les données massives (`groupBy`).
+3. **Feature Store (Spark / Feast)** : Stocke les vecteurs d'apprentissage.
+4. **Graph DB (Neo4j)** & **ML Training (XGBoost/RF)** : S'alimentent sur le Feature Store.
+5. **Risk Scoring Engine** (Batch + Streaming).
