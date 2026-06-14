@@ -3,8 +3,6 @@
 > **Abstract (Résumé Exécutif)**
 > Ce document est le "Formulaire Légal" du projet. Il fige les équations et les limites algorithmiques de nos modèles d'IA (XGBoost, GraphSAGE). Son but est de prouver mathématiquement qu'aucune décision individuelle automatique (illégale au sens de l'Art. 22 du RGPD) n'est jamais prise. La machine calcule des probabilités de *liens entre dossiers*, jamais des probabilités de *culpabilité individuelle*.
 
-
-
 > **GUIDE DE CONSTRUCTION (MANIFESTE DU SOCLE)**
 > 
 > **Qu'est-ce qu'un Socle (ou Lexique Formel) ?**
@@ -245,12 +243,12 @@ $$
 *   **Dépendance Amont :** Ingestion NLP (Transformation des textes en vecteurs).
 *   **Dépendance Aval :** GNN (Création d'une arête probabiliste `IS_SIMILAR_TO`).
 *   **Complexité Algorithmique :** O(1) pour deux affaires, mais O(N²) pour comparer toute une base SQL. D'où l'absolue nécessité d'utiliser un Graphe.
-*   **Contraintes & Hypothèses (Assumptions) :** Un individu/à risque est psychologiquement routinier. Il reproduit des schémas d'action (idiosyncrasie) identifiables statistiquement.
+*   **Contraintes & Hypothèses (Assumptions) :** Un individu à risque est psychologiquement routinier. Il reproduit des schémas d'action (idiosyncrasie) identifiables statistiquement.
 *   **Limites / Biais (Edge Cases) :** Si l'auteur modifie intentionnellement ou par accident son mode opératoire d'une victime à l'autre (ex: change de véhicule), le score $\delta$ s'effondre et SALVAC devient aveugle. La CGIP devra compenser cela avec les liens contextuels (DoWhy).
 
 ---
 
-## 5. Machine Learning & XAI (Détection de Trajectoires à Risque)
+## 7. Machine Learning & XAI (Détection de Trajectoires à Risque)
 
 ### Modèle de Classification d'Escalade (Gradient Boosting / GNN)
 **Formule Objective (Objectif ML) :**
@@ -269,7 +267,7 @@ $$
 *   **Limites / Biais (Edge Cases) :** Le risque de prophétie autoréalisatrice et les biais de signalement (over-policing sur certaines populations). La machine peut confondre forte corrélation et causalité, transformant un faisceau de rumeurs en "escalade", d'où la nécessité absolue de l'XAI (Explainable AI - SHAP) et de la Revue Humaine.
 
 
-## X. Algorithmes de Scoring & Graphes Avancés
+## 8. Algorithmes de Scoring & Graphes Avancés
 
 ### 1. Variables (Features) du Graphe
 - **Centralité** : Degree (Nombre de plaintes) et Betweenness (Le suspect est-il le pont entre plusieurs affaires séparées ?).
@@ -281,7 +279,7 @@ L'architecture prévoit 3 niveaux de modélisation :
 - **Standard** : Random Forest / XGBoost.
 - **Deep Learning / GNN** : Graph Neural Networks et Node2Vec (Vecteurs d'intégration des nœuds) pour détecter des clusters cachés.
 
-## X. Vecteur de Caractéristiques (Feature Vector)
+## 9. Vecteur de Caractéristiques (Feature Vector)
 
 Pour qu'un individu soit scoré par les modèles ML (Baseline ou XGBoost), les tables relationnelles sont écrasées (Feature Engineering) dans un tenseur ou un dictionnaire JSON plat.
 Exemple d'input mathématique pour l'inférence :
@@ -297,7 +295,7 @@ Exemple d'input mathématique pour l'inférence :
 ```
 Ce vecteur est la "traduction" algébrique du comportement humain.
 
-## X. Mise en Perspective des Algorithmes de Scoring
+## 10. Mise en Perspective des Algorithmes de Scoring
 
 L'analyse internationale révèle l'usage d'outils de scoring existants :
 - **Outils locaux (UK)** : Séries de règles semi-automatiques (ex: VAR / DASH pour les violences domestiques).
@@ -305,7 +303,7 @@ L'analyse internationale révèle l'usage d'outils de scoring existants :
 
 **La différence CGIP** : Notre modèle mathématique XGBoost / GNN se démarque de l'approche américaine car il n'évalue jamais des "zones" (Hotspot) ou des probabilités de récidive pures, mais des **réseaux d'événements avérés** (Graph Centrality) pour éviter les biais sociologiques.
 
-## X. Formulaire Officiel du Scoring de Risque
+## 11. Formulaire Officiel du Scoring de Risque
 
 Le pseudo-code nous donne les équations réelles à implémenter :
 
@@ -319,13 +317,13 @@ Le `raw_score` issu de XGBoost subit un filtre pénal brutal :
 - **Règle de Multiplicité** : Si `event_count < 2` (source unique), alors `Score = Score * 0.7`. (Évite la condamnation algorithmique sur dénonciation calomnieuse unique).
 - **Règle d'Alerte** : Si `Score > 0.90` (Seuil critique), le système est mis en pause et renvoie le flag `CRITICAL_REVIEW_REQUIRED` au lieu de déclencher une action directe.
 
-## X. La Couche d'Intégration Vectorielle (Embeddings)
+## 12. La Couche d'Intégration Vectorielle (Embeddings)
 
 Le schéma fige l'utilisation des algorithmes de plongement de graphe.
 Les algorithmes comme **GraphSAGE** ou **Node2Vec** sont mandatés pour transformer le sous-graphe d'un individu en un vecteur dense unidimensionnel (`vector[128]`). 
 C'est ce vecteur de 128 dimensions, couplé aux features tabulaires SQL, qui sera injecté dans l'arbre de décision final (XGBoost).
 
-## X. Hyperparamètres du Modèle d'Évaluation (XGBoost)
+## 13. Hyperparamètres du Modèle d'Évaluation (XGBoost)
 
 Le pseudo-code fige les hyperparamètres de base du modèle XGBoost Classifier. Il est volontairement bridé (max_depth faible) pour éviter l'overfitting et garder une certaine explicabilité (SHAP).
 ```python
@@ -336,54 +334,52 @@ model = xgb.XGBClassifier(
 )
 ```
 
-
-## XI. Équations du Graph Neural Network (GraphSAGE)
+## 14. Équations du Graph Neural Network (GraphSAGE)
 
 Pour extraire l'ADN social des suspects (Centralité et Proximité à risque) de manière prédictive, la CGIP utilise l'algorithme **GraphSAGE**. Contrairement à un GCN transductif, GraphSAGE permet de générer des vecteurs d'apprentissage (Embeddings) "à la volée" pour de nouveaux profils sans ré-entraîner toute la base de données.
 
 ### 1. L'Équation d'Agrégation (Message Passing)
 Un individu s'imprègne du risque de son entourage direct. À chaque itération $k$, l'algorithme agrège les vecteurs des voisins $\mathcal{N}(v)$ de la personne $v$ :
 
-$$ h_{\mathcal{N}(v)}^{k} = 	ext{AGGREGATE}_{k} \Big( \{ h_u^{k-1}, orall u \in \mathcal{N}(v) \} \Big) $$
+$$ h_{\mathcal{N}(v)}^{k} = \text{AGGREGATE}_{k} \Big( \{ h_u^{k-1}, \forall u \in \mathcal{N}(v) \} \Big) $$
 
 *(La fonction AGGREGATE peut être une moyenne (`Mean`), un réseau de neurones (`Pool`), ou un LSTM. La CGIP utilise la moyenne pour l'explicabilité juridique).*
 
 ### 2. L'Équation de Mise à Jour (Update)
 Une fois les "messages" du voisinage reçus, on fusionne l'ancienne signature à risque de l'individu avec la nouvelle, via une matrice de poids $W^k$ et une fonction d'activation non-linéaire $\sigma$ (ex: ReLU) :
 
-$$ h_v^k = \sigma \Big( W^k \cdot 	ext{CONCAT} ig( h_v^{k-1}, h_{\mathcal{N}(v)}^k ig) \Big) $$
+$$ h_v^k = \sigma \Big( W^k \cdot \text{CONCAT} \big( h_v^{k-1}, h_{\mathcal{N}(v)}^k \big) \Big) $$
 
 ### 3. La Synthèse Absolue (Vector[128])
 Après $K=2$ itérations (pour voir "l'ami de l'ami"), le vecteur final $z_v$ contient toute l'information topologique. Il a une dimension exacte de 128.
 
-$$ z_v = h_v^K \quad 	ext{avec} \quad z_v \in \mathbb{R}^{128} $$
+$$ z_v = h_v^K \quad \text{avec} \quad z_v \in \mathbb{R}^{128} $$
 
-**Règle d'Encapsulation** : $z_v$ n'est pas un score de condamnation. C'est un vecteur mathématique neutre qui est ensuite passé au **XGBoost Classifier** (Chapitre X), seul habilité à formuler la probabilité, elle-même soumise au **Bouclier Légal**.
+**Règle d'Encapsulation** : $z_v$ n'est pas un score de condamnation. C'est un vecteur mathématique neutre qui est ensuite passé au **XGBoost Classifier** (Chapitre 13), seul habilité à formuler la probabilité, elle-même soumise au **Bouclier Légal**.
 
-
-## XII. Justification Légale des Contraintes Algorithmiques
+## 15. Justification Légale des Contraintes Algorithmiques
 
 L'article 22 du RGPD interdit les "décisions juridiques automatisées".
-C'est pourquoi notre équation de Scoring (Chapitre X) inclut la contrainte : `final_score = min(score, 0.99)`.
+C'est pourquoi notre équation de Scoring (Chapitre 11) inclut la contrainte : `final_score = min(score, 0.99)`.
 Mathématiquement, l'IA de la CGIP a l'interdiction d'atteindre 100% (la certitude absolue). La machine propose une asymptote de risque ; le dernier pourcent, celui de la décision, est obligatoirement humain.
 
-## XIII. Extension de la ML Sandbox (Modèles Autorisés)
+## 16. Extension de la ML Sandbox (Modèles Autorisés)
 
 La doctrine interdit le score individuel automatique. L'IA a pour seul but de "prioriser l'attention administrative" (Similarity & Links). Le catalogue des algorithmes légaux s'étend au-delà de XGBoost/GraphSAGE :
 1. **Détection d'Anomalies** : `Isolation Forest` (pour détecter un parcours atypique dans le réseau).
 2. **Graph Embedding local** : `Node2Vec` (pour la similarité stricte entre deux dossiers).
 3. **Temporal Clustering** : Mathématiques de séries temporelles pour détecter l'accélération des événements (Violence -> École -> Fugue).
 
-## XIV. Équations du Link Prediction (GNN)
+## 17. Équations du Link Prediction (GNN)
 
 Pour lier deux affaires `Case_i` et `Case_j`, la CGIP utilise une tête de prédiction (Link Prediction Head) robuste :
 
-$$ 	ext{Score} = 	ext{MLP} \Big( [emb_i || emb_j || |emb_i - emb_j|] \Big) $$
+$$ \text{Score} = \text{MLP} \Big( [emb_i || emb_j || |emb_i - emb_j|] \Big) $$
 
 ### Entraînement et Fonction de Perte
 L'apprentissage se fait par *Binary Cross Entropy* avec pondération pour déséquilibre de classes (Class Imbalance Weighting), comparant de vrais liens confirmés par enquête à des paires aléatoires négatives.
 
-## XV. Format de Sortie Légal de l'IA (Output Structuré)
+## 18. Format de Sortie Légal de l'IA (Output Structuré)
 
 Pour garantir la non-décision automatique, la sortie mathématique du GNN (le classifieur final) est strictement formatée. La machine n'infère jamais la culpabilité. Elle produit un output binaire :
 
@@ -402,12 +398,12 @@ Pour garantir la non-décision automatique, la sortie mathématique du GNN (le c
 ```
 Ce format est la seule preuve admissible générée par la machine pour l'enquêteur.
 
-## XVI. Validation Juridique du Rule Engine
+## 19. Validation Juridique du Rule Engine
 
-Les limites fixées par la CNIL et l'article 22 du RGPD (interdiction de la décision automatisée) valident à 100% le Rule Engine que nous avons codé (Chapitre X).
+Les limites fixées par la CNIL et l'article 22 du RGPD (interdiction de la décision automatisée) valident à 100% le Rule Engine que nous avons codé (Chapitre 11).
 Notre bridage mathématique (`max_depth=4` pour XGBoost, et plafonnement de certitude) est la traduction mathématique exacte de cette doctrine juridique. Un "Risk Score Individuel" pur est illégal ; c'est pourquoi notre modèle calcule une probabilité de "similarité structurelle" d'une affaire, et non une probabilité de récidive humaine.
 
-## XVII. Extension des Modèles de la Couche 4
+## 20. Extension des Modèles de la Couche 4
 
 La Couche 4 (ML) inclut formellement :
 1. **Modèles de liaison** : Détection de similarité, clustering de modes opératoires, analyse de séquences temporelles.
