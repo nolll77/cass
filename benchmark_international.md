@@ -199,3 +199,16 @@ Une simulation mathématique a été codée (`src/ml_engine/simulate_world_model
 4. **CGIP (Notre Modèle)** : Le score est calculé purement sur la topologie du Graphe institutionnel. `institutions_involved = 5`, ce qui déclenche le `graph_bonus (+25)`. Le score final frôle le plafond (95). Mais le *Rule Engine* légal intervient : l'IA ne peut pas arrêter P001 ni dépasser le seuil d'intervention automatique. Elle émet une **Alerte CRITIQUE** à un magistrat humain qui a toute la vision 360° sous les yeux.
 
 La preuve algorithmique est éclatante. La CGIP bloque la fatalité française tout en brisant la mécanique dictatoriale chinoise.
+
+## Axe 3 : L'Opposition Philosophique (France vs Modèles Anglo-Saxons)
+
+### 1. Analyse Individuelle
+- **France** : Approche réactive. Le Droit juge des faits passés, individualisés. Le fichage prédictif est historiquement rejeté.
+- **USA / UK** : Approche utilitariste et actuarielle. Forte utilisation de *Risk Assessment Tools* (ex: COMPAS aux USA, Probation scoring au UK).
+
+### 2. Confrontation au Modèle Français
+Les systèmes anglo-saxons acceptent une marge d'erreur algorithmique pour maximiser la sécurité globale. La France refuse qu'une statistique enferme un individu (Peur du profilage).
+
+### 3. Le "Fil Rouge" (La Justification CGIP)
+Le lien caché entre ces pays est la **Gestion de la Responsabilité**. Aux USA, l'algorithme est un parapluie pour le juge. En France, le juge refuse de déléguer son intime conviction.
+La **CGIP** fusionne ces deux mondes : elle utilise la puissance actuarielle (ML/GNN) anglo-saxonne, mais l'enferme dans un "Rule Engine" juridique français qui bloque toute décision automatisée. C'est un compromis souverain.

@@ -226,3 +226,8 @@ L'objectif est d'organiser le projet open-source / institutionnel en séparant c
 **Labels:** data-engineering, spark, big-data
 - **Contexte Analytique :** Développer le script `src/ingestion/spark_etl.py`.
 - **Périmètre Technique :** Le script doit lire un Data Lake simulé (Parquet), filtrer les données (ex: mineurs, affaires récentes), et construire le *Feature Store* de base avant injection dans Neo4j/XGBoost.
+
+### Issue — [Security] #029 — Implémentation de l'Audit Log (Traçabilité CNIL)
+**Labels:** security, compliance, backend
+- **Contexte Analytique :** La CNIL exige une traçabilité totale des accès aux données sensibles.
+- **Périmètre Technique :** Créer un middleware qui loggue chaque requête (qui a accédé à quoi, quand, et pourquoi) dans une base de données isolée et immuable (ex: ElasticSearch ou base append-only).

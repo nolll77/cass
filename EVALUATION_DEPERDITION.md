@@ -142,3 +142,7 @@ Le modèle CGIP résout l'aveuglement en instanciant une **Double Base de Donné
 ## Le Problème des Erreurs Humaines
 
 L'un des échecs silencieux de Cassiopée est l'erreur humaine de saisie (nom mal orthographié, champ date manquant). La CGIP pallie cela en utilisant la Couche de Résolution d'Entité avant même l'ingestion dans Neo4j. Spark nettoiera les erreurs de saisie que l'État produit par fatigue.
+
+## Le Principe du "Garbage In, Danger Out"
+
+Le texte souligne que les bases Cassiopée ou TAJ sont gangrenées par des saisies incomplètes ou hétérogènes. C'est l'explication fondamentale de pourquoi un modèle ML pur (sans Graphe) sur ces données produirait des "décisions dangereuses". La CGIP absorbe cette faiblesse en diluant la donnée textuelle faillible dans la vérité mathématique du graphe relationnel.

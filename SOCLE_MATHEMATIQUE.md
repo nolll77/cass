@@ -354,3 +354,10 @@ Après $K=2$ itérations (pour voir "l'ami de l'ami"), le vecteur final $z_v$ co
 $$ z_v = h_v^K \quad 	ext{avec} \quad z_v \in \mathbb{R}^{128} $$
 
 **Règle d'Encapsulation** : $z_v$ n'est pas un score de condamnation. C'est un vecteur mathématique neutre qui est ensuite passé au **XGBoost Classifier** (Chapitre X), seul habilité à formuler la probabilité, elle-même soumise au **Bouclier Légal**.
+
+
+## XII. Justification Légale des Contraintes Algorithmiques
+
+L'article 22 du RGPD interdit les "décisions juridiques automatisées".
+C'est pourquoi notre équation de Scoring (Chapitre X) inclut la contrainte : `final_score = min(score, 0.99)`.
+Mathématiquement, l'IA de la CGIP a l'interdiction d'atteindre 100% (la certitude absolue). La machine propose une asymptote de risque ; le dernier pourcent, celui de la décision, est obligatoirement humain.

@@ -77,3 +77,7 @@ Il s'agit du "frigo" intellectuel du projet CGIP. Lorsqu'un sujet est exploré, 
 - [x] Détailler le modèle GNN (Graph Neural Network) pour les liens de risque
 - [x] Rédiger un document de design "Compatible CNIL / RGPD strict"
 - [ ] Créer une simulation visuelle complète E2E d'un cas (Timeline + Scoring + Graph)
+
+- [ ] Modéliser à quoi ressemblerait une version 100% acceptable juridiquement en France (Documentation).
+- [ ] Analyser techniquement les outils de scoring spécifiques du UK.
+- [ ] Concevoir le design d'un modèle hybride "Prévention sans profilage individuel".

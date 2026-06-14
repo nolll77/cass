@@ -378,3 +378,10 @@ Le `Consumer` Kafka (Script : `kafka_consumer.py`) intercepte le message et orch
 4. **Étape Analytique** : Une fois la "vérité" figée, le modèle **XGBoost** (`risk_scorer.py`) est réveillé pour recalculer le score global de l'individu ciblé.
 
 **Orchestration Stricte** : L'IA ne tourne jamais en amont. Elle est toujours la dernière étape de la chaîne, garantissant qu'elle calcule son score sur la topologie la plus fraîche et sécurisée possible.
+
+
+## XII. Cloisonnement Légal & Traçabilité (Zero Trust)
+
+Face à la "Fragmentation institutionnelle" et aux divers secrets (médical, instruction), l'architecture technique adopte un modèle *Zero Trust*.
+- Le Graphe Neo4j stocke les liens, mais les propriétés détaillées des nœuds restent soumises à la clé de déchiffrement du Magistrat.
+- La traçabilité est absolue : tout accès par le ML ou un acteur humain laisse une empreinte d'audit (Audit Trail) pour répondre à la CNIL.

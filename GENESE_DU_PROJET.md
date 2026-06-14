@@ -479,3 +479,14 @@ Même avec le meilleur XGBoost, le système s'effondrera si :
 
 ### 3. Ce que cela fonde pour le Projet
 Le texte pose une conclusion historique : "Aucun pays démocratique n'a encore un système unifié complet en temps réel". La CGIP n'est donc pas la copie d'un système existant, c'est l'ambition de construire la première architecture d'intégration institutionnelle d'Europe.
+
+## BLOC 12 : L'Échiquier Politique et Juridique Français
+
+### 1. La matière brute fournie
+Le texte dresse un panorama exhaustif des 10 blocages systémiques (juridiques, culturels, institutionnels) qui rendent le déploiement d'une IA judiciaire politiquement "explosif" en France.
+
+### 2. L'analyse du problème (La Peur du Pré-Crime)
+La culture française oppose frontalement le Droit (réaction à un fait, individualisation) à la Prédiction (probabilités, profiling). Un système centralisé réveille le spectre de "Big Brother", se heurte au secret de l'instruction, et soulève la question insoluble de la responsabilité algorithmique : "Si la machine se trompe, qui paie ?".
+
+### 3. Ce que cela fonde pour le Projet
+Cela légitime **toutes** les barrières techniques que nous avons codées (Le Sas RGPD, le RBAC, le bridage XGBoost). La CGIP ne fait pas du "pré-crime" individuel à l'anglo-saxonne, elle fait de la "topologie de risque" soumise au magistrat. Le projet n'est acceptable que parce qu'il intègre ces blocages non pas comme des freins, mais comme des *cahiers des charges architecturaux*.
