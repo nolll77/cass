@@ -327,3 +327,31 @@ Le simulateur va :
 ---
 
 > *"Le code fait loi (Lessig). Dans la CGIP, la loi fait le code."*
+
+
+## Architecture de Confiance : "France Justice 2.0"
+
+Le système n'est pas un fichier centralisé (Big Brother), mais un **Réseau Fédéré sur Cloud Souverain**.
+
+```text
+┌────────────────────────────────────────────────────────┐
+│               CLOUD SOUVERAIN (SecNumCloud)            │
+├─────────────┬───────────────────┬──────────────────────┤
+│ JUSTICE     │ POLICE / INTÉRIEUR│ SOCIAL / ÉDUCATION   │
+│ (Niveau 0/1)│ (Niveau 1)        │ (Niveau 2)           │
+└─────┬───────┴────────┬──────────┴────────┬─────────────┘
+      │                │                   │
+      ▼                ▼                   ▼
+┌────────────────────────────────────────────────────────┐
+│  SECURE DATA FABRIC & KAFKA STREAMING (Event-Driven)   │
+└──────────────────────┬─────────────────────────────────┘
+                       ▼
+┌────────────────────────────────────────────────────────┐
+│  GRAPH ENGINE (Neo4j) - Topologie et Liens Anonymisés  │
+└──────────────────────┬─────────────────────────────────┘
+                       ▼
+┌────────────────────────────────────────────────────────┐
+│  ML SANDBOX (Isolée) - Aide à la décision (Non Auto)   │
+└────────────────────────────────────────────────────────┘
+```
+L'Intelligence Artificielle de la CGIP ne décide jamais. Elle agit dans une Sandbox isolée pour générer des signaux de priorisation humaine, basés sur le clustering et la topologie.

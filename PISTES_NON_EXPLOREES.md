@@ -81,3 +81,7 @@ Il s'agit du "frigo" intellectuel du projet CGIP. Lorsqu'un sujet est exploré, 
 - [ ] Modéliser à quoi ressemblerait une version 100% acceptable juridiquement en France (Documentation).
 - [ ] Analyser techniquement les outils de scoring spécifiques du UK.
 - [ ] Concevoir le design d'un modèle hybride "Prévention sans profilage individuel".
+
+- [ ] Réaliser une simulation complète d'un cas Lyhanna-like (Timeline + Détection GNN + Alertes) dans le pipeline Cloud Souverain.
+- [ ] Étudier les mathématiques du Temporal Clustering pour la prédiction de crise à très court terme.
+- [ ] Détailler l'architecture "Hardware Security Module (HSM)" et le chiffrement End-to-End.

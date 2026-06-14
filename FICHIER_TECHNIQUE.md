@@ -385,3 +385,15 @@ Le `Consumer` Kafka (Script : `kafka_consumer.py`) intercepte le message et orch
 Face à la "Fragmentation institutionnelle" et aux divers secrets (médical, instruction), l'architecture technique adopte un modèle *Zero Trust*.
 - Le Graphe Neo4j stocke les liens, mais les propriétés détaillées des nœuds restent soumises à la clé de déchiffrement du Magistrat.
 - La traçabilité est absolue : tout accès par le ML ou un acteur humain laisse une empreinte d'audit (Audit Trail) pour répondre à la CNIL.
+
+## XIII. Infrastructure "Cloud Souverain" et Niveaux de Sécurité
+
+L'architecture physique de la CGIP est pensée pour un déploiement sur un **Cloud de Confiance (SecNumCloud)**, segmenté par ministères (Justice, Intérieur, Social).
+
+### Classification des Données (Zero Trust)
+- **🟥 Niveau 0 (Ultra Sensible)** : Secret de l'instruction, données mineurs/santé. *Stockage isolé (Air-gapped logique).*
+- **🟧 Niveau 1 (Judiciaire/Police)** : Procédures pénales, TAJ.
+- **🟩 Niveau 2 (Administratif)** : Signalements éducatifs, ASE.
+
+### La "Secure Data Fabric"
+Au lieu d'une base monolithique, le système utilise une *API Gateway Souveraine* et une *Federation Layer*. Neo4j interroge ces bases via des index et des tokens pseudonymisés (Identity Layer), sans jamais rapatrier la donnée brute textuelle de Niveau 0 dans son moteur de calcul.

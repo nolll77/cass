@@ -212,3 +212,17 @@ Les systèmes anglo-saxons acceptent une marge d'erreur algorithmique pour maxim
 ### 3. Le "Fil Rouge" (La Justification CGIP)
 Le lien caché entre ces pays est la **Gestion de la Responsabilité**. Aux USA, l'algorithme est un parapluie pour le juge. En France, le juge refuse de déléguer son intime conviction.
 La **CGIP** fusionne ces deux mondes : elle utilise la puissance actuarielle (ML/GNN) anglo-saxonne, mais l'enferme dans un "Rule Engine" juridique français qui bloque toute décision automatisée. C'est un compromis souverain.
+
+## Axe 4 : L'Interopérabilité vs Le Cloisonnement (UK / NL / FR)
+
+### 1. Analyse Individuelle
+- **UK** : Très orienté "Data Sharing" local (MASH), mais l'architecture IT reste fragmentée.
+- **Pays-Bas (NL)** : Approche "Case-Centric" très avancée, forte interopérabilité technique.
+- **France** : Approche "Silo Sécurisé". Très fort cloisonnement juridique et technique, interopérabilité temps réel quasi-nulle.
+
+### 2. Confrontation
+La France bloque techniquement là où les Pays-Bas réussissent, à cause de la rigidité de ses statuts ministériels. Le UK compense la fragmentation IT par des réunions humaines (MASH), ce qui est inefficace à l'échelle d'un pays comme la France.
+
+### 3. Le "Fil Rouge"
+Le lien caché est le **Trademill de la Souveraineté de la Donnée**. Aucun ministère (Police vs Justice) ne veut abandonner son pouvoir sur sa base de données.
+La CGIP résout ce problème politique par le concept de **Fédération de Graphe** : Neo4j ne "vole" pas la donnée au TAJ ou à Cassiopée, il ne stocke que le lien (`Person-[INVOLVED_IN]->Event`), respectant l'ego et la souveraineté institutionnelle de chaque ministère.

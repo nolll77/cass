@@ -361,3 +361,10 @@ $$ z_v = h_v^K \quad 	ext{avec} \quad z_v \in \mathbb{R}^{128} $$
 L'article 22 du RGPD interdit les "décisions juridiques automatisées".
 C'est pourquoi notre équation de Scoring (Chapitre X) inclut la contrainte : `final_score = min(score, 0.99)`.
 Mathématiquement, l'IA de la CGIP a l'interdiction d'atteindre 100% (la certitude absolue). La machine propose une asymptote de risque ; le dernier pourcent, celui de la décision, est obligatoirement humain.
+
+## XIII. Extension de la ML Sandbox (Modèles Autorisés)
+
+La doctrine interdit le score individuel automatique. L'IA a pour seul but de "prioriser l'attention administrative" (Similarity & Links). Le catalogue des algorithmes légaux s'étend au-delà de XGBoost/GraphSAGE :
+1. **Détection d'Anomalies** : `Isolation Forest` (pour détecter un parcours atypique dans le réseau).
+2. **Graph Embedding local** : `Node2Vec` (pour la similarité stricte entre deux dossiers).
+3. **Temporal Clustering** : Mathématiques de séries temporelles pour détecter l'accélération des événements (Violence -> École -> Fugue).

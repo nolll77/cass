@@ -231,3 +231,8 @@ L'objectif est d'organiser le projet open-source / institutionnel en séparant c
 **Labels:** security, compliance, backend
 - **Contexte Analytique :** La CNIL exige une traçabilité totale des accès aux données sensibles.
 - **Périmètre Technique :** Créer un middleware qui loggue chaque requête (qui a accédé à quoi, quand, et pourquoi) dans une base de données isolée et immuable (ex: ElasticSearch ou base append-only).
+
+### Issue — [Architecture] #030 — Implémentation de l'API Gateway "Data Fabric"
+**Labels:** backend, federation, cloud
+- **Contexte :** La CGIP ne doit pas taper directement en base SQL. Elle doit passer par un fédérateur inter-ministériel.
+- **Action :** Coder une API GraphQL ou un point d'entrée REST qui orchestre l'accès aux niveaux 0, 1, et 2 avec vérification HSM (Hardware Security Module).

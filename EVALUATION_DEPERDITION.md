@@ -146,3 +146,7 @@ L'un des échecs silencieux de Cassiopée est l'erreur humaine de saisie (nom ma
 ## Le Principe du "Garbage In, Danger Out"
 
 Le texte souligne que les bases Cassiopée ou TAJ sont gangrenées par des saisies incomplètes ou hétérogènes. C'est l'explication fondamentale de pourquoi un modèle ML pur (sans Graphe) sur ces données produirait des "décisions dangereuses". La CGIP absorbe cette faiblesse en diluant la donnée textuelle faillible dans la vérité mathématique du graphe relationnel.
+
+## Le Pont Fédérateur vs Le Monolithe Cassiopée
+
+Le projet initial souffrait de l'aveuglement de Cassiopée, enfermé dans son silo ministériel. Mais la solution n'est pas de fusionner Cassiopée avec le TAJ (impossible juridiquement). Le gap est comblé par la **Data Fabric**. On passe d'une logique de *stockage mort* à une logique d'*interrogation dynamique* : le Graphe se construit à la volée en agrégeant les fragments de chaque Cloud ministériel.
