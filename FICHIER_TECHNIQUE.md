@@ -263,3 +263,35 @@ Pour éviter la "contamination de la preuve", la CGIP utilise deux bases de donn
   "metadata": {"source": "school", "text": "incident violent"}
 }
 ```
+
+---
+
+## 10. Le Modèle de Graphe "Idéal Européen" (Ontologie Neo4j Pure)
+
+La structuration de la base orientée graphe ne relève pas de la simple optimisation de performance : elle matérialise le cadre légal du RGPD. Voici l'ontologie stricte (Labels, Propriétés, Arêtes) qui sépare la réalité prouvée des déductions de l'IA.
+
+### 10.1. Les Nœuds (Entities)
+On sépare strictement les faits judiciaires des signaux faibles de la société civile.
+1. `(:Person)` : L'individu.
+   - Propriétés : `hashed_id` (L'identité réelle reste dans le coffre SQL), `privacy_tier` (Niveau de protection des données).
+2. `(:OfficialEvent)` : Les faits judiciairement validés.
+   - Propriétés : `type` (Plainte, Condamnation), `timestamp`, `severity` (1 à 10).
+3. `(:AdminSignal)` : Les signaux faibles administratifs.
+   - Propriétés : `source` (École, Hôpital), `reliability` (Fiabilité intrinsèque de la source), `timestamp`.
+4. `(:Context)` : Les espaces de croisement (Physiques ou virtuels).
+   - Propriétés : `category` (Établissement scolaire, Réseau social), `name_hash`.
+
+### 10.2. Les Arêtes Factuelles (Zone Verte)
+Ces relations sont créées par le pipeline d'ingestion. Elles représentent la vérité administrative à l'instant T.
+- `(Person)-[:INVOLVED_IN {role: "Suspect", status: "Closed"}]->(OfficialEvent)`
+- `(Person)-[:MENTIONED_IN {confidence_score: 0.85, time_to_live_days: 180}]->(AdminSignal)`
+- `(OfficialEvent)-[:OCCURRED_AT]->(Context)`
+
+### 10.3. Les Arêtes Probabilistes (Zone Jaune ML)
+Ces relations sont injectées **par l'IA** (Graph Neural Networks) lors du recalcul nocturne. C'est ici que l'Idéal Européen impose sa loi : **Toutes ces arêtes ont une Date de Péremption (TTL Index)**.
+- `(Person)-[:LATENT_RISK_LINK {weight: 0.92, shapley_justification: "Comm_Context"}]->(Person)`
+   - *Traduction* : "L'IA suspecte fortement que X et Y travaillent ensemble car ils gravitent autour des mêmes contextes simultanément. Poids : 0.92".
+- `(Person)-[:ESCALATING_TOWARDS {hawkes_intensity: 4.5}]->(Context)`
+   - *Traduction* : "L'individu X est en train d'intensifier ses actions autour de l'École Z."
+
+> **MÉCANISME DE DÉFENSE (TTL)** : Dans Neo4j, une contrainte `db.index.ttl` est appliquée aux arêtes probabilistes. Si aucune nouvelle preuve factuelle ne vient valider l'intuition de l'IA dans les 30 jours, l'arête `LATENT_RISK_LINK` est automatiquement effacée de la base. L'IA n'a pas le droit de créer une "suspicion permanente" infondée.

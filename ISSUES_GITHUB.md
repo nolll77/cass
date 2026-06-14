@@ -142,6 +142,11 @@ L'objectif est d'organiser le projet open-source / institutionnel en séparant c
 - **Contexte Analytique :** Construire le moteur de prédiction principal (Zone Jaune) qui lira les Features générées par l'Issue #016.
 - **Périmètre Technique :** Entraînement du modèle `XGBClassifier` sur des données historiques. Implémentation de la librairie `shap` pour générer le diagramme de force (*Force Plot*) justifiant légalement chaque alerte pour le magistrat.
 
+### Issue — [Graph] #021 — Déploiement de l'Ontologie Cypher (Zone Verte vs Jaune)
+**Labels:** graph-db, data-engineering, difficulty: medium
+- **Contexte Analytique :** Inscrire le "Privacy by Design" en dur dans la structure Neo4j.
+- **Périmètre Technique :** Script d'initialisation Cypher (`CREATE CONSTRAINT`). Mise en place des nœuds `OfficialEvent` et `AdminSignal`. Création de l'index TTL (`Time-To-Live`) automatique sur les arêtes latentes générées par le ML pour assurer l'oubli automatique des fausses suspicions.
+
 ### Issue — [Legal] #017 — Moteur de Conformité (Garde-Fou Zone Rouge)
 **Labels:** legal, security, difficulty: hard
 - **Contexte Analytique :** Empêcher techniquement l'IA de prendre une décision ou de "prédire" une personne.

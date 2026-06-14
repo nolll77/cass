@@ -39,8 +39,7 @@ Il s'agit du "frigo" intellectuel du projet CGIP. Lorsqu'un sujet est exploré, 
 - [ ] **Simulation complète d'un cas multi-institutions (3 systèmes)** : Dérouler l'affaire L. dans Cassiopée, MASH UK, et Modèle Suédois.
 - [x] **Version "industrie type Palantir / police analytics"** : Construire la maquette avec des outils Big Data existants. *(Traité dans le Bloc 16 via Benchmark)*
 - [ ] **Exemple concret de pipeline "Safe Scoring"** : Coder l'architecture avec isolation de la Zone Jaune.
-- [ ] **Simulation d'un cas réel étape par étape (Vert/Orange/Rouge)** : Démonstration du Dashboard d'alerte en action.
-- [ ] **Modèle de graphe de données "Idéal Européen"** : Spécification d'un graphe respectant les limites RGPD par design.
+- [x] **Modèle de graphe de données "Idéal Européen"** : Spécification d'un graphe respectant les limites RGPD par design. *(Traité dans le Fichier Technique)*
 - [x] **Système ML de détection de signaux faibles** : Architecture de l'IA (Features, Scoring, Poids). *(Traité dans le Socle Mathématique)*
 - [x] **Schéma technique complet (Data Lake Justice + AI Layer)** : Cartographie de déploiement cloud souverain. *(Traité dans Fichier Technique - Mermaid)*
 - [ ] **Le Danemark (L'intégration par Registre National)** : Comment les Danois interconnectent l'administration, la santé, et le social pour la protection de l'enfance, avec ses effets et ses limites éthiques.
