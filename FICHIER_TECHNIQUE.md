@@ -173,10 +173,18 @@ Le sixième échange définit les 5 catégories d'algorithmes mathématiques à 
 - **Implémentation (Couche A / C)** : Graph Neural Networks (GNN) et algorithmes de graphe (ex: *PageRank*, *Community Detection*) appliqués sur Neo4j.
 - **Cas d'usage** : Trouver le lien invisible entre deux victimes (ex: même école, même piscine) qui n'aurait pas été vu dans un tableau SQL.
 
-### 6.5 Entity Resolution (Rapprochement de dossiers)
-- **Objectif** : Dé-bruiter la base de données.
-- **Implémentation (Couche B)** : Algorithmes NLP et de matching probabiliste (souvent utilisés en détection de fraude bancaire).
-- **Cas d'usage** : La machine doit calculer mathématiquement si la "Mineure X" du signalement de 2026 est la même entité que la "Mineure Y" de la plainte de 2026, pour éviter de créer des doublons ou de diviser le risque par deux.
+### 6.5 Entity Resolution (Rapprochement de dossiers) et Pipeline NLP
+L'approche de la CGIP repose sur l'extraction d'information depuis du texte non structuré (rapports d'éducateurs, mains courantes). C'est le rôle de l'IA "Secrétaire" (Zone Verte).
+
+**Le Pipeline NLP à 3 étapes :**
+1. **Named Entity Recognition (NER)** : Un modèle Transformer (ex: *CamemBERT* ou *Mistral* fine-tuné sur le corpus juridique français) ingère un texte libre et identifie les entités : 
+   - *Texte* : "Hier, le petit J. Dupont a violemment poussé un camarade dans la cour du collège Rousseau."
+   - *Extraction* : `Personne: J. Dupont`, `Institution: Collège Rousseau`, `Event: Violence physique`.
+2. **Relation Extraction (RE)** : Le LLM structure la phrase en triplet sémantique (Sujet - Verbe - Objet) pour Neo4j :
+   - `(J. Dupont) -[:IMPLIQUÉ_DANS {role: "Auteur"}]-> (Violence) -[:HAPPENED_IN]-> (Collège Rousseau)`
+3. **Entity Resolution (Dédoublonnage Bayesien)** : Le cœur du système pour contourner l'absence d'Identifiant Unique (RGPD).
+   - L'algorithme calcule la similarité probabiliste entre "J. Dupont" (Signalement École) et "Jean Dupont" (Plainte TAJ de 2024).
+   - *Métrique* : Combinaison de distance lexicale (Jaro-Winkler) et de proximité spatio-temporelle. Si la similarité dépasse $85\%$, le système fusionne (Merge) les deux entités dans le Graphe avec un `Confidence Score` associé.
 
 ---
 

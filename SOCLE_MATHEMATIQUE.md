@@ -195,6 +195,35 @@ Lorsqu'un Magistrat (Zone Rouge) reçoit l'alerte sur son Dashboard, le système
 - 🟦 Pousse le risque vers le BAS (-0.15) : `risk_proximity_score` = Faible (La personne n'a aucun lien avec un réseau criminel existant).
 
 👉 **Conclusion du Magistrat** : Il ne s'agit pas d'un profil de "gang", mais d'une crise familiale ou personnelle grave et isolée en pleine explosion temporelle. Il peut ordonner une mesure d'assistance éducative ciblée. Le code a aidé la justice, sans la remplacer.
+
+---
+
+## 6. La Mathématique des Poids (Weights) et du Temps (Time Decay)
+
+La CGIP ne croit jamais aveuglément une donnée. Chaque relation (Arête) dans le graphe Neo4j possède un poids dynamique ($W_{edge}$) qui évolue selon la source et le temps. C'est l'essence même du "Privacy by Design".
+
+### 6.1. L'Équation du Poids Relatif (Confidence Score)
+
+Lorsqu'un nœud `[Personne]` est relié à un `[Event]`, le poids de l'arête est calculé ainsi :
+$$ W_{edge} = \text{Reliability}_{source} \times \text{Confidence}_{nlp} \times \text{Decay}(t) $$
+
+1. $\text{Reliability}_{source}$ (La fiabilité juridique) :
+   - Condamnation (Cassiopée) = $1.0$
+   - Plainte en cours (TAJ) = $0.8$
+   - Signalement Administratif (École/Social) = $0.5$
+   - Témoignage Civil Tech / Main Courante = $0.3$
+2. $\text{Confidence}_{nlp}$ : Le score de certitude généré par l'algorithme d'Entity Resolution. S'il n'est sûr qu'à 85% que "J. Dupont" est "Jean Dupont", on multiplie par $0.85$.
+
+### 6.2. Le "Droit à l'Oubli" Mathématique (Time Decay)
+
+Pour respecter le RGPD et la prescription pénale, un signalement ne peut pas avoir un impact infini dans le temps. L'algorithme applique une décroissance exponentielle :
+$$ \text{Decay}(t) = e^{-\lambda \Delta t} $$
+- $\Delta t$ : Le temps écoulé depuis l'événement (en mois ou années).
+- $\lambda$ : La constante de demi-vie légale.
+  - *Crime grave* : Demi-vie de 10 ans ($\lambda$ très faible).
+  - *Bagarre scolaire* : Demi-vie de 6 mois ($\lambda$ très élevé).
+
+**Conséquence Légale** : Une rumeur ou un petit signalement scolaire ($0.5$), s'il n'est pas réitéré, verra son poids tendre vers zéro en quelques mois. Le graphe "oublie" naturellement les individus inoffensifs, empêchant le fichage permanent. À l'inverse, 4 signalements scolaires dans le même mois verront leurs poids s'additionner pour déclencher l'anomalie.
 *   **Contraintes & Hypothèses (Assumptions) :** Une lente accumulation de signaux faibles (ex: 4 alertes scolaires à +1) est mathématiquement symptomatique d'une faille systémique nécessitant une intervention, au même titre qu'un signal fort isolé.
 *   **Limites / Biais (Edge Cases) :** Un individu innocent victime de harcèlement (ex: faux signalements anonymes répétés par un voisin vengeur) verra son score $S_{vuln}$ exploser artificiellement et déclenchera une alerte prioritaire, à moins que le *Confidence Score* ne vienne diviser le poids de ces rumeurs par zéro en amont.
 
