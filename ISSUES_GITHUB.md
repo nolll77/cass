@@ -137,6 +137,11 @@ L'objectif est d'organiser le projet open-source / institutionnel en séparant c
 - **Contexte Analytique :** Transformer les événements bruts en matrices mathématiques pour XGBoost/Hawkes.
 - **Périmètre Technique :** Code Python calculant sur des fenêtres glissantes (30j/90j) les features Temporelles, Sociales (Centralité) et Comportementales.
 
+### Issue — [ML] #020 — Entraînement Modèle XGBoost et Explicabilité SHAP
+**Labels:** ml, model-training, difficulty: hard
+- **Contexte Analytique :** Construire le moteur de prédiction principal (Zone Jaune) qui lira les Features générées par l'Issue #016.
+- **Périmètre Technique :** Entraînement du modèle `XGBClassifier` sur des données historiques. Implémentation de la librairie `shap` pour générer le diagramme de force (*Force Plot*) justifiant légalement chaque alerte pour le magistrat.
+
 ### Issue — [Legal] #017 — Moteur de Conformité (Garde-Fou Zone Rouge)
 **Labels:** legal, security, difficulty: hard
 - **Contexte Analytique :** Empêcher techniquement l'IA de prendre une décision ou de "prédire" une personne.

@@ -151,6 +151,50 @@ $$
 *   **Dépendance Amont :** Processus de Hawkes, Inférence Causale.
 *   **Dépendance Aval :** Interface Dashboard (Notification à l'utilisateur final).
 *   **Complexité Algorithmique :** O(N) — Simple somme, calcul immédiat.
+
+---
+
+## 5. Le Système ML de Détection de Signaux Faibles (Deep Dive)
+
+Conformément au Bloc 18, voici l'ingénierie précise des "Features" (caractéristiques mathématiques) extraites du Data Lake et du Graph pour alimenter le moteur ML. L'objectif de ce modèle n'est pas de dire "X est coupable", mais de répondre à la question probabiliste : **"Quelle est la probabilité que cette trajectoire d'événements mineurs débouche sur un événement grave (Sévérité > 8) dans les 6 prochains mois ?"**
+
+### 5.1. Le Feature Engineering (L'Art de quantifier le comportement)
+
+Le pipeline calcule un vecteur de 12 dimensions pour chaque Nœud Personne `[P]` sur des fenêtres glissantes ($t_{30}$, $t_{90}$, $t_{365}$ jours).
+
+#### 🟡 Catégorie A : Les Features Temporelles (Le Rythme)
+Ces variables mesurent l'accélération (Modèle de Hawkes).
+1. `event_frequency_90d` : Nombre total d'événements (toutes sources confondues) dans les 90 derniers jours.
+2. `days_since_last_event` : Temps écoulé depuis le dernier signal. Plus il est court, plus la chaleur est forte.
+3. `escalation_slope` : La dérivée (pente) de la gravité des événements. Si l'individu passe d'une bagarre (gravité 2) à un port d'arme (gravité 6), la pente est fortement positive.
+
+#### 🟡 Catégorie B : Les Features Graphe & Réseau (L'Environnement)
+Ces variables captent le "Gang" ou l'influence du milieu via l'algorithme *Node2Vec*.
+4. `degree_centrality` : Nombre de liens directs du nœud `[P]`.
+5. `risk_proximity_score` : Le PageRank inversé calculant la distance (nombre de sauts) entre `[P]` et des individus déjà classés "Rouge". (Si les 3 meilleurs amis de X sont incarcérés, son risque environnemental explose).
+6. `triadic_closure_rate` : À quelle vitesse le réseau criminel autour de `[P]` se referme et se densifie.
+
+#### 🟡 Catégorie C : Les Features Multi-Sources (La Transversalité)
+C'est ici que l'approche CGIP pulvérise l'approche "Silo" de la Police.
+7. `source_diversity_index` : Le nombre d'institutions différentes ayant émis un signal sur `[P]`.
+   - *Exemple* : 3 plaintes police = Biais local (Indice faible). 1 alerte école + 1 urgence hôpital + 1 main courante = Convergence de crise (Indice maximal).
+8. `institutional_contradiction` : Différence de sévérité entre les signaux de l'École et ceux de la Justice. (Révèle l'aveuglement judiciaire).
+
+### 5.2. L'Algorithme de Classification (XGBoost)
+
+Le modèle qui ingère ces 12 Features n'est pas un Réseau de Neurones Profond (Deep Learning), car la loi européenne exige une **Explicabilité Totale (XAI)**.
+- **Le Choix** : `XGBoost` (Gradient Boosting Tree) ou `LightGBM`.
+- **Pourquoi ?** : Les arbres de décision sont insensibles à la variance spatiale, gèrent parfaitement les données manquantes (courantes en administration), et surtout, ils supportent la librairie **SHAP (SHapley Additive exPlanations)**.
+
+### 5.3. Le Bouclier Juridique : SHAP (Explicabilité)
+
+Lorsqu'un Magistrat (Zone Rouge) reçoit l'alerte sur son Dashboard, le système XGBoost crache un score de risque de `0.88`. S'il s'arrête là, c'est de la surveillance de masse illégale.
+**La compliance RGPD impose d'afficher le diagramme de force SHAP :**
+- 🟥 Pousse le risque vers le HAUT (+0.40) : `source_diversity_index` = 3 (L'école, l'hôpital et la police ont tous les trois sonné l'alarme en moins de 30 jours).
+- 🟥 Pousse le risque vers le HAUT (+0.30) : `escalation_slope` = +2.5 (La gravité des actes monte).
+- 🟦 Pousse le risque vers le BAS (-0.15) : `risk_proximity_score` = Faible (La personne n'a aucun lien avec un réseau criminel existant).
+
+👉 **Conclusion du Magistrat** : Il ne s'agit pas d'un profil de "gang", mais d'une crise familiale ou personnelle grave et isolée en pleine explosion temporelle. Il peut ordonner une mesure d'assistance éducative ciblée. Le code a aidé la justice, sans la remplacer.
 *   **Contraintes & Hypothèses (Assumptions) :** Une lente accumulation de signaux faibles (ex: 4 alertes scolaires à +1) est mathématiquement symptomatique d'une faille systémique nécessitant une intervention, au même titre qu'un signal fort isolé.
 *   **Limites / Biais (Edge Cases) :** Un individu innocent victime de harcèlement (ex: faux signalements anonymes répétés par un voisin vengeur) verra son score $S_{vuln}$ exploser artificiellement et déclenchera une alerte prioritaire, à moins que le *Confidence Score* ne vienne diviser le poids de ces rumeurs par zéro en amont.
 
