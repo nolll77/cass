@@ -208,7 +208,10 @@ La CGIP ne croit jamais aveuglément une donnée. Chaque relation (Arête) dans 
 ### 6.1. L'Équation du Poids Relatif (Confidence Score)
 
 Lorsqu'un nœud `[Personne]` est relié à un `[Event]`, le poids de l'arête est calculé ainsi :
-$$ W_{edge} = \text{Reliability}_{source} \times \text{Confidence}_{nlp} \times \text{Decay}(t) ```math
+
+```math
+W_{edge} = \text{Reliability}_{source} \times \text{Confidence}_{nlp} \times \text{Decay}(t)
+```
 
 1. `\text{Reliability}_{source}` (La fiabilité juridique) :
    - Condamnation (Cassiopée) = `1.0`
@@ -220,7 +223,11 @@ $$ W_{edge} = \text{Reliability}_{source} \times \text{Confidence}_{nlp} \times 
 ### 6.2. Le "Droit à l'Oubli" Mathématique (Time Decay)
 
 Pour respecter le RGPD et la prescription pénale, un signalement ne peut pas avoir un impact infini dans le temps. L'algorithme applique une décroissance exponentielle :
-``` \text{Decay}(t) = e^{-\lambda \Delta t} ```math
+
+```math
+\text{Decay}(t) = e^{-\lambda \Delta t}
+```
+
 - `\Delta t` : Le temps écoulé depuis l'événement (en mois ou années).
 - `\lambda` : La constante de demi-vie légale.
   - *Crime grave* : Demi-vie de 10 ans (`\lambda` très faible).
@@ -232,9 +239,11 @@ Pour respecter le RGPD et la prescription pénale, un signalement ne peut pas av
 
 ### Indice de Similarité Sérielle (Héritage SALVAC / ViCLAS)
 **Formule :**
-```
-S_{serial}(A, B) = \frac{\sum_{k=1}^{156} w_k \cdot \delta(A_k, B_k)}{\sum_{k=1}^{156} w_k}
+
 ```math
+S_{serial}(A, B) = \frac{\sum_{k=1}^{156} w_k \cdot \delta(A_k, B_k)}{\sum_{k=1}^{156} w_k}
+```
+
 *   **Quoi :** Calcul d'une similarité de Jaccard/Cosinus pondérée entre deux affaires `A` et `B` sur les 156 variables comportementales (Modus Operandi). 
 *   **Légende :** `S_{serial}` : Indice de similarité (ex: 0.87), `k` : les 156 items (heure, arme, type de victime), `\delta` : fonction d'égalité (1 si match, 0 sinon), `w_k` : poids de l'item (un "rituel" a plus de poids qu'une "heure de la journée").
 *   **Pourquoi :** Capter la logique d'analyse originelle de SALVAC (Comparaison pair-à-pair de crimes violents). Dans la CGIP, cette équation n'est plus calculée à la main mais est internalisée et calculée par les *Embeddings* du GNN sur chaque nœud événement.
@@ -252,9 +261,11 @@ S_{serial}(A, B) = \frac{\sum_{k=1}^{156} w_k \cdot \delta(A_k, B_k)}{\sum_{k=1}
 
 ### Modèle de Classification d'Escalade (Gradient Boosting / GNN)
 **Formule Objective (Objectif ML) :**
-```
-\hat{y} = f(X_{temp}, X_{comp}, X_{graph}, X_{geo})
+
 ```math
+\hat{y} = f(X_{temp}, X_{comp}, X_{graph}, X_{geo})
+```
+
 *   **Quoi :** Estimer la probabilité qu'une trajectoire d'événements s'aggrave (escalade significative) dans les 12 prochains mois (`y=1` si escalade grave, `y=0` sinon). Produit un *Risk Score* et ses valeurs SHAP (Explainability).
 *   **Légende :** `\hat{y}` : Probabilité d'escalade, `X_{temp}` : Features temporelles (fréquence, accélération), `X_{comp}` : Features comportementales (répétition même contexte), `X_{graph}` : Features de graphe (centralité, connexions à risque), `X_{geo}` : Densité spatiale.
 *   **Pourquoi :** Fournir une alerte probabiliste à la justice sans recourir à la justice prédictive. Ce système (idéalement un modèle robuste comme XGBoost ou Random Forest) n'évalue pas "le danger moral de la personne", mais la "vélocité statistique de son historique administratif".
@@ -341,19 +352,25 @@ Pour extraire l'ADN social des suspects (Centralité et Proximité à risque) de
 ### 1. L'Équation d'Agrégation (Message Passing)
 Un individu s'imprègne du risque de son entourage direct. À chaque itération `k`, l'algorithme agrège les vecteurs des voisins `\mathcal{N}(v)` de la personne `v` :
 
-``` h_{\mathcal{N}(v)}^{k} = \text{AGGREGATE}_{k} \Big( \{ h_u^{k-1}, \forall u \in \mathcal{N}(v) \} \Big) ```math
+```math
+h_{\mathcal{N}(v)}^{k} = \text{AGGREGATE}_{k} \Big( \{ h_u^{k-1}, \forall u \in \mathcal{N}(v) \} \Big)
+```
 
 *(La fonction AGGREGATE peut être une moyenne (`Mean`), un réseau de neurones (`Pool`), ou un LSTM. La CGIP utilise la moyenne pour l'explicabilité juridique).*
 
 ### 2. L'Équation de Mise à Jour (Update)
 Une fois les "messages" du voisinage reçus, on fusionne l'ancienne signature à risque de l'individu avec la nouvelle, via une matrice de poids `W^k` et une fonction d'activation non-linéaire `\sigma` (ex: ReLU) :
 
-``` h_v^k = \sigma \Big( W^k \cdot \text{CONCAT} \big( h_v^{k-1}, h_{\mathcal{N}(v)}^k \big) \Big) ```math
+```math
+h_v^k = \sigma \Big( W^k \cdot \text{CONCAT} \big( h_v^{k-1}, h_{\mathcal{N}(v)}^k \big) \Big)
+```
 
 ### 3. La Synthèse Absolue (Vector[128])
 Après `K=2` itérations (pour voir "l'ami de l'ami"), le vecteur final `z_v` contient toute l'information topologique. Il a une dimension exacte de 128.
 
-``` z_v = h_v^K \quad \text{avec} \quad z_v \in \mathbb{R}^{128} ```math
+```math
+z_v = h_v^K \quad \text{avec} \quad z_v \in \mathbb{R}^{128}
+```
 
 **Règle d'Encapsulation** : `z_v` n'est pas un score de condamnation. C'est un vecteur mathématique neutre qui est ensuite passé au **XGBoost Classifier** (Chapitre 13), seul habilité à formuler la probabilité, elle-même soumise au **Bouclier Légal**.
 
@@ -374,7 +391,9 @@ La doctrine interdit le score individuel automatique. L'IA a pour seul but de "p
 
 Pour lier deux affaires `Case_i` et `Case_j`, la CGIP utilise une tête de prédiction (Link Prediction Head) robuste :
 
-``` \text{Score} = \text{MLP} \Big( [emb_i || emb_j || |emb_i - emb_j|] \Big) $$
+```math
+\text{Score} = \text{MLP} \Big( [emb_i || emb_j || |emb_i - emb_j|] \Big)
+```
 
 ### Entraînement et Fonction de Perte
 L'apprentissage se fait par *Binary Cross Entropy* avec pondération pour déséquilibre de classes (Class Imbalance Weighting), comparant de vrais liens confirmés par enquête à des paires aléatoires négatives.
