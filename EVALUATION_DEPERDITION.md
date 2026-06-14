@@ -87,3 +87,18 @@ La méthode repose sur l'**Alignement Architectural** (Architecture Alignment) e
 1. Vous lisez la `GENESE` pour vérifier que vous résolvez le bon problème humain.
 2. Vous regardez l'`ÉVALUATION` pour savoir quelle faille combler aujourd'hui.
 3. Vous appliquez le `FICHIER TECHNIQUE` pour dicter la syntaxe exacte au code final.
+
+
+## Analyse du Gap : CGIP vs Cassiopée
+
+L'architecture Graphe + Data Lake résout structurellement les limites du système judiciaire actuel :
+1. **Liaison Automatique** : Relie l'information A (Police) à l'information B (École) sans intervention humaine.
+2. **Vision 360°** : Permet de voir un profil criminel en devenir, et non pas une succession de petits délits "classés sans suite".
+3. **Détection Précoce** : L'alerte est levée avant le passage à l'acte grave.
+4. **Diminution de la charge mentale** : L'enquêteur ne lit plus 100 pages de rapports, l'IA lui pointe le graphe critique.
+
+## Preuve par la donnée : L'évolution du Score de Risque
+
+Le dataset P001 illustre parfaitement la déperdition actuelle :
+- Sans la CGIP : 4 institutions différentes (Police, Justice, Education, Social) ont chacune 1 ou 2 événements de sévérité faible à moyenne. Personne ne bouge.
+- Avec la CGIP : Le système agglomère les 6 événements en une "Convergence multi-sources". Le `risk_score` passe de 35 (Faible) en 2017 à 91 (Critique) en 2026.

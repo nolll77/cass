@@ -43,3 +43,13 @@ Il s'agit du "frigo" intellectuel du projet CGIP. Lorsqu'un sujet est exploré, 
 - [x] **Système ML de détection de signaux faibles** : Architecture de l'IA (Features, Scoring, Poids). *(Traité dans le Socle Mathématique)*
 - [x] **Schéma technique complet (Data Lake Justice + AI Layer)** : Cartographie de déploiement cloud souverain. *(Traité dans Fichier Technique - Mermaid)*
 - [ ] **Le Danemark (L'intégration par Registre National)** : Comment les Danois interconnectent l'administration, la santé, et le social pour la protection de l'enfance, avec ses effets et ses limites éthiques.
+
+
+- [ ] Produire un schéma SQL + Graph DB exact (tables + edges)
+- [ ] Écrire un pseudo-code complet de scoring ML (Ex: Node2Vec)
+- [ ] Maquetter une version 'temps réel streaming Kafka + alert engine'
+
+- [x] Implémenter la version `Neo4j ready (Cypher)` du dataset
+- [ ] Coder le script pour générer le dataset de 10 000 lignes simulées réalistes
+- [ ] Écrire le pseudo-code complet du modèle XGBoost d'après ces features
+- [ ] Rédiger le pipeline industriel `Kafka -> Lake -> Graph -> ML` en pseudo-code

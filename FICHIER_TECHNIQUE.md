@@ -295,3 +295,22 @@ Ces relations sont injectées **par l'IA** (Graph Neural Networks) lors du recal
    - *Traduction* : "L'individu X est en train d'intensifier ses actions autour de l'École Z."
 
 > **MÉCANISME DE DÉFENSE (TTL)** : Dans Neo4j, une contrainte `db.index.ttl` est appliquée aux arêtes probabilistes. Si aucune nouvelle preuve factuelle ne vient valider l'intuition de l'IA dans les 30 jours, l'arête `LATENT_RISK_LINK` est automatiquement effacée de la base. L'IA n'a pas le droit de créer une "suspicion permanente" infondée.
+
+
+## X. Architecture Data Lake & Moteurs de Base de Données
+
+Le système ingère les données selon une hiérarchie stricte :
+1. **Data Lake (Stockage Froid)** : S3 / MinIO / HDFS. Conservation immuable (append-only) pour auditabilité CNIL.
+   - `/raw/police`, `/raw/justice`, `/raw/education`
+   - `/processed/normalized_entities`
+2. **Entity Resolution Layer** : Moteur de fusion probabiliste (Modèle de Fellegi-Sunter) et Embeddings BERT.
+3. **Graph Database** : Neo4j (privilégié), JanusGraph ou Neptune. Gère les arêtes (`accused_in`, `reported_by`).
+
+## X. Dictionnaire de Données (Schéma Relationnel)
+
+L'architecture s'appuie sur 5 tables primaires avant ingestion dans le Graphe :
+1. `events` : L'entité de base. (`event_id`, `person_id`, `event_type`, `date`, `source_institution`, `severity_score`, `location`).
+2. `persons` : Entités physiques désambiguïsées. (`person_id`, `age`, `role`, `risk_history_count`).
+3. `relations` : La fondation de la table de jointure pour Neo4j. (`source`, `target`, `relation_type`, `strength`).
+4. `institutions` : Les acteurs de la Couche Zéro.
+5. `risk_snapshots` : L'historisation des scores (Auditabilité CNIL).

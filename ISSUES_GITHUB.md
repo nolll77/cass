@@ -192,3 +192,17 @@ L'objectif est d'organiser le projet open-source / institutionnel en séparant c
 - **Contexte Analytique :** Résolution du "Casse #5". Si le Graphe détecte un danger, il doit notifier les émetteurs de signaux faibles (ex: l'infirmière scolaire) pour qu'ils ne restent pas dans l'ignorance.
 - **Périmètre Technique (Ouvert aux contributions) :** Création d'une API d'alerting (Webhook/Email sécurisé) pour redescendre l'information vers les points d'entrée du système.
 - **Périmètre Gouvernance (Réservé à l'Auteur) :** Définition juridique stricte de *qui* a le droit de recevoir cette alerte retour (secret de l'instruction vs protection de l'enfance).
+
+
+### Issue — [Data] #022 — Architecture Data Lake (S3/HDFS)
+**Labels:** data-engineering, cloud, difficulty: medium
+- **Contexte Analytique :** Déployer les buckets de stockage `/raw/` et `/processed/`.
+
+### Issue — [ML] #023 — Expérimentation Node2Vec / GNN
+**Labels:** ai, deep-learning, difficulty: hard
+- **Contexte Analytique :** Tester des modèles Graph Neural Networks vs la Baseline XGBoost.
+
+### Issue — [Data] #024 — Générateur de Dataset Synthétique (10k lignes)
+**Labels:** data-engineering, testing, difficulty: medium
+- **Contexte Analytique :** Développer le script `src/utils/generate_dataset.py` pour produire 10 000 lignes basées sur le schéma (events, persons, relations, etc.).
+- **Périmètre Technique :** Utiliser Faker et Pandas pour injecter du bruit et générer des cascades de type P001. Utile pour les tests de charge Neo4j et ML.

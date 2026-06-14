@@ -262,3 +262,32 @@ $$
 *   **Complexité Algorithmique :** Rapide en production (arbres de décision ou inférence GNN de type Node2Vec/GraphSAGE).
 *   **Contraintes & Hypothèses (Assumptions) :** Le modèle assume que des labels purement administratifs ($y=1$ pour multi-plaintes ou affaire sensible) sont une approximation suffisante du risque criminel futur d'une trajectoire.
 *   **Limites / Biais (Edge Cases) :** Le risque de prophétie autoréalisatrice et les biais de signalement (over-policing sur certaines populations). La machine peut confondre forte corrélation et causalité, transformant un faisceau de rumeurs en "escalade", d'où la nécessité absolue de l'XAI (Explainable AI - SHAP) et de la Revue Humaine.
+
+
+## X. Algorithmes de Scoring & Graphes Avancés
+
+### 1. Variables (Features) du Graphe
+- **Centralité** : Degree (Nombre de plaintes) et Betweenness (Le suspect est-il le pont entre plusieurs affaires séparées ?).
+- **Proximité (Distance)** : Nombre de "sauts" entre deux victimes présumées.
+
+### 2. Modèles de Scoring
+L'architecture prévoit 3 niveaux de modélisation :
+- **Baseline** : Régression Logistique (Score de risque interprétable mathématiquement de 0 à 100).
+- **Standard** : Random Forest / XGBoost.
+- **Deep Learning / GNN** : Graph Neural Networks et Node2Vec (Vecteurs d'intégration des nœuds) pour détecter des clusters cachés.
+
+## X. Vecteur de Caractéristiques (Feature Vector)
+
+Pour qu'un individu soit scoré par les modèles ML (Baseline ou XGBoost), les tables relationnelles sont écrasées (Feature Engineering) dans un tenseur ou un dictionnaire JSON plat.
+Exemple d'input mathématique pour l'inférence :
+```json
+{
+  "events_5y": 5,
+  "max_severity": 5,
+  "institutions_count": 4,
+  "time_between_events_mean_months": 14,
+  "graph_degree": 8,
+  "signalements_count": 3
+}
+```
+Ce vecteur est la "traduction" algébrique du comportement humain.

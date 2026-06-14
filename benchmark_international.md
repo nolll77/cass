@@ -132,3 +132,21 @@ Face à ces modèles (Silos Administratifs + Analyse Sérielle Manuelle + Apps C
 | **Périmètre** | Faits qualifiés judiciairement | Crimes sexuels/violents graves | **Multi-sources (Faible + Fort, Judiciaire + Scolaire)** |
 | **Méthode** | Requête SQL classique | Humaine (156 items manuels) | **Graphes Criminels & Processus de Hawkes** |
 | **Connectivité** | Silos fermés | Silos fermés | **Data Mesh (Extraction des métadonnées)** |
+
+
+# ÉTUDE COMPARATIVE (Règle Proactive) : Fusion Centers (USA) & MASH (UK)
+
+Conformément à la directive d'analyse, l'évocation des systèmes US et UK a déclenché une recherche et une confrontation immédiate.
+
+### 1. Analyse Individuelle
+- **Fusion Centers (USA)** : Nés post-9/11, ces centres fusionnent les données de la police fédérale (FBI/DHS) et locale. Ils sont critiqués par l'ACLU pour leur collecte massive, leur dérive vers la surveillance des militants politiques, et leur manque de transparence (absence de "Privacy by Design" natif).
+- **Multi-Agency Safeguarding Hubs (MASH) - (UK)** : Nés suite à des drames d'enfants abusés (Baby P), les MASH co-localisent physiquement police, justice, école et services sociaux. Le mythe "le RGPD interdit le partage" y est combattu : le Droit anglais permet le partage d'informations si l'"intérêt vital" de l'enfant est en jeu, sur la base d'un "besoin d'en connaître" (Need-to-Know).
+
+### 2. Confrontation avec le Modèle Français (La CGIP)
+- La France souffre d'un cloisonnement extrême (Secret de l'instruction vs Secret médical vs Secret administratif). 
+- Le MASH anglais prouve qu'il est légalement possible de partager la donnée sensible en Europe si la loi encadre "l'intérêt vital". 
+- Cependant, le Fusion Center américain est le repoussoir absolu : l'État français (CNIL) n'acceptera jamais un tel aspirateur à données sans contrôle.
+- **La réponse CGIP** : La plateforme est le compromis parfait. Elle permet l'efficacité d'un MASH (vision 360°) mais remplace la "co-localisation physique humaine" par un **Data Lake crypté par Hachage**. Elle offre la puissance d'un Fusion Center tout en imposant les limites éthiques européennes via un *Kill-Switch* algorithmique.
+
+### 3. Le Fil Rouge
+Les USA (2001) et le UK (2007) ont brisé leurs silos d'État **uniquement après un traumatisme national majeur**. Le fil rouge n'est pas la technologie (qui existe déjà), mais le courage politique de décloisonner la donnée. La CGIP anticipe le "traumatisme Lyhanna" pour provoquer cette mutation structurelle en France par la technologie.

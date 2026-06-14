@@ -376,3 +376,30 @@ Ce dix-huitième échange fournit l'architecture macro-étatique de 3 systèmes.
 La CGIP doit opérer une fusion complexe pour exister en France :
 - **L'Obstacle Français** : Nous n'avons pas d'*Identité Unique* (comme le *Personnummer* nordique). Le Data Hub national est impossible par la loi.
 - **La Solution CGIP** : L'algorithme d'*Entity Resolution* (Couche B) est notre "hack" légal. Il simule mathématiquement à la volée une identité unique à partir de données fragmentées (Silos), sans exiger la création d'un Registre National Unique orwellien. La CGIP apporte la performance scandinave, avec la paranoïa juridique française.
+
+
+## BLOC 5 : L'Architecture Cible et le Constat d'Échec Humain
+
+### 1. La matière brute fournie
+Le texte détaille une architecture "Data Lake + Graph DB + ML" complète. Il alerte de manière cruciale sur le fait que ce type d'infrastructure n'échoue jamais sur la technique, mais sur la réalité humaine et juridique.
+
+### 2. L'analyse du problème (La faillite non-technique)
+Les points de friction identifiés sont :
+- Qualité des données d'entrée et erreurs d'identité.
+- Interprétation humaine des scores.
+- Cloisonnement institutionnel (qui refuse de partager la donnée).
+- Responsabilité juridique (Qui est coupable si l'IA se trompe ?).
+
+### 3. Ce que cela fonde pour le Projet (Proof of Need)
+La CGIP ne doit pas être vendue comme un "logiciel miracle", mais comme un outil d'assistance conditionné à une stricte gouvernance de la donnée. Le cœur du système est autant la *Entity Resolution* que la loi qui l'encadre.
+
+## BLOC 6 : La Matérialisation par la Donnée (Le cas P001)
+
+### 1. La matière brute fournie
+Le texte fournit le premier squelette de données réelles (anonymisées sous forme de tables relationnelles `events`, `persons`, `relations`, etc.) simulant le parcours d'un suspect (P001).
+
+### 2. L'analyse du problème (La mécanique de l'escalade)
+Le tableau de données prouve factuellement la mécanique de l'escalade criminelle : P001 commence avec un score de risque de 35 en 2017 (signalement isolé). Le cloisonnement fait qu'en 2024, le score théorique monte à 62, mais aucune institution n'a la vision globale pour le voir.
+
+### 3. Ce que cela fonde pour le Projet
+Ce jeu de données valide l'axiome fondamental de la CGIP : "Le système ne prédit pas la culpabilité, il détecte un pattern de risque administratif". P001 n'a jamais été jugé coupable avant 2026, mais son pattern administratif hurlait à l'anomalie.
