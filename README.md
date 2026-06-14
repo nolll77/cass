@@ -12,7 +12,7 @@
 
 ## 📖 TABLE DES MATIÈRES
 1. [Manifeste Épistémologique : La Rupture des Silos](#1-manifeste-épistémologique--la-rupture-des-silos)
-2. [Le Pacte Faustien et l'IA Constitutionnelle](#2-le-pacte-faustien-et-lia-constitutionnelle)
+2. [L'Équilibre et l'IA Constitutionnelle](#2-léquilibre-et-lia-constitutionnelle)
 3. [L'Architecture de la CGIP (Couches A à H)](#3-larchitecture-de-la-cgip-couches-a-à-h)
 4. [La Modélisation Mathématique (Les 5 Algorithmes d'IA)](#4-la-modélisation-mathématique-les-5-algorithmes-dia)
 5. [Modèle de Données et Ontologie (Neo4j)](#5-modèle-de-données-et-ontologie-neo4j)
@@ -55,7 +55,7 @@ Voici comment l'information se perd mathématiquement dans le modèle français 
 - **[Gap Analysis (Déperdition)](EVALUATION_DEPERDITION.md)** : Pourquoi l'approche Graphe surpasse l'approche SQL historique de l'administration.
 - **[Pistes Non Explorées (Le Frigo)](PISTES_NON_EXPLOREES.md)** : Le backlog intellectuel recensant 100% des concepts théoriques évoqués mais laissés en attente.
 
-## 🧩 L'Architecture Idéale : Civic Graph Intelligence Platform (CGIP)
+## 🧩 L'Architecture : Civic Graph Intelligence Platform (CGIP)
 
 La CGIP implémente une architecture à 5 couches qui ne juge rien, mais qui fusionne, détecte et priorise :
 
@@ -166,7 +166,7 @@ Victime A          Victime B          Victime C
 
 ---
 
-## ⚖️ 2. LE PACTE FAUSTIEN ET L'IA CONSTITUTIONNELLE
+## ⚖️ 2. L'ÉQUILIBRE ET L'IA CONSTITUTIONNELLE
 
 ### 2.1. La Troisième Voie (Le Modèle Français)
 Le benchmark international montre deux extrêmes :
@@ -260,7 +260,7 @@ type ContextNode {
 
 ## 📂 7. STRUCTURE DU DÉPÔT OPEN-SOURCE
 
-Le projet est désormais structuré pour accueillir du code concret (Python, ML, Graph).
+Le projet est structuré pour accueillir du code concret (Python, ML, Graph).
 ```text
 /
 ├── data/
@@ -281,7 +281,7 @@ Le projet est désormais structuré pour accueillir du code concret (Python, ML,
 
 ## 🛠️ 8. GUIDE D'INSTALLATION LOCALE
 
-Si vous êtes développeur ou data scientist et souhaitez expérimenter avec l'architecture :
+Si vous souhaitez contribuer ou expérimenter avec l'architecture :
 
 1. **Cloner le dépôt et installer les dépendances** :
    ```bash
