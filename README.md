@@ -10,7 +10,7 @@
 
 ---
 
-## 📖 TABLE DES MATIÈRES
+## TABLE DES MATIÈRES
 - 🧭 **[NOUVEAU ? LISEZ LE GUIDE DE LECTURE ICI](GUIDE_DE_LECTURE.md)**
 - 📖 **[CONSULTEZ LE GLOSSAIRE DE LA CGIP](GLOSSAIRE.md)**
 
@@ -26,7 +26,7 @@
 
 ---
 
-## 📖 1. MANIFESTE ÉPISTÉMOLOGIQUE : LA RUPTURE DES SILOS
+## 1. MANIFESTE ÉPISTÉMOLOGIQUE : LA RUPTURE DES SILOS
 
 Le projet **Cass / CGIP (Civic Graph Intelligence Platform)** est né d'un constat implacable et systémique sur le fonctionnement de l'appareil public moderne (Justice, Police, Éducation Nationale, Services Sociaux).
 
@@ -36,7 +36,7 @@ Régulièrement, les sociétés font face à des tragédies à risques (comme l'
 Voici comment l'information se perd mathématiquement dans le modèle français actuel :
 
 ```text
-🔁 LE PARADOXE DES SILOS (Pourquoi l'administration est aveugle)
+LE PARADOXE DES SILOS (Pourquoi l'administration est aveugle)
 
 [ ÉVÉNEMENT INITIAL T=0 ]
            │
@@ -49,7 +49,7 @@ Voici comment l'information se perd mathématiquement dans le modèle français 
 ⚠️ RÉSULTAT : Le suspect n'a pas 1 profil de risque global. Il a 3 fragments de données invisibles les uns pour les autres. 
 ```
 
-## 📚 Documentation Fondamentale
+## Documentation Fondamentale
 
 - **[La Genèse du Projet (PRD)](GENESE_DU_PROJET.md)** : Les 9 blocs de fondation, les failles systémiques de l'administration (Affaire L.), et la doctrine éthique.
 - **[Benchmark International](BENCHMARK_INTERNATIONAL.md)** : Étude comparative des systèmes étrangers et français. Analyse des outils individuellement, versus la France, et recherche des similitudes/schémas transversaux entre pays pour prouver la nécessité technologique de la CGIP.
@@ -58,7 +58,7 @@ Voici comment l'information se perd mathématiquement dans le modèle français 
 - **[Gap Analysis (Déperdition)](EVALUATION_DEPERDITION.md)** : Pourquoi l'approche Graphe surpasse l'approche SQL historique de l'administration.
 - **[Pistes Non Explorées (Le Frigo)](PISTES_NON_EXPLOREES.md)** : Le backlog intellectuel recensant 100% des concepts théoriques évoqués mais laissés en attente.
 
-## 🧩 L'Architecture : Civic Graph Intelligence Platform (CGIP)
+## L'Architecture : Civic Graph Intelligence Platform (CGIP)
 
 La CGIP implémente une architecture à 5 couches qui ne juge rien, mais qui fusionne, détecte et priorise :
 
@@ -169,7 +169,7 @@ Victime A          Victime B          Victime C
 
 ---
 
-## ⚖️ 2. L'ÉQUILIBRE ET L'IA CONSTITUTIONNELLE
+## 2. L'ÉQUILIBRE ET L'IA CONSTITUTIONNELLE
 
 ### 2.1. La Troisième Voie (Le Modèle Français)
 Le benchmark international montre deux extrêmes :
@@ -191,30 +191,30 @@ Le vrai bloqueur souverain n'est pas technologique, c'est la **Gouvernance des d
 
 ---
 
-## 🏗️ 3. L'ARCHITECTURE DE LA CGIP (COUCHES A À H)
+## 3. L'ARCHITECTURE DE LA CGIP (COUCHES A À H)
 
-### 🟦 Couche A : Le Socle Ontologique (Graph Data Foundation)
+### Couche A : Le Socle Ontologique (Graph Data Foundation)
 *   **Technologie** : `Neo4j` (Cypher).
 *   **Rôle** : Ingestion standardisée des flux issus de bases diverses via l'introduction des `[ContextNode]` (École, Domicile).
 
-### 🧠 Couche B : Inférence NLP & Entity Resolution
+### Couche B : Inférence NLP & Entity Resolution
 *   **Rôle** : L'**Entity Resolution** utilise les LLMs pour "dé-bruiter" la donnée et savoir si "Victime A" et "A." sont la même personne.
 
-### 🔬 Couche D : Le Moteur Causal (Direct Acyclic Graphs)
+### Couche D : Le Moteur Causal (Direct Acyclic Graphs)
 *   **Rôle** : Remplacer la corrélation statistique par du Do-Calculus, forçant le système à vérifier le lien de causalité chronologique.
 
-### 🛡️ Couches E & F : Moteur DPIA et Kill-Switch
+### Couches E & F : Moteur DPIA et Kill-Switch
 *   **Rôle** : L'auto-blocage légal. Avant chaque requête GNN, si le risque d'atteinte à la vie privée est trop haut, le processus python est intercepté.
 
-### 🔔 Couche G : Moteur d'Alerting ML
+### Couche G : Moteur d'Alerting ML
 *   **Rôle** : Agrégation des scores de risque pour déclencher l'alerte finale.
 
-### 🗂️ Couche H : Case Management System
+### Couche H : Case Management System
 *   **Rôle** : L'IHM pour l'enquêteur. Un graphe visuel interactif expliquant pourquoi un lien latent est suspecté (Explainable AI).
 
 ---
 
-## 📐 4. LA MODÉLISATION MATHÉMATIQUE (LES 5 ALGOS D'IA)
+## 4. LA MODÉLISATION MATHÉMATIQUE (LES 5 ALGOS D'IA)
 
 Le Cerveau Central repose sur 5 tâches de Machine Learning précises :
 
@@ -226,7 +226,7 @@ Le Cerveau Central repose sur 5 tâches de Machine Learning précises :
 
 ---
 
-## 🧬 5. MODÈLE DE DONNÉES ET ONTOLOGIE (NEO4J)
+## 5. MODÈLE DE DONNÉES ET ONTOLOGIE (NEO4J)
 
 L'ontologie du Graphe est conçue pour respecter le secret de l'instruction et le droit à la vie privée.
 
@@ -254,14 +254,14 @@ type ContextNode {
 
 ---
 
-## 🌐 6. L'INFRASTRUCTURE DISTRIBUÉE (ENTERPRISE STACK)
+## 6. L'INFRASTRUCTURE DISTRIBUÉE (ENTERPRISE STACK)
 
 1. **Ingestion Streaming (Kafka)** : Absolument indispensable pour l'architecture fédérée.
 2. **Graph Storage (Neo4j HA Cluster)** : Le socle de vérité.
 3. **Model Registry (MLflow)** : Assure la traçabilité algorithmique et la Reproductibilité Judiciaire.
 4. **Observabilité (Prometheus / Grafana)** : Expose les métriques du Kill-Switch RGPD.
 
-## 📂 7. STRUCTURE DU DÉPÔT OPEN-SOURCE
+## 7. STRUCTURE DU DÉPÔT OPEN-SOURCE
 
 Le projet est structuré pour accueillir du code concret (Python, ML, Graph).
 ```text
@@ -282,7 +282,7 @@ Le projet est structuré pour accueillir du code concret (Python, ML, Graph).
 
 ---
 
-## 🛠️ 8. GUIDE D'INSTALLATION LOCALE
+## 8. GUIDE D'INSTALLATION LOCALE
 
 Si vous souhaitez contribuer ou expérimenter avec l'architecture :
 
@@ -304,13 +304,13 @@ Si vous souhaitez contribuer ou expérimenter avec l'architecture :
 
 ---
 
-## 🎬 9. SIMULATION END-TO-END : DÉMONSTRATION MATHÉMATIQUE
+## 9. SIMULATION END-TO-END : DÉMONSTRATION MATHÉMATIQUE
 
 Le script `simulate_case.py` situé à la racine démontre le moteur en action.
 Il simule une suite chronologique complexe illustrant l'incapacité humaine à faire le lien.
 
 ```text
-⏳ SIMULATION CHRONOLOGIQUE GÉRÉE PAR LE MOTEUR (L'Affaire L.)
+SIMULATION CHRONOLOGIQUE GÉRÉE PAR LE MOTEUR (L'Affaire L.)
 
 2017 ─ ⚠️ Signalement (Mineure A) → Classé sans suite
 2020 ─ ⚠️ Alerte comportementale (Mineure B) → Sanction disciplinaire non judiciaire
