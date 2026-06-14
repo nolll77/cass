@@ -30,6 +30,12 @@ Le repo local (le `README.md` initial et l'`INDEX_CERVEAU_CENTRAL.md`) avait **t
 - **La perte 2 (Logique Dossier vs Logique Individu) :** Le repo avait oublié que l'État travaille en "Logique de Dossier". Il manquait l'étape cruciale de l'*Identity Resolution Layer*, qui permet de fusionner informatiquement les identités dispersées dans plusieurs institutions.
 - **La perte 3 (L'ignorance de SALVAC/ViCLAS) :** L'État possède déjà un système d'analyse sérielle (*SALVAC*). Si le repo initial l'ignore, le projet CGIP passe pour un doublon inutile. L'intérêt de la CGIP est d'automatiser (via NLP et Graphes) l'ingestion des signaux faibles que SALVAC ne peut pas traiter manuellement.
 - **La perte 4 (L'absence de Boucle de Retour) :** Le code initial était un "trou noir" (il aspirait la donnée pour faire un graphe). Il ignorait le *Casse #5* : le manque systémique de retour d'information vers l'émetteur (l'école). La CGIP ne doit pas seulement agréger, elle doit **redistribuer l'alerte**.
+- **La perte 5 (L'aveuglement sur l'Architecture "Silo" de l'État) :** Le projet oubliait *pourquoi* le système actuel échoue réellement : 
+  1. Fragmentation des données (Justice $\neq$ Police $\neq$ École).
+  2. Saisie humaine non standardisée (Perte de structure = IA inutilisable).
+  3. Absence de vision globale ("Dossier" vs "Réseau").
+  4. Temps de réaction (Le temps judiciaire n'est pas le temps réel).
+  5. Identité mouvante (Absence de clé unique fiable inter-administrations).
 - **La conséquence :** Sans ces exemples, le projet paraissait abstrait. Un développeur qui lit le repo initial ne comprend pas profondément *pourquoi* on utilise un Temporal Graph Network au lieu d'une simple base SQL comme Cassiopée, ni comment s'interfacer avec l'existant. Il code le système à l'aveugle.
 
 ### Pilier 3 : Le Cadre Légal et Éthique (Ce qui était totalement ignoré)

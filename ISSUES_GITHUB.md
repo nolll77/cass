@@ -14,6 +14,12 @@ L'objectif est d'organiser le projet open-source / institutionnel en séparant c
 - **Périmètre Technique (Ouvert aux contributions) :** Création du `docker-compose.yml` instanciant Neo4j (avec plugin APOC) et Kafka pour l'ingestion asynchrone.
 - **Périmètre Gouvernance (Réservé à l'Auteur) :** Pas de rédaction requise.
 
+### Issue — [Infra] #002b — Setup Data Lake (AWS S3 / MinIO local)
+**Labels:** setup, data-engineering, difficulty: medium
+- **Contexte Analytique :** Déployer la "Mémoire Brute" de la justice avant tout traitement NLP ou Graph.
+- **Périmètre Technique (Ouvert aux contributions) :** Configuration d'un bucket object storage (ex: MinIO pour le local) pour stocker les documents PDF, PV et historiques non structurés.
+- **Périmètre Gouvernance (Réservé à l'Auteur) :** Verrouillage IAM strict : ce Data Lake contient la donnée non anonymisée.
+
 ## MILESTONE : Couche A - Socle Ontologique (Neo4j)
 ### Issue — [Data] #003 — Implémentation du Schéma GraphQL / Cypher
 **Labels:** ontology, database, difficulty: medium
@@ -58,6 +64,12 @@ L'objectif est d'organiser le projet open-source / institutionnel en séparant c
 - **Contexte Analytique :** C'est le cœur de la bascule "Dossier" vers "Individu". Savoir que "Jérôme B." (dossier Police) et "J.B." (signalement école) sont la même entité.
 - **Périmètre Technique (Ouvert aux contributions) :** Implémentation d'algorithmes de Probabilistic Matching (ex: Jaro-Winkler, Bayesian Record Linkage, Embeddings LLM) pour fusionner les identités hachées.
 - **Périmètre Gouvernance (Réservé à l'Auteur) :** Définition du seuil d'acceptation (ex: 95% de certitude requise pour fusionner deux profils) pour éviter l'erreur sur la personne.
+
+### Issue — [Data] #007b — Création du Feature Store (ML-Ready)
+**Labels:** data-engineering, ml, difficulty: medium
+- **Contexte Analytique :** Préparer la matrice structurée pour les modèles IA.
+- **Périmètre Technique (Ouvert aux contributions) :** Script PySpark ou Pandas (`build_features.py`) qui extrait de Neo4j les features temporelles, comportementales et de graphe (centralité) pour générer le dataset d'entraînement.
+- **Périmètre Gouvernance (Réservé à l'Auteur) :** Validation des colonnes (interdiction des données raciales ou syndicales).
 
 ### Issue — [ML] #008 — Modélisation du Graphe Causal (DoWhy)
 **Labels:** ai, math, difficulty: hard

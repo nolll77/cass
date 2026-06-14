@@ -132,13 +132,13 @@ $$
 ### Score Cumulatif de Vulnérabilité (Trigger Events)
 **Formule :**
 $$
-\Huge S_{vuln} = \sum_{i=1}^{n} w_i \cdot E_i + \gamma \cdot R
+\Huge S_{vuln} = 0.35 \cdot R_{temp} + 0.25 \cdot R_{comp} + 0.25 \cdot R_{graph} + 0.15 \cdot W_{sev}
 $$
-*   **Quoi :** Addition linéaire pondérée des "sentinelles" (événements) associées à une trajectoire, majorée par un bonus de vélocité temporelle $R$.
-*   **Légende :** $S_{vuln}$ : Score total, $E_i$ : occurrence d'un événement, $w_i$ : poids de gravité institutionnelle (+1 signalement école, +3 plainte pénale), $\gamma$ : facteur multiplicateur d'accélération (ex: répétition sur < 3 ans).
-*   **Pourquoi :** Éviter l'effet "boîte noire" d'un réseau de neurones. Fournir au magistrat un calcul arithmétique simple, compréhensible et opposable juridiquement pour justifier le déclenchement d'une "Revue Humaine".
-*   **Inputs :** Le vecteur des événements désambiguïsés (Entity Resolution) et valides (DPIA).
-*   **Outputs :** Un entier positif classé en trois seuils stricts (0-2: Surveillance, 3-4: Revue Locale, 5+: Revue Prioritaire).
+*   **Quoi :** Addition linéaire pondérée de 4 macro-features de risque pour produire un score interprétable.
+*   **Légende :** $S_{vuln}$ : Score total, $R_{temp}$ : Risque Temporel (accélération, délais), $R_{comp}$ : Risque Comportemental (répétition, proximité), $R_{graph}$ : Risque Topologique (centralité réseau), $W_{sev}$ : Poids de Sévérité institutionnelle.
+*   **Pourquoi :** Éviter l'effet "boîte noire" d'un réseau de neurones pur. Fournir au magistrat un calcul arithmétique simple, compréhensible et opposable juridiquement pour justifier le déclenchement d'une "Revue Humaine".
+*   **Inputs :** Le vecteur des événements désambiguïsés (Entity Resolution) et structurés dans le Feature Store.
+*   **Outputs :** Un score pondéré classé en trois seuils stricts (ex: 0-0.3: Surveillance, 0.4-0.7: Revue Locale, 0.7+: Alerte URGENT).
 *   **Dépendance Amont :** Processus de Hawkes, Inférence Causale.
 *   **Dépendance Aval :** Interface Dashboard (Notification à l'utilisateur final).
 *   **Complexité Algorithmique :** O(N) — Simple somme, calcul immédiat.

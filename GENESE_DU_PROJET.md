@@ -273,3 +273,41 @@ Les limites soulevées sont les vrais murs porteurs juridiques :
 ### 3. Ce que cela fonde pour le Projet
 - **La Couche d'Explicabilité (SHAP)** : Il est formellement interdit de concevoir l'interface utilisateur (Dashboard) sans y intégrer les valeurs SHAP (ex: `+0.31 → fréquence événements`). Le magistrat *doit* voir ce qui a déclenché l'alerte pour pouvoir l'invalider.
 - **Le Dataset Synthétique** : La prochaine étape technique de développement sera de générer un dataset synthétique `person_event_window.csv` respectant cette taxonomie pour entraîner notre premier modèle Baseline (XGBoost).
+
+---
+
+## BLOC 13 : L'Architecture Data-Centric (Du Silo au Graphe)
+
+### 1. La matière brute fournie
+Ce treizième échange fournit l'architecture technique cloud complète ("Data Lake + Graph DB + ML pipeline") et l'identification exacte des 5 raisons pour lesquelles les systèmes actuels (comme Cassiopée) s'effondrent face à la réalité complexe.
+
+### 2. L'analyse du problème (Où ça casse aujourd'hui)
+L'État opère actuellement selon une **Logique de Silo**. Le système échoue non pas par manque de volonté humaine, mais pour des raisons structurelles d'ingénierie data :
+1. **Fragmentation des données** : Justice $\neq$ Police $\neq$ École.
+2. **Saisie non standardisée** : Les mêmes faits sont décrits différemment par différents acteurs (perte de structure).
+3. **Absence de Graphe** : Cassiopée voit des dossiers isolés, pas des réseaux de comportements (Mode Tabulaire vs Mode Graphe).
+4. **Latence Institutionnelle** : Le temps judiciaire de traitement est asynchrone par rapport à l'urgence de l'événement.
+5. **Identité Mouvante (Le pire problème technique)** : L'absence de clé unique inter-administrations empêche de relier "J.B" (École) et "Jérôme B." (Police).
+
+### 3. Ce que cela fonde pour le Projet
+- **Le Changement de Paradigme** : La CGIP n'est pas "une meilleure base de données". C'est un Data Lake couplé à une *Entity Resolution Layer* et une *Graph Database*.
+- **Le Flow de la Donnée** : L'IA n'arrive qu'en bout de chaîne (Data Lake $\rightarrow$ Processing $\rightarrow$ Entity Resolution $\rightarrow$ Feature Store $\rightarrow$ Graph $\rightarrow$ ML).
+- **Le rôle de l'IA recadré** : Le bon modèle n'est pas un système de "prédiction absolue", mais un système de **détection de signaux faibles et de priorisation**. L'IA propose, l'humain décide.
+
+---
+
+## BLOC 14 : Le Benchmark Géopolitique (Le Modèle Hybride Idéal)
+
+### 1. La matière brute fournie
+Ce quatorzième échange confronte l'architecture de la CGIP aux systèmes réels déployés dans le monde, en classant 4 approches : France (Fragmentée), UK (Pragmatique), USA (Prédictive/Chaotique), et Chine (Surveillance Totale).
+
+### 2. L'analyse du problème (La faille philosophique)
+Ce texte identifie la différence fondamentale entre les modèles : l'intention.
+- Les Occidentaux (FR, UK, USA) cherchent à empiler des "dossiers".
+- La Chine cherche à construire un "graphe comportemental continu".
+Le danger pour la CGIP est de glisser techniquement vers le modèle chinois en voulant résoudre les inefficacités du modèle français.
+
+### 3. Ce que cela fonde pour le Projet
+- **La ligne de crête de la CGIP (Le Modèle Hybride)** : Le projet assume d'importer la technologie américaine (Data Lake, GNN) et l'organisation anglaise (MASH), mais l'enferme dans le corset juridique français (CNIL).
+- **Le refus de la Boîte Noire** : Contrairement aux USA (Palantir, COMPAS), la CGIP doit être auditable et Open Source.
+- **La raison d'être du Kill-Switch** : C'est la garantie absolue (programmée en dur dans le code) que la CGIP ne deviendra jamais un graphe social à la chinoise.

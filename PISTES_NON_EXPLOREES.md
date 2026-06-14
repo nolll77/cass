@@ -20,10 +20,14 @@ Il s'agit du "frigo" intellectuel du projet CGIP. Lorsqu'un sujet est exploré, 
 ## 💻 Bloc "Ingénierie, Data et Code"
 - [ ] **Le schéma technique "Cloud + Data Lake + Graph DB"** : L'architecture infrastructurelle réelle (serveurs, flux, bases de données) pour implémenter la CGIP.
 - [x] **Le pseudo-code du système de scoring** : Comment on code mathématiquement l'escalade temporelle et spatiale du risque. *(Traité dans le Bloc 12)*
-- [ ] **L'architecture complète "Data Lake + Graph DB + ML pipeline"** : Le schéma d'infrastructure technique de bout en bout pour le ML.
+- [x] **L'architecture complète "Data Lake + Graph DB + ML pipeline"** : Le schéma d'infrastructure technique de bout en bout pour le ML. *(Traité dans le Bloc 13)*
 - [ ] **Génération d'un dataset synthétique (CSV)** : Créer un jeu de données factice complet (person_event_window.csv) respectant la structure de features.
 - [ ] **Le modèle de données exact (Base SQL + Graph DB)** : Le schéma des tables (Entities, Relationships, Properties) prêt à être injecté dans Neo4j/PostgreSQL.
 - [ ] **La version "Temps réel avec IA"** : L'architecture des webhooks et du streaming de données pour générer des alertes automatiques instantanées (Event-Driven Architecture).
+- [ ] **Architecture 100% Cloud Souverain (France Justice 2.0)** : Les specs pour héberger ça sur SecNumCloud sans AWS/GCP.
+- [ ] **Design d'un GNN sur dossiers judiciaires** : Architecture précise du réseau de neurones sur graphe (GraphSAGE / Node2Vec) pour des délits.
+- [ ] **Simulation de l'Affaire L. en graphe de données Neo4j** : Transformer l'affaire en une requête Cypher exacte.
+- [ ] **Limites juridiques RGPD + CNIL sur ce type d'IA** : Rédiger le mémo légal d'audit de l'architecture.
 
 ## 🌍 Bloc "Systèmes Internationaux et Étrangers"
 - [ ] **Les Pays-Bas (L'approche Jeugdzorg)** : Analyse du système néerlandais de signalements jeunesse et de la gestion des "signaux préoccupants".

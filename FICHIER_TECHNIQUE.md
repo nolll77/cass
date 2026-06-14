@@ -218,3 +218,83 @@ Le système doit être pensé pour lutter contre la "boîte noire", le biais alg
 En plus du Processus de Hawkes, l'échange suggère d'explorer l'Analyse de Survie (Survival Analysis) :
 - `Cox Proportional Hazards` ou `Random Survival Forests`.
 - Ces algorithmes permettent de répondre à la question : "Quelle est la probabilité qu'un nouvel événement survienne après un premier signalement dans un délai X ?". Ces modèles devront être ajoutés au backlog exploratoire du projet pour la modélisation temporelle.
+
+---
+
+## 8. L'Architecture Complète (Cloud / Data Lake / Graph DB)
+
+Pour pallier la fragmentation des "Silos" (Police, Justice, École, Santé), la CGIP nécessite une architecture Data-Centric moderne. Ce schéma n'agit pas comme une base de données de production transactionnelle, mais comme une plateforme de renseignement analytique.
+
+```text
+☁️🧮 Architecture technique : Cloud + Data Lake + Graph DB + ML
+
+                   ┌──────────────────────────────┐
+                   │      SOURCES DE DONNÉES      │
+                   │──────────────────────────────│
+                   │ - Police (PV, enquêtes)      │
+                   │ - Justice (procédures)       │
+                   │ - École (signalements)       │
+                   │ - Signalements citoyens      │
+                   └──────────────┬───────────────┘
+                                  ▼
+        ┌──────────────────────────────────────────────┐
+        │            INGESTION LAYER (ETL/ELT)         │
+        │─────────────────────────────────────────────│
+        │ - APIs sécurisées                            │
+        │ - Batch + streaming (Kafka-like)             │
+        │ - Normalisation et Anonymisation (Hash)      │
+        └──────────────┬───────────────────────────────┘
+                       ▼
+        ┌──────────────────────────────────────────────┐
+        │              DATA LAKE (RAW)                 │
+        │──────────────────────────────────────────────│
+        │ Stockage brut (Documents, PV, historiques)   │
+        └──────────────┬───────────────────────────────┘
+                       ▼
+┌──────────────────────────┐              ┌──────────────────────────┐
+│ DATA PROCESSING LAYER    │              │ ENTITY RESOLUTION LAYER  │
+│──────────────────────────│              │──────────────────────────│
+│ - nettoyage              │              │ - fusion identités       │
+│ - extraction NLP         │              │ - matching probabiliste  │
+└──────────────┬───────────┘              └──────────────┬───────────┘
+               └────────────────────┬────────────────────┘
+                                    ▼
+                 ┌────────────────────────────────────┐
+                 │     FEATURE STORE (ML-ready)       │
+                 │────────────────────────────────────│
+                 │ - temporelles, comportementales,   │
+                 │   géographiques, embeddings NLP    │
+                 └──────────────┬─────────────────────┘
+                                ▼
+        ┌───────────────────────┴────────────────────────┐
+┌──────────────────────────────┐          ┌──────────────────────────────┐
+│     GRAPH DATABASE           │          │   DATA WAREHOUSE (BI)        │
+│──────────────────────────────│          │──────────────────────────────│
+│ Neo4j / JanusGraph-like      │          │ SQL analytique (BigQuery)    │
+│ Nodes: personnes, lieux      │          │ - statistiques globales      │
+│ Edges: relation, signalement │          │ - audits et conformité       │
+└──────────────┬───────────────┘          └──────────────┬───────────────┘
+               └────────────────────┬────────────────────┘
+                                    ▼
+                 ┌────────────────────────────────────┐
+                 │         ML / AI LAYER              │
+                 │────────────────────────────────────│
+                 │ - Risk scoring (XGBoost)           │
+                 │ - Graph Neural Networks (GNN)      │
+                 └──────────────┬─────────────────────┘
+                                ▼
+        ┌──────────────────────────────────────────────┐
+        │          DECISION SUPPORT LAYER              │
+        │──────────────────────────────────────────────│
+        │ - alertes magistrats (Dashboard XAI)         │
+        └──────────────┬───────────────────────────────┘
+                       ▼
+        ┌──────────────────────────────────────────────┐
+        │        USERS (HUMAN-IN-THE-LOOP)             │
+        │──────────────────────────────────────────────│
+        │ - magistrats, enquêteurs, protection enfance │
+        └──────────────────────────────────────────────┘
+```
+
+### Le Rôle Central de l'Entity Resolution
+L'Entity Resolution n'est pas une simple "Feature". **C'est le point de bascule** entre le Data Lake (où les dossiers sont isolés et les noms mal orthographiés) et le Graph (où l'individu devient un nœud unique). Si cette couche échoue, tout le modèle IA aval s'effondre.
