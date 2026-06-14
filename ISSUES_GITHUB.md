@@ -247,7 +247,7 @@ L'objectif est d'organiser le projet open-source / institutionnel en séparant c
 - **Contexte :** L'enquêteur doit pouvoir interroger le graphe ("où concentrer les ressources ?").
 - **Action :** Créer une interface web (ex: React + D3.js ou Neo4j Bloom) pour afficher le sous-graphe explicatif renvoyé par le GNN, avec une Timeline interactive des événements (`E1 -> E2 -> E3`).
 
-### Issue — [Compliance] #033 — Module d'Audit CNIL (Anti-Biais & Transparence)
+### ~~Issue — [Compliance] #033 — Module d'Audit CNIL (Anti-Biais & Transparence)~~ [CLOSED]
 **Labels:** compliance, security, ai-act
 - **Contexte :** La CNIL exige une transparence sur les biais (L'IA pénalise-t-elle certains profils sociaux ou corrèle-t-elle abusivement territoire et criminalité ?).
 - **Action :** Implémenter un script d'audit régulier (Cron Job) qui analyse les prédictions XGBoost/GNN pour détecter d'éventuels biais géographiques ou démographiques, et bloquer le modèle si la variance dépasse un seuil de discrimination.

@@ -47,3 +47,7 @@ L'architecture du réseau de neurones a été codée en PyTorch Geometric. Le GN
 
 ### 3. L'Encapsulation
 L'encapsulation est parfaite : La "Boîte Noire" du Deep Learning est isolée ici. Ce script PyTorch ne prend **aucune** décision juridique. Il se contente de générer cette "ADN sociale" (les 128 nombres) qui sera ensuite envoyée à notre script XGBoost (`risk_scorer.py`), seul habilité à formuler la probabilité, elle-même verrouillée par notre Bouclier Légal RGPD.
+
+
+### Module d'Audit (Bias Monitor & Kill Switch)
+Le script `bias_monitor.py` surveille en continu les sorties du modèle (GNN/XGBoost). Conformément à l'AI Act européen, s'il détecte une dérive statistique (une variance > 20% sur la géographie ou la démographie de l'individu), il déclenche un **Hard Limit (Kill Switch)**. Le modèle est déconnecté et ne renvoie plus que l'alerte `AUDIT_REQUIRED` aux enquêteurs, forçant l'intervention d'un Data Scientist humain.
