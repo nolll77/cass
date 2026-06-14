@@ -53,3 +53,18 @@ Il s'agit du "frigo" intellectuel du projet CGIP. Lorsqu'un sujet est exploré, 
 - [ ] Coder le script pour générer le dataset de 10 000 lignes simulées réalistes
 - [ ] Écrire le pseudo-code complet du modèle XGBoost d'après ces features
 - [ ] Rédiger le pipeline industriel `Kafka -> Lake -> Graph -> ML` en pseudo-code
+
+- [ ] Concevoir un "best-of architecture mondiale hybride idéale" (Diagramme)
+- [ ] Coder un système de scoring type UK DASH + graph ML
+- [ ] Construire une simulation temps réel (streaming + alert engine) complète
+- [ ] Rédiger une analyse des risques juridiques européens (RGPD + AI Act)
+
+- [ ] Modéliser la version GNN pure (Graph Neural Network complet)
+- [ ] Détailler l'architecture Kafka temps réel
+- [ ] Générer un dataset de training massif à 1 Million de lignes simulées
+- [ ] Rédiger une analyse des biais et erreurs types (False Positives / False Negatives)
+
+- [ ] Modéliser une architecture hybride "Europe idéale vs monde réel"
+- [x] Lancer une simulation mathématique d'un système "Chinois" vs "UK" sur notre dataset P001
+- [ ] Achever le Pipeline temps réel complet (Kafka + Graph + ML + Alerting)
+- [ ] Écrire l'Analyse stricte des risques juridiques (RGPD vs AI Act vs US Law)

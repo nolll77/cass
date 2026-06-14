@@ -314,3 +314,28 @@ L'architecture s'appuie sur 5 tables primaires avant ingestion dans le Graphe :
 3. `relations` : La fondation de la table de jointure pour Neo4j. (`source`, `target`, `relation_type`, `strength`).
 4. `institutions` : Les acteurs de la Couche Zéro.
 5. `risk_snapshots` : L'historisation des scores (Auditabilité CNIL).
+
+## X. Validation Architecturale (L'Exception CGIP)
+
+L'étude des systèmes existants (NCIC aux USA, ViSOR au UK, Municipality Data Hubs aux NL) confirme que notre architecture est techniquement **inédite à l'échelle nationale**.
+Ce qui manque partout dans le monde, et que la CGIP implémente :
+- Une véritable **Graph Database nationale unifiée**.
+- Du **Machine Learning explicable (XAI)** inter-institutions.
+- Une **Boucle temps réel** (Kafka) entre la Justice, le Social et l'École.
+
+## X. Pipeline de Scoring (Architecture Logique)
+
+Le flux de traitement d'une prédiction suit un pipeline strict et séquentiel :
+1. **Feature Engineering** : Extraction des données tabulaires (ex: `event_count_6m`).
+2. **Graph Features** : Interrogation de Neo4j (ex: `degree_centrality`, `betweenness`).
+3. **ML Model** : Inférence (XGBoost ou GNN).
+4. **Rule Engine (Kill-Switch Légal)** : Application des contraintes RGPD sur le `raw_score`.
+5. **Explanation Engine** : Génération des valeurs SHAP (Top facteurs).
+6. **Alert Engine** : Routage vers le Magistrat ou le Case Worker selon le seuil.
+
+## X. Validation Dystopique (L'Écueil Chinois)
+
+L'ajout de l'architecture chinoise au benchmark nous donne une spécification en creux de ce que la CGIP **ne doit jamais faire** :
+- **Interdiction formelle** de croiser la donnée de la Couche Zéro (Police/Justice/Social) avec de la donnée "Lifestyle" (mobilité, paiements, réseaux sociaux).
+- **Interdiction formelle** du ML non-supervisé ou du Computer Vision sur les comportements.
+La CGIP est strictement bornée aux événements institutionnels.

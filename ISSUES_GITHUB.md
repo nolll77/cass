@@ -206,3 +206,13 @@ L'objectif est d'organiser le projet open-source / institutionnel en séparant c
 **Labels:** data-engineering, testing, difficulty: medium
 - **Contexte Analytique :** Développer le script `src/utils/generate_dataset.py` pour produire 10 000 lignes basées sur le schéma (events, persons, relations, etc.).
 - **Périmètre Technique :** Utiliser Faker et Pandas pour injecter du bruit et générer des cascades de type P001. Utile pour les tests de charge Neo4j et ML.
+
+### Issue — [Legal] #025 — Analyse de Risques Européenne (RGPD + AI Act)
+**Labels:** legal, compliance, difficulty: hard
+- **Contexte Analytique :** La plateforme utilisant de l'IA sur des données sensibles, elle doit être certifiée "Haut Risque" mais "Conforme" selon le récent AI Act européen.
+- **Périmètre Gouvernance :** Évaluation d'impact (DPIA) complète pour contrer les critiques habituelles de surveillance de masse (le "Syndrome US").
+
+### Issue — [ML] #026 — Implémentation du Pipeline XGBoost & Rule Engine
+**Labels:** ml, python, difficulty: hard
+- **Contexte Analytique :** Coder le fichier `src/ml_engine/risk_scorer.py` en se basant sur le pseudo-code officiel.
+- **Périmètre Technique :** Le script doit orchestrer l'extraction des `features`, lancer le `predict_proba` d'un modèle XGBoost factice, appliquer le `apply_constraints()` et générer le JSON de sortie `{"risk_score", "explanation"}`.

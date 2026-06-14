@@ -291,3 +291,25 @@ Exemple d'input mathématique pour l'inférence :
 }
 ```
 Ce vecteur est la "traduction" algébrique du comportement humain.
+
+## X. Mise en Perspective des Algorithmes de Scoring
+
+L'analyse internationale révèle l'usage d'outils de scoring existants :
+- **Outils locaux (UK)** : Séries de règles semi-automatiques (ex: VAR / DASH pour les violences domestiques).
+- **Hotspot Policing (USA)** : Modèles prédictifs basés sur des zones géographiques (souvent biaisés algorithmiquement).
+
+**La différence CGIP** : Notre modèle mathématique XGBoost / GNN se démarque de l'approche américaine car il n'évalue jamais des "zones" (Hotspot) ou des probabilités de récidive pures, mais des **réseaux d'événements avérés** (Graph Centrality) pour éviter les biais sociologiques.
+
+## X. Formulaire Officiel du Scoring de Risque
+
+Le pseudo-code nous donne les équations réelles à implémenter :
+
+### 1. Proximité Graphe (Victim Proximity Score)
+Pour toute victime `v` dans le graphe connectée au suspect `p` à une distance `d <= 2` :
+`Score_prox = Σ (1 / (d + 1))`
+Ce calcul normalisé prouve l'encerclement d'un individu par des victimes sans lien apparent.
+
+### 2. Contraintes Juridiques (Clamp & Poids)
+Le `raw_score` issu de XGBoost subit un filtre pénal brutal :
+- **Règle de Multiplicité** : Si `event_count < 2` (source unique), alors `Score = Score * 0.7`. (Évite la condamnation algorithmique sur dénonciation calomnieuse unique).
+- **Règle d'Alerte** : Si `Score > 0.90` (Seuil critique), le système est mis en pause et renvoie le flag `CRITICAL_REVIEW_REQUIRED` au lieu de déclencher une action directe.

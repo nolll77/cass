@@ -403,3 +403,48 @@ Le tableau de données prouve factuellement la mécanique de l'escalade criminel
 
 ### 3. Ce que cela fonde pour le Projet
 Ce jeu de données valide l'axiome fondamental de la CGIP : "Le système ne prédit pas la culpabilité, il détecte un pattern de risque administratif". P001 n'a jamais été jugé coupable avant 2026, mais son pattern administratif hurlait à l'anomalie.
+
+## BLOC 7 : La Fracture Philosophique Internationale
+
+### 1. La matière brute fournie
+Le texte est un benchmark détaillé des architectures étrangères (UK, Pays-Bas, USA).
+
+### 2. L'analyse du problème (La limite globale de l'Occident)
+Même dans les pays dits "en avance", trois problèmes universels demeurent :
+1. Les systèmes sont conçus pour **enquêter** (réaction), pas pour **anticiper** (prévention).
+2. Les données sont structurées par **institution** (Le silo "Police", le silo "École"), et non par **individu**.
+3. La friction juridique (Privacy) bloque l'automatisation.
+
+### 3. Ce que cela fonde pour le Projet (Le Changement de Paradigme)
+La CGIP justifie son existence en renversant ces trois limites :
+- La France fonctionne selon le triptyque : "Preuve → Procédure → Décision".
+- La CGIP doit basculer la France vers le modèle hybride : "Signal (UK) → Contexte (NL) → Analyse (US) → Sous contrôle d'un Magistrat (FR)".
+
+## BLOC 8 : La Formalisation Mathématique du Jugement
+
+### 1. La matière brute fournie
+Le texte offre le pseudo-code exhaustif du système de scoring (Couche C et D), combinant les features, le ML, et les contraintes juridiques.
+
+### 2. L'analyse du problème (L'équilibre Homme-Machine)
+Le problème fondamental de l'IA judiciaire est la "Boîte Noire". Le pseudo-code démontre comment forcer la machine à rester transparente :
+- **L'IA ne prend pas de décision**, elle calcule une probabilité (`predict_proba`).
+- **Le Droit écrase l'IA** (`apply_constraints` modifie le score brut si les conditions légales ne sont pas remplies).
+- **L'Humain valide** (`Human Review Queue`).
+
+### 3. Ce que cela fonde pour le Projet
+La CGIP se définit officiellement comme une hybridation à 5 têtes : Statistique + Théorie des Graphes + ML + Droit + Humain. Le texte souligne que sans une "Qualité de donnée très élevée", la formule mathématique ne produira que des erreurs (GIGO : Garbage In, Garbage Out).
+
+## BLOC 9 : La Dystopie et l'Équilibre (Chine vs USA vs UK)
+
+### 1. La matière brute fournie
+Le texte introduit la Chine dans le comparatif mondial, face aux USA et au UK.
+
+### 2. L'analyse du problème (La ligne de crête)
+Techniquement, l'architecture Data Lake + Graph + ML existe. Elle s'appelle le "Public Security Bureau" chinois. La Chine a fusionné massivement les données judiciaires avec des données privées (paiements, mobilité, caméras). 
+Le constat est glaçant : l'efficacité technique pure mène à l'opacité totale et à l'écrasement des libertés. À l'inverse, l'Occident (USA/UK) préserve les libertés via la fragmentation des données, mais perd en efficacité préventive.
+
+### 3. Ce que cela fonde pour le Projet
+La CGIP est une recherche du point d'équilibre parfait :
+- Techniquement aussi intégrée que la Chine (Graphe unifié).
+- Analytiquement aussi puissante que les USA (Data Lake / ML).
+- Légalement aussi transparente et ciblée que le Royaume-Uni (MASH / XAI).

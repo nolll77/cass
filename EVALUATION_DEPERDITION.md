@@ -102,3 +102,23 @@ L'architecture Graphe + Data Lake résout structurellement les limites du systè
 Le dataset P001 illustre parfaitement la déperdition actuelle :
 - Sans la CGIP : 4 institutions différentes (Police, Justice, Education, Social) ont chacune 1 ou 2 événements de sévérité faible à moyenne. Personne ne bouge.
 - Avec la CGIP : Le système agglomère les 6 événements en une "Convergence multi-sources". Le `risk_score` passe de 35 (Faible) en 2017 à 91 (Critique) en 2026.
+
+## Comparaison de l'Effort Préventif : France vs Monde
+
+Le tableau comparatif est cinglant pour la France actuelle :
+- **Interopérabilité** : Faible en France (Bonne au UK, Très bonne aux NL).
+- **ML Prédictif** : Quasi nul en France (Avancé aux USA).
+- **Prévention** : Faible en France (Élevée au UK/NL).
+
+Cependant, la France possède un atout majeur : une **Transparence Juridique Élevée** et un risque de surveillance de masse **Faible**. La déperdition française est donc paradoxalement le résultat d'une protection juridique forte. Le rôle de la CGIP est de combler le gap technologique sans sacrifier ce bouclier juridique.
+
+## L'Algorithmique contre l'Aveuglement
+
+Le pseudo-code dévoile pourquoi Cassiopée échoue là où la CGIP réussit.
+Dans Cassiopée, le calcul de la "proximité entre un suspect et un cluster de victimes" prend des mois d'enquête manuelle. 
+Dans la CGIP, la fonction `compute_proximity(graph)` calcule le chemin le plus court (Shortest Path) de manière instantanée, révélant des connexions que le cerveau humain d'un enquêteur surchargé n'aurait jamais vues.
+
+## Dystopie vs Dysfonctionnement
+
+La matrice de comparaison mondiale montre que l'État français a choisi le dysfonctionnement plutôt que la dystopie. La Chine possède 5/5 en "Intégration multi-domaines", là où la France peine à dépasser 1/5.
+La CGIP n'est pas un système de "Surveillance" (comme la Chine) car elle ne collecte pas la donnée citoyenne permanente. Elle n'est qu'un système de "Rapprochement" des données institutionnelles avérées.
