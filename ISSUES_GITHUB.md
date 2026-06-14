@@ -212,8 +212,8 @@ L'objectif est d'organiser le projet open-source / institutionnel en séparant c
 - **Contexte Analytique :** La plateforme utilisant de l'IA sur des données sensibles, elle doit être certifiée "Haut Risque" mais "Conforme" selon le récent AI Act européen.
 - **Périmètre Gouvernance :** Évaluation d'impact (DPIA) complète pour contrer les critiques habituelles de surveillance de masse (le "Syndrome US").
 
-### Issue — [ML] #026 — Implémentation du Pipeline XGBoost & Rule Engine
-**Labels:** ml, python, difficulty: hard
+### ~~Issue — [ML] #026 — Implémentation du Pipeline XGBoost & Rule Engine~~ [CLOSED]
+**Labels:** machine-learning, legal-tech, core
 - **Contexte Analytique :** Coder le fichier `src/ml_engine/risk_scorer.py` en se basant sur le pseudo-code officiel.
 - **Périmètre Technique :** Le script doit orchestrer l'extraction des `features`, lancer le `predict_proba` d'un modèle XGBoost factice, appliquer le `apply_constraints()` et générer le JSON de sortie `{"risk_score", "explanation"}`.
 
