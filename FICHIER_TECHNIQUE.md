@@ -435,3 +435,10 @@ Le Message Passing du GNN est configuré pour détecter trois anomalies structur
 1. **Concentration Spatiale** (ex: Domicile ↔ Zones de recherche ↔ Découverte).
 2. **Accélération Temporelle** (Burst Activity).
 3. **Convergence des flux** (Plusieurs sous-graphes qui fusionnent).
+
+## XVI. Conformité AI Act & Human-in-the-loop
+
+Face aux interdictions strictes de l'AI Act européen (en vigueur 2024-2026), l'architecture de la CGIP est officiellement classifiée comme une **"IA d'assistance documentaire et de rapprochement"**.
+- Elle ne déclenche **aucune** perquisition ou surveillance.
+- L'algorithme est bridé au "tri de dossiers" et à l'"extraction de relations entre entités".
+- La règle architecturale `Human-in-the-loop` est absolue : le magistrat est l'unique point de terminaison de la donnée.

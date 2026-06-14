@@ -514,3 +514,11 @@ Le texte simule un cas générique (disparition) pour illustrer la mécanique du
 
 ### 2. Le Paradigme Opérationnel
 Le but n'est pas de court-circuiter l'intuition de l'enquêteur, mais de lui offrir un outil de *visualisation augmentée* qui détecte des patterns impossibles à percevoir à l'œil nu (ex: la convergence de 50 flux d'enquête vers un même cluster spatio-temporel).
+
+## BLOC 16 : La Dualité RGPD et la Séparation des Pouvoirs
+
+### 1. La matière brute fournie
+Le texte dissèque les barrières légales (RGPD, Directive Police-Justice, AI Act) qui interdisent le profilage massif et la prédiction individuelle automatique.
+
+### 2. Le Changement de Paradigme (Le Silo est une Feature)
+L'analyse révèle une vérité contre-intuitive : en France, le cloisonnement des données (Justice / Police / Social) n'est pas qu'un retard technologique, c'est une **volonté constitutionnelle** de séparation des pouvoirs pour empêcher la surveillance automatisée. La CGIP respecte cette volonté : elle ne crée pas un "super dossier citoyen central", elle crée un maillage ponctuel et limité ("Human-in-the-loop").

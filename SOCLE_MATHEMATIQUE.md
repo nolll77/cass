@@ -396,3 +396,8 @@ Pour garantir la non-décision automatique, la sortie mathématique du GNN (le c
 }
 ```
 Ce format est la seule preuve admissible générée par la machine pour l'enquêteur.
+
+## XVI. Validation Juridique du Rule Engine
+
+Les limites fixées par la CNIL et l'article 22 du RGPD (interdiction de la décision automatisée) valident à 100% le Rule Engine que nous avons codé (Chapitre X).
+Notre bridage mathématique (`max_depth=4` pour XGBoost, et plafonnement de certitude) est la traduction mathématique exacte de cette doctrine juridique. Un "Risk Score Individuel" pur est illégal ; c'est pourquoi notre modèle calcule une probabilité de "similarité structurelle" d'une affaire, et non une probabilité de récidive humaine.

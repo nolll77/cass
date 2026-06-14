@@ -375,3 +375,8 @@ La plateforme convertit une chronologie fragmentée en un graphe dynamique :
         [L1 domicile]  [P_Suspect]
 ```
 *(Ce graphe permet au modèle ML de repérer la concentration spatiale et l'accélération temporelle d'une crise).*
+
+### Conformité Légale (AI Act & RGPD)
+- ✅ **Human-In-The-Loop** : L'IA ne prend aucune décision judiciaire.
+- ✅ **Privacy by Design** : Pseudonymisation par hachage avant tout calcul.
+- ✅ **AI Act Compliant** : Classifié comme "Aide à l'enquête documentaire", aucun scoring individuel automatisé.

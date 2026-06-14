@@ -160,3 +160,7 @@ Si le GNN est surpuissant pour lier des dossiers isolés, le texte identifie les
 ## La Ligne de Temps (Timeline) face aux Silos
 
 Un outil administratif classique enregistre "E1 a eu lieu le 12", "E3 a eu lieu le 14". Il est aveugle à l'effet domino (`triggers`, `expands_scope`). La CGIP corrige cette déperdition en modélisant le temps et l'espace comme des vecteurs physiques : le GNN "voit" l'accélération temporelle et la densité spatiale.
+
+## Le Compromis entre Droit Individuel et Vision Globale
+
+Le texte met le doigt sur la faille systémique : `Excellence du cadre juridique = Lenteur de la circulation de l'information`. La CGIP comble ce vide en utilisant le Graphe. Au lieu de fusionner illégalement les bases de données (ce qui violerait le principe de "finalité"), le Graphe Neo4j ne fusionne que les *métadonnées de lien* pour alerter sur des patterns de séries criminelles, sans violer le secret du dossier source.

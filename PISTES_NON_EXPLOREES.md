@@ -93,3 +93,7 @@ Il s'agit du "frigo" intellectuel du projet CGIP. Lorsqu'un sujet est exploré, 
 - [ ] Extraction automatique des sous-graphes explicatifs (Sub-graph Explainer).
 - [ ] Simulation d'un GNN qui "rate" un lien critique (cas réel de limite IA).
 - [ ] Design d'un système d'alerte officiellement acceptable par la CNIL pour le graphe temps réel.
+
+- [ ] Détailler l'architecture IA 100% conforme RGPD (Design réel).
+- [ ] Analyser pourquoi l'AI Act européen bloque spécifiquement le "Crime Prediction System".
+- [ ] Comparaison technique précise : Cassiopée (France) vs UK Crown Prosecution Service systems.

@@ -230,3 +230,18 @@ La CGIP résout ce problème politique par le concept de **Fédération de Graph
 ## Axe 5 : L'Output IA (Le Refus de la Prédiction Individuelle)
 
 Le texte simule un cas grave (disparition) et réitère la ligne rouge : `❌ ne jamais inférer la culpabilité`. Contrairement à des outils prédictifs policiers controversés (PredPol), la CGIP ne cible pas des individus avant le crime. Elle analyse une situation *déjà déclenchée* (E1: Disparition) pour optimiser les ressources de recherche. C'est ce qui la rend juridiquement viable en Europe.
+
+## Axe 6 : RGPD vs Le Reste du Monde (La Limite du Temps Réel)
+
+### 1. Analyse Individuelle
+- **USA** : Utilisation d'outils type COMPAS. Juridiquement accepté mais ravagé par les biais raciaux et la controverse.
+- **Chine** : Surveillance massive et IA prédictive directe. Technologiquement extrême, mais totalement illégal en UE.
+- **Royaume-Uni** : Plus avancé techniquement sur la prédiction policière, mais sous lourds audits.
+- **Pays-Bas (Nordiques)** : Forte centralisation (Data-driven) compensée par une transparence administrative absolue.
+
+### 2. Confrontation avec la France
+La France possède le bouclier juridique le plus lourd (RGPD + Directive + AI Act). L'intégration Data Temps Réel y est quasi-nulle par peur politique de l'erreur irréversible.
+
+### 3. Le "Fil Rouge"
+Le lien caché mondial est le **Trade-off Transparence/Biais**. Les USA assument le biais au profit de l'efficacité. La Chine assume la surveillance. L'Europe (et la France en tête) préfère être technologiquement inefficace plutôt que de risquer une décision discriminatoire automatisée. 
+La **CGIP** trouve la brèche : elle utilise la technologie de pointe (GNN/Kafka) mais la bride juridiquement pour agir uniquement comme un *système documentaire augmenté*.
