@@ -1,0 +1,11 @@
+pandas
+numpy
+networkx
+matplotlib
+seaborn
+scikit-learn
+streamlit
+neo4j
+jupyter
+spacy
+dateparser

@@ -3,135 +3,280 @@
   <p><b>Le Cerveau Artificiel Institutionnel : Graphes Causaux, Inférence Structurelle et IA Constitutionnelle.</b></p>
   <br>
   <img src="https://img.shields.io/badge/Status-Research_%26_Architecture-blue.svg" alt="Status">
-  <img src="https://img.shields.io/badge/Architecture-Distributed_Graph_Platform-orange.svg" alt="Architecture">
-  <img src="https://img.shields.io/badge/Paradigm-Compliance--By--Design-brightgreen.svg" alt="Paradigm">
+  <img src="https://img.shields.io/badge/Architecture-Federated_Graph_Platform-orange.svg" alt="Architecture">
+  <img src="https://img.shields.io/badge/Paradigm-Privacy--By--Design-brightgreen.svg" alt="Paradigm">
   <img src="https://img.shields.io/badge/Core-PyTorch_Geometric_%7C_Neo4j_%7C_DoWhy-purple.svg" alt="CoreTech">
 </div>
 
 ---
 
-## 📖 1. Préambule Épistémologique : L'Échec des Silos Tabulaires
-
-Le projet **Cass / CGIP** naît d'un constat systémique profond sur le fonctionnement de l'appareil d'État (Justice, Police, Éducation, Services Sociaux). Régulièrement, des tragédies institutionnelles se produisent non pas parce que l'information n'existait pas, mais parce qu'elle était **fragmentée**, dispersée dans des silos étanches et statiques.
-
-### 1.1. La nature du fractionnement institutionnel
-Historiquement, les bases de données gouvernementales sont conçues selon un paradigme **tabulaire** et **procédural**. 
-*   **2020** : L'Éducation Nationale enregistre un signalement isolé (relation adulte/mineure) classé sans suite judiciaire.
-*   **2022** : La Police Nationale enregistre une plainte tardive, sur des faits anciens, avec un nom de suspect mal orthographié.
-*   **2024** : Les Services Sociaux émettent une alerte sur un comportement inquiétant.
-
-Dans un paradigme tabulaire (SQL, registres administratifs), ces trois lignes n'ont **aucune existence topologique commune**. Elles existent dans des espaces de stockage différents. Le lien qui les unit est invisible à l'œil nu. 
-
-### 1.2. Le Changement de Paradigme : La Réalité est un Graphe
-La **Civic Graph Intelligence Platform** acte une rupture paradigmatique : la réalité sociale et criminelle n'est pas une table de données, c'est un **graphe orienté et dynamique**. L'individu, l'événement, l'adresse, la plainte sont des nœuds (`Nodes`). Leurs relations temporelles et hiérarchiques sont des arêtes (`Edges`). 
-
-La mission de la CGIP est d'opérer la translation de cette réalité fragmentée vers une **vérité topologique unifiée**.
+## 📖 TABLE DES MATIÈRES
+1. [Manifeste Épistémologique : La Rupture des Silos](#1-manifeste-épistémologique--la-rupture-des-silos)
+2. [Le Pacte Faustien et l'IA Constitutionnelle](#2-le-pacte-faustien-et-lia-constitutionnelle)
+3. [L'Architecture de la CGIP (Couches A à H)](#3-larchitecture-de-la-cgip-couches-a-à-h)
+4. [La Modélisation Mathématique (Les 5 Algorithmes d'IA)](#4-la-modélisation-mathématique-les-5-algorithmes-dia)
+5. [Modèle de Données et Ontologie (Neo4j)](#5-modèle-de-données-et-ontologie-neo4j)
+6. [L'Infrastructure Distribuée (Enterprise Stack)](#6-linfrastructure-distribuée-enterprise-stack)
+7. [Structure du Dépôt Open-Source](#7-structure-du-dépôt-open-source)
+8. [Guide d'Installation Locale](#8-guide-dinstallation-locale)
+9. [Simulation End-to-End : Démonstration Mathématique](#9-simulation-end-to-end--démonstration-mathématique)
 
 ---
 
-## ⚖️ 2. Le "Pacte Faustien" de l'IA et l'IA Constitutionnelle
+## 📖 1. MANIFESTE ÉPISTÉMOLOGIQUE : LA RUPTURE DES SILOS
 
-Utiliser l'IA pour traiter les données judiciaires relève traditionnellement du "pacte faustien" :
-*   *Soit* on optimise mathématiquement la prédiction (Police Prédictive, *Minority Report*), ce qui conduit inévitablement à un profilage illégal, un biais algorithmique massif et une violation des Droits de l'Homme.
-*   *Soit* on interdit l'IA, et les institutions continuent de laisser passer des drames par cécité systémique.
+Le projet **Cass / CGIP (Civic Graph Intelligence Platform)** est né d'un constat implacable et systémique sur le fonctionnement de l'appareil d'État moderne (Justice, Police, Éducation Nationale, Services Sociaux).
 
-### 2.1. Compliance is moved BEFORE computation
-La CGIP résout cette aporie en modifiant l'architecture logicielle : **la contrainte constitutionnelle n'est pas une surcouche de vérification a posteriori, elle est le moteur d'exécution (Runtime).** 
-Le système ne peut pas mathématiquement compiler une requête ou une inférence qui violerait le RGPD, car les poids du réseau neuronal et l'architecture du pipeline de données sont régis par un système de **Kill Switch** matériel et logiciel. Le profilage prédictif individuel est physiquement impossible par design. Ce que le système audite, ce n'est pas la probabilité qu'un individu commette un crime, mais **la probabilité qu'une structure institutionnelle souffre d'un angle mort**.
+### 1.1. L'Anatomie des 8 Failles Systémiques
+Régulièrement, les sociétés font face à des tragédies criminelles (comme l'affaire tragique que nous nommerons "Affaire L."). L'audit post-mortem de ces affaires révèle une vérité structurelle : **toutes les informations pré-existaient, mais l'État était incapable de les relier**.
 
----
-
-## 🏗️ 3. L'Architecture Multi-Couches (A à H)
-
-La CGIP est une plateforme de niveau "Palantir-Foundry", conçue pour ingérer des flux massifs, générer des embeddings complexes, bloquer les anomalies éthiques et fournir une interface de Case Management à l'opérateur humain. Elle est découpée en 6 strates conceptuelles et opérationnelles.
-
-### 🟦 Couche A : Le Socle Ontologique (Graph Core)
-C'est la couche immuable. Elle est agnostique au Machine Learning. Elle se contente de modéliser les événements sous forme de triplets `(Sujet) -> [RELATION] -> (Objet)`. Elle ingère les flux de Kafka et construit un graphe dans **Neo4j**.
-*   **Objectif** : Restructurer la réalité en abolissant les silos spatiaux.
-
-### 🧠 Couche B : Inférence Structurelle (Graph Neural Networks - GNN)
-L'intelligence du système réside ici. Basée sur *PyTorch Geometric*, cette couche apprend la forme géométrique des dossiers judiciaires. 
-Un GNN ne lit pas du texte, il lit de la topologie. Si le réseau détecte un sous-graphe "A", et un autre sous-graphe "B" qui possèdent exactement les mêmes "voisins" temporels et événementiels, le GNN effectue une **Link Prediction** (Prédiction de Lien). 
-*   **Objectif** : Dire à l'enquêteur : *"Malgré les fautes de frappe et l'espacement de 4 ans, il y a 92% de chances que ces deux entités soient la même personne."*
-
-### 🔬 Couche D : Le Moteur Causal (Do-Calculus & DAG)
-L'IA statistique classique est stupide : elle confond corrélation et causalité (ex: "les parapluies causent la pluie"). Pour contrer cela, la couche D intègre des **Direct Acyclic Graphs (DAG)** et de l'inférence causale (librairie *DoWhy*).
-Cette couche simule des interventions mathématiques (`P(Y | do(X))`) pour garantir que les relations identifiées par le GNN ont un sens logique et chronologique.
-*   **Objectif** : Forcer la machine à s'expliquer de manière déterministe et scientifique.
-
-### 🧬 Couche BD : Fusion Causal-GNN (L'Innovation Core)
-C'est le sommet de l'intelligence artificielle de la CGIP : le `causal_gnn.py`. Il applique une `Causal Alignment Loss`. Mathématiquement, cela signifie que si le GNN trouve une corrélation forte mais que le moteur causal dit "c'est temporellement ou physiquement impossible", la perte de la fonction bondit vers l'infini.
-*   **Objectif** : Une IA incapable d'halluciner des relations absurdes.
-
-### 🛡️ Couche E : Moteur de DPIA & Gouvernance RGPD
-C'est le premier pare-feu éthique. Le Data Protection Impact Assessment (DPIA) est codé en heuristiques. Avant que le graphe ne passe dans le GNN, le module `E_gdpr_engine` scanne les nœuds. Présence de données de santé ? +40 de risque. Profilage automatisé ? +20 de risque. Traitement de masse ? +20. 
-*   **Objectif** : Attribuer un niveau de risque juridique strict et documenté (LOW, MEDIUM, HIGH) à chaque micro-batch d'analyse.
-
-### 🛑 Couche F : L'Enforcement et le Kill Switch
-Là où les plateformes classiques envoient une simple notification de "Warning", la CGIP possède un véritable `kill_switch.py`. Si le moteur DPIA (Couche E) détecte un risque critique de discrimination ou de profilage arbitraire, une **Exception Runtime** est levée et le pipeline de calcul est immédiatement et physiquement sectionné.
-*   **Objectif** : Un système qui s'arrête de fonctionner plutôt que de violer la loi. L'IA sous séquestre constitutionnel.
-
-### 🎯 Couches G & H : Opérations, Alerting et Case Management
-Le résultat final de tout ce travail n'est pas un pourcentage balancé au visage d'un juge. C'est l'intégration dans un **Case Management System** (un dossier). 
-Si l'Alerting Engine identifie une `CRITICAL_ALERT`, il ouvre un `Workspace` d'investigation propre, avec une piste d'audit (Audit Trail) complète détaillant pourquoi le système a lié ces événements. L'humain (policier, juge, travailleur social) reprend le contrôle total.
-
----
-
-## 💻 4. L'Infrastructure Logicielle (Enterprise Stack)
-
-La conception du répertoire respecte un design moderne, prêt à l'échelle (Scale-ready) :
+Voici comment l'information se perd mathématiquement dans le modèle français actuel :
 
 ```text
-cgip/
-├── core/
-│   └── graph/graph_model.py          # Définition agnostique des graphes temporels
-├── modules/
-│   ├── B_gnn/                        # Inférence PyTorch Geometric
-│   ├── BD_fusion/                    # Fonction de perte causale (Causal Alignment Loss)
-│   ├── E_gdpr_engine/                # Algorithme de calcul du DPIA
-│   ├── F_autoblocking/               # Logique de Kill Switch & Decision Gate
-│   ├── G_alerting/                   # Moteur hybride ML/Heuristique d'escalade
-│   └── H_case_management/            # Espace de travail de l'analyste
-├── orchestration/
-│   ├── pipeline_router.py            # Routeur à Feature Flags (Ablation logicielle)
-│   ├── feature_flags.py              # Configuration d'activation des couches (A->F)
-│   └── dag.py
-├── security/                         # Règles de politiques
-├── ontology/                         # Schémas de données graph
-├── ui/
-│   └── app.py                        # Dashboard analytique Streamlit
-└── simulate_case.py                  # Scénario End-to-End d'effondrement des silos
+🔁 LE PARADOXE DES SILOS (Pourquoi l'État est aveugle)
+
+[ ÉVÉNEMENT INITIAL T=0 ]
+           │
+           ├─> 👩‍🏫 École (Signalement) ────────> [ Fichier ASE / Éducation ] (Silo 1)
+           │
+           ├─> 👮 Police (Plainte Classée) ───> [ Fichier TAJ ] (Silo 2)
+           │
+           └─> ⚖️ Justice (Information) ──────> [ Casier Judiciaire ] (Silo 3)
+
+⚠️ RÉSULTAT : Le suspect n'a pas 1 profil de risque global. Il a 3 fragments de données invisibles les uns pour les autres. 
+```
+
+## 📚 Documentation Fondamentale
+
+- **[La Genèse du Projet (PRD)](GENESE_DU_PROJET.md)** : Les 9 blocs de fondation, les failles systémiques de l'État (Affaire L.), et la doctrine éthique.
+- **[Benchmark International](BENCHMARK_INTERNATIONAL.md)** : Étude comparative des systèmes étrangers et français. Analyse des outils individuellement, versus la France, et recherche des similitudes/schémas transversaux entre pays pour prouver la nécessité technologique de la CGIP.
+- **[Spécifications Techniques](FICHIER_TECHNIQUE.md)** : L'architecture de la "Machine à Détecter", les contraintes des silos (Cassiopée, FIJAISV, SALVAC) et l'intégration Civil Tech.
+- **[Le Socle Mathématique](SOCLE_MATHEMATIQUE.md)** : Les équations pures (GNN, Processus de Hawkes, Time Decay, DPIA Kill-Switch) qui gouvernent le système sans boîte noire.
+- **[Gap Analysis (Déperdition)](EVALUATION_DEPERDITION.md)** : Pourquoi l'approche Graphe surpasse l'approche SQL historique de l'État.
+- **[Pistes Non Explorées (Le Frigo)](PISTES_NON_EXPLOREES.md)** : Le backlog intellectuel recensant 100% des concepts théoriques évoqués mais laissés en attente.
+
+## 🧩 L'Architecture Idéale : Civic Graph Intelligence Platform (CGIP)
+
+La CGIP implémente une architecture à 5 couches qui ne juge rien, mais qui fusionne, détecte et priorise :
+
+```text
+       ┌──────────────────────────────┐
+       │  Sources Multiples (Silos)   │
+       │  Cassiopée, TAJ, Civil Tech  │
+       └─────────────┬──────────────┘
+                     ▼
+       ┌──────────────────────────────┐
+       │  Data Ingestion Layer        │
+       │  (ETL + Hachage CNIL)        │
+       └─────────────┬──────────────┘
+                     ▼
+       ┌──────────────────────────────┐
+       │  Identity Resolution Layer   │
+       │  (Dédoublonnage Bayesien)    │
+       └─────────────┬──────────────┘
+                     ▼
+       ┌──────────────────────────────┐
+       │  Civic Knowledge Graph       │
+       │  (Neo4j : Nœuds & Arêtes)    │
+       └─────────────┬──────────────┘
+       ┌─────────────┴──────────────┐
+       ▼                            ▼
+┌──────────────────┐     ┌────────────────────┐
+│ ML Risk Engine   │     │ Investigation AI   │
+│ (Score Hawkes)   │     │ (Similarité GNN)   │
+└──────────────────┘     └────────────────────┘
+                     ▼
+       ┌──────────────────────────────┐
+       │ Human Decision Layer         │
+       │ (Alerte Magistrat / Juge)    │
+       └──────────────────────────────┘
+```
+
+L'architecture classique souffre de **8 Points de Rupture Institutionnels** (Les "Casses") :
+1. **Casse #1 (École)** : Le signal faible initial est souvent un texte libre non standardisé, inutilisable par une machine classique.
+2. **Casse #2 (Filtrage Administratif)** : La priorisation humaine fait disparaître de nombreux signaux avant même la police.
+3. **Casse #3 (Silo Policier)** : La police agit en "affaire locale", sans vision inter-départementale globale.
+4. **Casse #4 (Silo Judiciaire)** : Cassiopée stocke par "dossier", incapable de tisser le réseau d'un individu.
+5. **Casse #5 (Absence de Boucle de Retour)** : L'école ou la police qui signale n'est jamais alertée en retour de l'évolution judiciaire.
+6. **Casse #6 (Mémoire Fragmentée)** : Il n'existe aucune timeline centralisée des événements pour un individu.
+7. **Casse #7 (Identités Multiples)** : Les orthographes varient ("J. Dupont" vs "Jean Dupont"), empêchant la liaison des dossiers.
+8. **Casse #8 (Séparation Étatique)** : Le RGPD et le Droit Pénal bloquent structurellement le croisement des données pour éviter la surveillance de masse.
+
+### 1.2. La Réalité est un Graphe
+La CGIP propose une rupture totale d'épistémologie de la donnée. La réalité criminelle n'est pas une table SQL. C'est un **Graphe Orienté**.
+
+```text
+🧠 LE CHANGEMENT DE PARADIGME (Réseau de Victimes et de Contextes)
+
+                  [ SUSPECT ]
+                        │
+   ┌────────────────────┼────────────────────┐
+   │                    │                    │
+[Milieu scolaire]   [Domicile]      [Espace public]
+   │                    │                    │
+Victime A          Victime B          Victime C
+(Signalement)      (Plainte classée)  (Disparition)
+
+👉 En modélisant des "Contextes" (Lieux, Écoles), la machine relie des affaires sans avoir besoin d'une connexion judiciaire explicite.
 ```
 
 ---
 
-## 🚀 5. Lancer la Preuve de Conception (Simulation End-to-End)
+## ⚖️ 2. LE PACTE FAUSTIEN ET L'IA CONSTITUTIONNELLE
 
-Pour comprendre l'utilité du système, nous avons encodé un scénario tragiquement banal, connu sous le nom de "Fractionnement Institutionnel". 
+### 2.1. La Troisième Voie (Le Modèle Français)
+Le benchmark international montre deux extrêmes :
+- Le **modèle ultra-centralisé** (ex: Royaume-Uni, Danemark), redoutablement efficace pour la détection, mais critiqué pour le risque de "sur-fichage".
+- Le **modèle extrêmement segmenté** (France), qui protège les libertés mais crée des angles morts.
 
-### Exécution du simulateur :
-Depuis la racine du dépôt, exécutez la commande :
-```bash
-python cgip/simulate_case.py
-```
+La CGIP construit une **troisième voie** : une Architecture de Graphe Fédéré, alliée au *Privacy by Design*.
 
-### Le comportement observable (Logs d'exécution) :
-1. **[Ingestion]** : Le graphe unifié absorbe 3 signaux faibles décorrélés : un signalement de l'Éducation Nationale en 2020, une plainte de la Police en 2022, une alerte sociale en 2024.
-2. **[DPIA Check]** : Le moteur calcule le risque éthique (Score = 60). Le Kill-Switch émet un `Warning` mais autorise le traitement car le profilage arbitraire est désactivé.
-3. **[GNN + Causal Inference]** : L'IA identifie la signature topologique des dossiers. Le GNN affirme à 92% que les identités morcelées désignent la même réalité systémique.
-4. **[Audit & Case]** : Une `CRITICAL_ALERT` est levée. L'affaire est consolidée. Le système ouvre automatiquement un rapport (Workspace `CASE_2024_001`).
+### 2.2. Le "Privacy By Design" (Confidence Score & Time Decay)
+Pour éviter le cauchemar de la police prédictive ("Minority Report"), la loi est encodée directement dans les mathématiques :
+1. **Le Confidence Score** : Le système pondère la gravité. (Condamnation = `1.0`, Plainte = `0.8`, Signalement École = `0.4`, Rumeur = `0.1`).
+2. **Le Droit à l'Oubli (Time Decay Function)** : La force d'un lien diminue avec le temps. Un signalement vieux de 10 ans sans récidive n'a presque plus de poids.
+3. **Le Kill-Switch Moteur DPIA** : Un interrupteur logiciel bloque en temps réel toute computation qui dévierait vers du profilage illégal.
 
-**Conclusion de la simulation** : Le système force la coopération des acteurs publics **avant** que la situation n'atteigne un point de rupture irrémédiable, sans jamais violer la présomption d'innocence.
+> **La CGIP ne fait jamais de "justice prédictive". Elle fait de la *Fusion d'Information* pour générer une recommandation : `REVUE HUMAINE RECOMMANDÉE`.**
 
 ---
 
-## 🔮 6. La Future Évolution : "Distributed Production Grade"
+## 🏗️ 3. L'ARCHITECTURE DE LA CGIP (COUCHES A À H)
 
-Bien que le dépôt actuel soit une preuve conceptuelle massive et fonctionnelle localement, l'architecture a été conçue pour muter en une plateforme asynchrone hautement disponible :
+### 🟦 Couche A : Le Socle Ontologique (Graph Data Foundation)
+*   **Technologie** : `Neo4j` (Cypher).
+*   **Rôle** : Ingestion standardisée des flux issus de bases diverses via l'introduction des `[ContextNode]` (École, Domicile).
 
-1. **Ingestion Temps Réel** : Remplacement des injections locales par un cluster **Apache Kafka** ou **AWS MSK** pour processer les plaintes et signalements en streaming continu.
-2. **Stockage Distribué** : Base de données **Neo4j** en Haute Disponibilité (Cluster HA) gérant des dizaines de millions de nœuds institutionnels.
-3. **Calcul Haute Performance** : Moteur GNN distribué (DGL ou TorchServe) capable de mettre à jour les embeddings dynamiquement (Temporal Graph Networks).
-4. **Déploiement GitOps** : Infrastructure **Kubernetes** gérée via ArgoCD, permettant la conteneurisation stricte et la séparation des droits entre les nœuds ML et les nœuds RGPD.
+### 🧠 Couche B : Inférence NLP & Entity Resolution
+*   **Rôle** : L'**Entity Resolution** utilise les LLMs pour "dé-bruiter" la donnée et savoir si "Victime A" et "A." sont la même personne.
 
-> *"Ce système ne remplace pas le juge. Il est l'exosquelette mathématique de l'État de Droit, garantissant que l'oubli et le cloisonnement ne soient plus des fatalités systémiques."*
+### 🔬 Couche D : Le Moteur Causal (Direct Acyclic Graphs)
+*   **Rôle** : Remplacer la corrélation statistique par du Do-Calculus, forçant le système à vérifier le lien de causalité chronologique.
+
+### 🛡️ Couches E & F : Moteur DPIA et Kill-Switch
+*   **Rôle** : L'auto-blocage légal. Avant chaque requête GNN, si le risque d'atteinte à la vie privée est trop haut, le processus python est intercepté.
+
+### 🔔 Couche G : Moteur d'Alerting ML
+*   **Rôle** : Agrégation des scores de risque pour déclencher l'alerte finale.
+
+### 🗂️ Couche H : Case Management System
+*   **Rôle** : L'IHM pour l'enquêteur. Un graphe visuel interactif expliquant pourquoi un lien latent est suspecté (Explainable AI).
+
+---
+
+## 📐 4. LA MODÉLISATION MATHÉMATIQUE (LES 5 ALGOS D'IA)
+
+Le Cerveau Central repose sur 5 tâches de Machine Learning précises :
+
+1. **Entity Resolution (NLP)** : Dédoublonner et rapprocher les dossiers de systèmes distincts (comme en détection de fraude bancaire).
+2. **Scoring de Risque (Accumulation de Signaux Faibles)** : Un *Random Forest* mesurant la récurrence spatiale et temporelle.
+3. **Détection d'Anomalies (Isolation Forest)** : Repérer un profil statistiquement atypique par rapport à la population de référence.
+4. **Analyse de Séquences Temporelles (Processus de Hawkes)** : Modéliser la fréquence et l'"escalade" des événements pour détecter l'urgence.
+5. **Graph Analytics (GNN - PyTorch Geometric)** : Calcul du *Cosine Similarity* latent pour découvrir le chaînon manquant dans l'hyper-espace de plongement.
+
+---
+
+## 🧬 5. MODÈLE DE DONNÉES ET ONTOLOGIE (NEO4J)
+
+L'ontologie du Graphe est conçue pour respecter le secret de l'instruction et le droit à la vie privée.
+
+```graphql
+type Person {
+  id: ID!
+  hashed_identifier: String! # Privacy by design
+}
+
+type Event {
+  id: ID!
+  timestamp: DateTime!
+  is_official_judicial_procedure: Boolean! # Séparation Pénal / Administratif
+}
+
+type ContextNode {
+  id: ID!
+  type: String! # "School", "Home", "Public_Space"
+}
+
+# Relations avec Poids (Weights)
+(Person)-[:VISÉ_PAR {confidence_score: 1.0, time_to_live_days: 3650}]->(Event)
+(Event)-[:HAPPENED_IN]->(ContextNode)
+```
+
+---
+
+## 🌐 6. L'INFRASTRUCTURE DISTRIBUÉE (ENTERPRISE STACK)
+
+1. **Ingestion Streaming (Kafka)** : Absolument indispensable pour l'architecture fédérée.
+2. **Graph Storage (Neo4j HA Cluster)** : Le socle de vérité.
+3. **Model Registry (MLflow)** : Assure la traçabilité algorithmique et la Reproductibilité Judiciaire.
+4. **Observabilité (Prometheus / Grafana)** : Expose les métriques du Kill-Switch RGPD.
+
+## 📂 7. STRUCTURE DU DÉPÔT OPEN-SOURCE
+
+Le projet est désormais structuré pour accueillir du code concret (Python, ML, Graph).
+```text
+/
+├── data/
+│   ├── raw/                  # (Vide) Données brutes de simulation (strictement anonymes)
+│   └── processed/            # Matrices nettoyées (ex: person_event_window.csv)
+├── docs/                     # Documentation fondamentale (Genèse, Technique, Math)
+├── src/
+│   ├── ingestion/            # Pipelines NLP (LLM to Graph) et parsing
+│   ├── graph/                # Connexion Neo4j, Cypher, Ontologie
+│   ├── ml_engine/            # Modèles XGBoost, GNN, Processus de Hawkes, XAI (SHAP)
+│   └── utils/                # Kill-Switch, Time Decay, RGPD constraints
+├── tests/                    # Tests unitaires et E2E
+├── requirements.txt          # Dépendances (Neo4j, PyTorch, XGBoost, SHAP...)
+└── simulate_case.py          # Script de démonstration End-to-End
+```
+
+---
+
+## 🛠️ 8. GUIDE D'INSTALLATION LOCALE
+
+Si vous êtes développeur ou data scientist et souhaitez expérimenter avec l'architecture :
+
+1. **Cloner le dépôt et installer les dépendances** :
+   ```bash
+   git clone https://github.com/votre-org/cgip.git
+   cd cgip
+   pip install -r requirements.txt
+   ```
+
+2. **Lancer la base Neo4j (via Docker)** :
+   Le moteur causal a besoin d'une base de données graphe locale pour tourner.
+   *(Un fichier `docker-compose.yml` sera bientôt disponible pour instancier Neo4j avec APOC en 1 commande).*
+
+3. **Exécuter la simulation (À venir)** :
+   ```bash
+   python simulate_case.py
+   ```
+
+---
+
+## 🎬 9. SIMULATION END-TO-END : DÉMONSTRATION MATHÉMATIQUE
+
+Le script `simulate_case.py` situé à la racine démontre le moteur en action.
+Il simule une suite chronologique complexe illustrant l'incapacité humaine à faire le lien.
+
+```text
+⏳ SIMULATION CHRONOLOGIQUE GÉRÉE PAR LE MOTEUR (L'Affaire L.)
+
+2017 ─ ⚠️ Signalement (Mineure A) → Classé sans suite
+2020 ─ ⚠️ Alerte comportementale (Mineure B) → Sanction disciplinaire non judiciaire
+2022 ─ ⚖️ Plainte (Victime C) → Enquête en cours
+2026 ─ 🚨 Disparition d'une victime D
+
+👉 Dans la vraie vie : 4 dossiers étanches.
+👉 Dans la CGIP : Entity Resolution + Processus de Hawkes détectent l'escalade dès 2022 et lèvent une alerte critique.
+```
+
+Le simulateur va :
+1. Appliquer l'usure du temps (Time Decay) sur le fait de 2017.
+2. Utiliser l'**Entity Resolution** pour relier l'alerte institutionnelle de 2020 au suspect.
+3. Passer la douane éthique (DPIA) sans profiler.
+4. Lever l'alerte de `REVUE HUMAINE RECOMMANDÉE` au moment où la corrélation mathématique dépasse le seuil critique (en 2022), évitant le drame final.
+
+---
+
+> *"Le code fait loi (Lessig). Dans la CGIP, la loi fait le code."*

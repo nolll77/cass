@@ -1,0 +1,182 @@
+# Socle Mathématique et Algorithmique (Formulaire CGIP)
+
+> **GUIDE DE CONSTRUCTION (MANIFESTE DU SOCLE)**
+> 
+> **Qu'est-ce qu'un Socle (ou Lexique Formel) ?**
+> C'est le référentiel absolu et purgé de tout bruit narratif. Il extrait, nettoie et standardise la "moelle technique", mathématique ou algorithmique du projet CGIP pour la rendre exploitable par des machines (code) ou des pairs (ingénieurs, magistrats).
+> 
+> **Le Standard des 9 Tags (Le DAG d'Ingénierie Ultime) :**
+> Chaque algorithme de la CGIP est lu et implémenté comme une fonction autonome sécurisée grâce à 9 clés :
+> 1. **Quoi :** La définition mécanique (ce que la formule calcule).
+> 2. **Pourquoi :** L'objectif institutionnel ou judiciaire (à quoi ça sert dans le système).
+> 3. **Inputs (Entrées) :** Les données brutes (événements, scores).
+> 4. **Outputs (Sorties) :** Le format mathématique du résultat retourné.
+> 5. **Dépendance Amont :** Quelle autre formule doit obligatoirement être calculée *avant*.
+> 6. **Dépendance Aval :** Quelle(s) formule(s) utiliseront ce résultat *après*.
+> 7. **Complexité Algorithmique :** Ordre de grandeur informatique (Big O).
+> 8. **Contraintes & Hypothèses (Assumptions) :** Postulats traduits dans le strict contexte de la Police et de la Justice.
+> 9. **Limites / Biais (Edge Cases) :** Les cas réels où la formule "craque" ou devient absurde.
+
+---
+
+## 1. Gouvernance et Privacy by Design
+
+### Time Decay Function (Droit à l'oubli algorithmique)
+**Formule :**
+$$
+\Huge C(t) = C_0 \cdot e^{-\lambda \cdot \Delta t}
+$$
+*   **Quoi :** Décroissance exponentielle du poids d'une relation (Edge) dans le graphe.
+*   **Légende :** $C(t)$ : Confidence Score actuel, $C_0$ : Poids initial brut de l'événement (ex: 0.4 pour un signalement école), $\lambda$ : coefficient de demi-vie légale, $\Delta t$ : temps écoulé depuis l'événement.
+*   **Pourquoi :** Encoder la prescription légale et le droit à l'oubli dans les mathématiques. Un incident mineur vieux de 10 ans sans récidive doit disparaître des radars pour protéger la vie privée.
+*   **Inputs :** Timestamp de l'événement, Timestamp actuel, Poids légal brut $C_0$.
+*   **Outputs :** Scalaire positif $\in [0, 1]$ représentant la force résiduelle de la preuve.
+*   **Dépendance Amont :** Le Moteur de Confiance (Confidence Engine).
+*   **Dépendance Aval :** Agrégation de Risque, Processus de Hawkes.
+*   **Complexité Algorithmique :** O(1) — Une multiplication instantanée.
+*   **Contraintes & Hypothèses (Assumptions) :** Le risque de récidive criminelle d'un individu s'évapore mécaniquement et prévisiblement avec le temps s'il ne fait pas de nouvelles vagues dans le système institutionnel.
+*   **Limites / Biais (Edge Cases) :** Si un agresseur part vivre à l'étranger pendant 10 ans (donc zéro signalement en France), le système va mathématiquement effacer son passif. À son retour, il sera vu à tort par la machine comme un profil totalement vierge et inoffensif.
+
+### Le Kill-Switch RGPD (DPIA Constraint)
+**Formule :**
+$$
+\Huge K(R) = \begin{cases} 1 & \text{si } \sum w_i R_i < \theta_{legal} \\ 0 & \text{sinon (Block)} \end{cases}
+$$
+*   **Quoi :** Fonction indicatrice (Gate) qui coupe l'exécution d'un thread Python.
+*   **Légende :** $K(R)$ : Interrupteur, $R_i$ : métriques de risque RGPD (automatisation, données mineurs, volume), $\theta_{legal}$ : plafond légal d'intrusion autorisé.
+*   **Pourquoi :** C'est le verrou de l'IA Constitutionnelle. Interdire physiquement au serveur de croiser des données si la requête du policier glisse vers un profilage de masse illégal ("Minority Report").
+*   **Inputs :** Métadonnées de la requête en cours (Quels types de nœuds sont interrogés ? Y a-t-il des mineurs impliqués ?).
+*   **Outputs :** Binaire (0 = Erreur système forcée, 1 = Poursuite de l'inférence).
+*   **Dépendance Amont :** Moteur GNN.
+*   **Dépendance Aval :** Interface utilisateur (Affichage du graphe ou Écran Rouge d'interdiction).
+*   **Complexité Algorithmique :** O(1) — Vérification booléenne pure.
+*   **Contraintes & Hypothèses (Assumptions) :** La délicate balance entre le respect de la vie privée et la nécessité d'une enquête policière peut être résumée par un simple score arithmétique rigide.
+*   **Limites / Biais (Edge Cases) :** En cas de disparition d'enfant avec urgence vitale extrême (Alerte Enlèvement), si le plafond légal est codé de manière trop stricte, l'algorithme paralysera l'ordinateur du magistrat, l'empêchant techniquement de trouver le ravisseur.
+
+---
+
+## 2. Inférence Spatiale et Temporelle
+
+### Entity Resolution (Distance de Jaro-Winkler)
+**Formule :**
+$$
+\Huge d_{jw} = d_j + (\ell \cdot p \cdot (1 - d_j))
+$$
+*   **Quoi :** Mesure de similarité textuelle favorisant les chaînes qui commencent par les mêmes caractères.
+*   **Légende :** $d_{jw}$ : Score final, $d_j$ : distance de Jaro basique, $\ell$ : longueur du préfixe commun, $p$ : constante de pondération.
+*   **Pourquoi :** Briser la faille des silos administratifs : la machine doit comprendre que le dossier "Jérôme B." tapé à la gendarmerie et la fiche "J. B." mal orthographiée par le directeur de l'école concernent exactement la même personne.
+*   **Inputs :** Strings (chaînes de caractères hachées partelles, noms, adresses).
+*   **Outputs :** Probabilité de fusion $\in [0, 1]$.
+*   **Dépendance Amont :** Base de données Neo4j brutes.
+*   **Dépendance Aval :** Création d'une arête `IS_SAME_PERSON` dans le graphe.
+*   **Complexité Algorithmique :** O(|s1| * |s2|) — Simple et efficace.
+*   **Contraintes & Hypothèses (Assumptions) :** Les erreurs de saisie des fonctionnaires de police ou d'éducation suivent des règles de fautes de frappe ou d'abréviations (typo) logiques et prévisibles.
+*   **Limites / Biais (Edge Cases) :** Impuissant face aux homonymes parfaits : si un "Martin Dubois" habite à Montestruc-sur-Gers, et qu'un autre "Martin Dubois" (sans aucun lien) habite dans la ville d'à côté, le système va fusionner leurs vies pénales et ruiner la réputation de l'un des deux.
+
+### Processus de Hawkes (Détection de l'Escalade)
+**Formule :**
+$$
+\Huge \lambda(t) = \mu + \sum_{t_i < t} \alpha \cdot e^{-\beta(t - t_i)}
+$$
+*   **Quoi :** Modèle de processus ponctuel auto-excitant mesurant l'intensité temporelle d'événements stochastiques.
+*   **Légende :** $\lambda(t)$ : Taux de dangerosité à l'instant $t$, $\mu$ : bruit de fond (hasard), $t_i$ : timestamp des faits passés, $\alpha$ : saut d'intensité à chaque fait, $\beta$ : vitesse de retombée de l'urgence.
+*   **Pourquoi :** Capter mathématiquement la "vélocité" criminelle. Trois signalements administratifs en 10 ans, c'est du bruit. Trois signalements en 6 mois, c'est une escalade (effet de réplique sismique) qui précède un drame.
+*   **Inputs :** Vecteur des dates (timestamps) des incidents liés au suspect.
+*   **Outputs :** Score d'escalade (scalaire dynamique).
+*   **Dépendance Amont :** Entity Resolution (pour lier les faits à une seule personne).
+*   **Dépendance Aval :** Moteur d'Alerte Globale.
+*   **Complexité Algorithmique :** O(E²) — E étant le nombre d'événements pour une personne, le calcul est quasi instantané.
+*   **Contraintes & Hypothèses (Assumptions) :** Le passage à l'acte d'un prédateur agit comme un tremblement de terre : chaque agression augmente mécaniquement l'excitation de l'individu et provoque des répliques de plus en plus rapprochées dans le temps.
+*   **Limites / Biais (Edge Cases) :** Un agresseur très intelligent, froid et méthodique, qui s'oblige de manière psychopathe à agir seulement une fois tous les 5 ans de manière métronomique, aura un score d'escalade de 0 et sera totalement invisible pour cette formule.
+
+---
+
+## 3. Graphes Causaux et Topologie
+
+### Graph Neural Network (Link Prediction)
+**Formule :**
+$$
+\Huge \hat{y}_{u,v} = \sigma(\mathbf{z}_u^T \mathbf{z}_v) \quad \text{avec} \quad \mathbf{Z} = GNN(\mathbf{A}, \mathbf{X})
+$$
+*   **Quoi :** Calcul de la probabilité de l'existence d'une arête (lien) entre deux nœuds en effectuant un produit scalaire sur leurs vecteurs latents générés par un réseau de neurones sur graphe.
+*   **Légende :** $\hat{y}_{u,v}$ : probabilité d'un lien caché entre personne $u$ et événement $v$, $\mathbf{z}$ : vecteur latent (embedding), $\mathbf{A}$ : topologie du graphe (adjacence), $\mathbf{X}$ : traits connus.
+*   **Pourquoi :** Révéler le "chaînon manquant" et automatiser l'analyse sérielle. Le GNN remplace mathématiquement et instantanément les "156 items d'analyse manuelle" du système SALVAC en trouvant des similarités de Modus Operandi (Lieux, Heures, Cibles) enfouies dans la topologie.
+*   **Inputs :** Matrice d'adjacence globale (Les écoles, les adresses, les victimes), Matrice des poids du Time Decay.
+*   **Outputs :** Probabilité $P_{link} \in [0, 1]$ (Score latent de sérialité).
+*   **Dépendance Amont :** Base complète Neo4j, Entity Resolution.
+*   **Dépendance Aval :** Inférence Causale (DoWhy).
+*   **Complexité Algorithmique :** O(V + E) en inférence par couche — Très rapide pour interroger la base, mais l'entraînement préalable du modèle sur les serveurs nécessite de gros GPUs.
+*   **Contraintes & Hypothèses (Assumptions) :** Si la personne A et la personne B fréquentent exactement le même réseau de lieux sociaux toxiques, au même moment, avec les mêmes modes opératoires (patterns), elles partagent la même sphère de risque.
+*   **Limites / Biais (Edge Cases) :** Le danger absolu de la corrélation illusoire : l'algorithme va relier artificiellement un plombier innocent à un réseau criminel uniquement parce qu'il a été embauché pour réparer l'évier du collège à l'heure exacte d'une agression dans la cour.
+
+### Inférence Causale (Backdoor Criterion - DoWhy)
+**Formule :**
+$$
+\Huge P(Y \mid do(X)) = \sum_Z P(Y \mid X, Z) P(Z)
+$$
+*   **Quoi :** Isoler l'effet causal pur d'une variable $X$ sur $Y$ en bloquant mathématiquement toutes les autres portes de corrélation fallacieuses $Z$ (confounders).
+*   **Légende :** $do(X)$ : forcer mathématiquement la survenue de la cause, $Z$ : variables de confusion bloquant le chemin 'Backdoor'.
+*   **Pourquoi :** Agir comme le cerveau logique du magistrat. C'est l'antidote à l'erreur du plombier (Limites du GNN). L'algorithme doit prouver que la topologie causale (qui est là, qui fait quoi) valide l'alerte, et non pas une simple coïncidence de lieu.
+*   **Inputs :** Le DAG (Graphe Orienté Acyclique) des règles judiciaires, La probabilité issue du GNN.
+*   **Outputs :** Validation ou invalidation booléenne de la prédiction GNN.
+*   **Dépendance Amont :** GNN (Link Prediction).
+*   **Dépendance Aval :** L'Alerte "REVUE HUMAINE RECOMMANDÉE".
+*   **Complexité Algorithmique :** O(V + E) — Parcours de graphe pour trouver les chemins bloqués (ultra-rapide).
+*   **Contraintes & Hypothèses (Assumptions) :** Le comité d'éthique et les enquêteurs qui ont dessiné à la main les règles du DAG ont réussi l'exploit intellectuel de lister absolument TOUTES les variables de la vie réelle pouvant créer une fausse coïncidence.
+*   **Limites / Biais (Edge Cases) :** S'il manque une seule petite variable clé non-renseignée (ex: "le suspect a un frère jumeau"), le modèle causal sera aveugle, la formule validera la corrélation toxique, et le plombier finira en garde à vue.
+
+---
+
+## 4. Modélisation du Risque et Alerting
+
+### Score Cumulatif de Vulnérabilité (Trigger Events)
+**Formule :**
+$$
+\Huge S_{vuln} = \sum_{i=1}^{n} w_i \cdot E_i + \gamma \cdot R
+$$
+*   **Quoi :** Addition linéaire pondérée des "sentinelles" (événements) associées à une trajectoire, majorée par un bonus de vélocité temporelle $R$.
+*   **Légende :** $S_{vuln}$ : Score total, $E_i$ : occurrence d'un événement, $w_i$ : poids de gravité institutionnelle (+1 signalement école, +3 plainte pénale), $\gamma$ : facteur multiplicateur d'accélération (ex: répétition sur < 3 ans).
+*   **Pourquoi :** Éviter l'effet "boîte noire" d'un réseau de neurones. Fournir au magistrat un calcul arithmétique simple, compréhensible et opposable juridiquement pour justifier le déclenchement d'une "Revue Humaine".
+*   **Inputs :** Le vecteur des événements désambiguïsés (Entity Resolution) et valides (DPIA).
+*   **Outputs :** Un entier positif classé en trois seuils stricts (0-2: Surveillance, 3-4: Revue Locale, 5+: Revue Prioritaire).
+*   **Dépendance Amont :** Processus de Hawkes, Inférence Causale.
+*   **Dépendance Aval :** Interface Dashboard (Notification à l'utilisateur final).
+*   **Complexité Algorithmique :** O(N) — Simple somme, calcul immédiat.
+*   **Contraintes & Hypothèses (Assumptions) :** Une lente accumulation de signaux faibles (ex: 4 alertes scolaires à +1) est mathématiquement symptomatique d'une faille systémique nécessitant une intervention, au même titre qu'un signal fort isolé.
+*   **Limites / Biais (Edge Cases) :** Un individu innocent victime de harcèlement (ex: faux signalements anonymes répétés par un voisin vengeur) verra son score $S_{vuln}$ exploser artificiellement et déclenchera une alerte prioritaire, à moins que le *Confidence Score* ne vienne diviser le poids de ces rumeurs par zéro en amont.
+
+### Indice de Similarité Sérielle (Héritage SALVAC / ViCLAS)
+**Formule :**
+$$
+\Huge S_{serial}(A, B) = \frac{\sum_{k=1}^{156} w_k \cdot \delta(A_k, B_k)}{\sum_{k=1}^{156} w_k}
+$$
+*   **Quoi :** Calcul d'une similarité de Jaccard/Cosinus pondérée entre deux affaires $A$ et $B$ sur les 156 variables comportementales (Modus Operandi). 
+*   **Légende :** $S_{serial}$ : Indice de similarité (ex: 0.87), $k$ : les 156 items (heure, arme, type de victime), $\delta$ : fonction d'égalité (1 si match, 0 sinon), $w_k$ : poids de l'item (un "rituel" a plus de poids qu'une "heure de la journée").
+*   **Pourquoi :** Capter la logique d'analyse originelle de SALVAC (Comparaison pair-à-pair de crimes violents). Dans la CGIP, cette équation n'est plus calculée à la main mais est internalisée et calculée par les *Embeddings* du GNN sur chaque nœud événement.
+*   **Inputs :** Les métadonnées structurées de deux événements distincts (qu'ils viennent de Cassiopée ou de la Civil Tech).
+*   **Outputs :** Probabilité de lien sériel $\in [0, 1]$.
+*   **Dépendance Amont :** Ingestion NLP (Transformation des textes en vecteurs).
+*   **Dépendance Aval :** GNN (Création d'une arête probabiliste `IS_SIMILAR_TO`).
+*   **Complexité Algorithmique :** O(1) pour deux affaires, mais O(N²) pour comparer toute une base SQL. D'où l'absolue nécessité d'utiliser un Graphe.
+*   **Contraintes & Hypothèses (Assumptions) :** Un délinquant/criminel est psychologiquement routinier. Il reproduit des schémas d'action (idiosyncrasie) identifiables statistiquement.
+*   **Limites / Biais (Edge Cases) :** Si l'auteur modifie intentionnellement ou par accident son mode opératoire d'une victime à l'autre (ex: change de véhicule), le score $\delta$ s'effondre et SALVAC devient aveugle. La CGIP devra compenser cela avec les liens contextuels (DoWhy).
+
+---
+
+## 5. Machine Learning & XAI (Détection de Trajectoires à Risque)
+
+### Modèle de Classification d'Escalade (Gradient Boosting / GNN)
+**Formule Objective (Objectif ML) :**
+$$
+\Huge \hat{y} = f(X_{temp}, X_{comp}, X_{graph}, X_{geo})
+$$
+*   **Quoi :** Estimer la probabilité qu'une trajectoire d'événements s'aggrave (escalade significative) dans les 12 prochains mois ($y=1$ si escalade grave, $y=0$ sinon). Produit un *Risk Score* et ses valeurs SHAP (Explainability).
+*   **Légende :** $\hat{y}$ : Probabilité d'escalade, $X_{temp}$ : Features temporelles (fréquence, accélération), $X_{comp}$ : Features comportementales (répétition même contexte), $X_{graph}$ : Features de graphe (centralité, connexions à risque), $X_{geo}$ : Densité spatiale.
+*   **Pourquoi :** Fournir une alerte probabiliste à la justice sans recourir à la justice prédictive. Ce système (idéalement un modèle robuste comme XGBoost ou Random Forest) n'évalue pas "le danger moral de la personne", mais la "vélocité statistique de son historique administratif".
+*   **Inputs :** Unité d'observation matricielle (`person_event_window`) agglomérant sur une fenêtre de 6-24 mois les signalements scolaires, policiers et judiciaires.
+*   **Outputs :** Probabilité de risque $\in [0, 1]$ et un vecteur de justification (ex: `+0.31 → répétition contexte`, `-0.05 → absence antécédents graves`).
+*   **Dépendance Amont :** Graphes Causaux, Feature Engineering Pipeline.
+*   **Dépendance Aval :** Interface Enquêteur (Human Alerting).
+*   **Complexité Algorithmique :** Rapide en production (arbres de décision ou inférence GNN de type Node2Vec/GraphSAGE).
+*   **Contraintes & Hypothèses (Assumptions) :** Le modèle assume que des labels purement administratifs ($y=1$ pour multi-plaintes ou affaire sensible) sont une approximation suffisante du risque criminel futur d'une trajectoire.
+*   **Limites / Biais (Edge Cases) :** Le risque de prophétie autoréalisatrice et les biais de signalement (over-policing sur certaines populations). La machine peut confondre forte corrélation et causalité, transformant un faisceau de rumeurs en "escalade", d'où la nécessité absolue de l'XAI (Explainable AI - SHAP) et de la Revue Humaine.

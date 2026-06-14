@@ -1,0 +1,80 @@
+# ÉVALUATION DE LA DÉPERDITION D'INFORMATION (AUDIT DU REPO INITIAL)
+
+## Objectif
+Ce document répond à la question : *"Combien de pourcentage le repo local avait-il mal capturé de la conversation initiale, et pourquoi ?"*
+La mesure de cet écart n'est pas purement quantitative, mais **qualitative, architecturale et philosophique**. 
+
+## Méthodologie d'évaluation (Gap Analysis)
+Pour évaluer un projet informatique d'État de cette envergure, on le divise en trois piliers vitaux :
+1. **La Statique Technique** : L'architecture (Les serveurs, le code, la topologie).
+2. **La Dynamique Fonctionnelle** : Le "Pourquoi" et le "Comment" (Les cas d'usage réels, l'échec de l'existant).
+3. **Le Cadre Légal et Éthique** : Les contraintes de la société (RGPD, présomption d'innocence).
+
+---
+
+## Bilan de la Déperdition
+
+### Pilier 1 : La Statique Technique (Ce qui était capturé)
+*Score de capture initial : ~80%*
+
+Le repo local (le `README.md` initial et l'`INDEX_CERVEAU_CENTRAL.md`) avait **très bien capturé l'architecture technique brute**.
+- Les couches A à H (Neo4j, NLP, GNN, Interface) étaient présentes.
+- Le choix des technologies (Kafka, Mistral, Streamlit) était acté.
+
+**Ce qui manquait (20%)** : L'ingénierie granulaire déduite des cas d'usage (ex: le besoin d'un nœud `[Contexte_Spatio_Social]`, la nécessité de l'*Entity Resolution* pour désambiguïser deux affaires parallèles).
+
+### Pilier 2 : La Dynamique Fonctionnelle (Ce qui était perdu)
+*Score de capture initial : ~15%*
+
+- **La perte 1 (Le Récit Criminologique) :** Toute l'analyse de l'affaire Lyhanna (la chronologie 2017-2026, les 8 failles systémiques, la fragmentation entre l'école et la police). 
+- **La perte 2 (Logique Dossier vs Logique Individu) :** Le repo avait oublié que l'État travaille en "Logique de Dossier". Il manquait l'étape cruciale de l'*Identity Resolution Layer*, qui permet de fusionner informatiquement les identités dispersées dans plusieurs institutions.
+- **La perte 3 (L'ignorance de SALVAC/ViCLAS) :** L'État possède déjà un système d'analyse sérielle (*SALVAC*). Si le repo initial l'ignore, le projet CGIP passe pour un doublon inutile. L'intérêt de la CGIP est d'automatiser (via NLP et Graphes) l'ingestion des signaux faibles que SALVAC ne peut pas traiter manuellement.
+- **La perte 4 (L'absence de Boucle de Retour) :** Le code initial était un "trou noir" (il aspirait la donnée pour faire un graphe). Il ignorait le *Casse #5* : le manque systémique de retour d'information vers l'émetteur (l'école). La CGIP ne doit pas seulement agréger, elle doit **redistribuer l'alerte**.
+- **La conséquence :** Sans ces exemples, le projet paraissait abstrait. Un développeur qui lit le repo initial ne comprend pas profondément *pourquoi* on utilise un Temporal Graph Network au lieu d'une simple base SQL comme Cassiopée, ni comment s'interfacer avec l'existant. Il code le système à l'aveugle.
+
+### Pilier 3 : Le Cadre Légal et Éthique (Ce qui était totalement ignoré)
+*Score de capture initial : 0%*
+
+Le repo local initial était devenu un projet "techno-solutionniste" pur. Il avait oublié **la tension fondamentale** au cœur de la discussion d'origine avec l'IA.
+- **La perte :** Le débat sur le "Profilage permanent de suspicion", le risque des "fausses corrélations", et le choc frontal avec les principes fondamentaux du Droit.
+- **La conséquence :** Un logiciel d'État développé sans ces contraintes est mort-né. Il sera censuré par la CNIL ou le Conseil d'État dès le premier jour. Le repo initial avait oublié de spécifier les garde-fous (Pondération des données, Time-To-Live, Moteur DPIA).
+
+---
+
+## Conclusion globale
+
+Le repo local initial n'avait capturé que "la carrosserie et le moteur" de la voiture.
+Il avait perdu :
+1. **La destination** (Pourquoi on construit ça : pour soigner les 8 failles systémiques de l'État).
+2. **Le code de la route** (La doctrine éthique et le cadre légal du Graphe).
+
+On peut estimer l'écart total (la perte de la valeur intellectuelle de la conversation) à environ **60% du fondement du projet**.
+
+---
+
+## MÉTHODE DE RECONSTRUCTION (Comment utiliser ces documents)
+
+Maintenant que nous avons évalué cette perte, comment utiliser concrètement la `GENESE_DU_PROJET.md` et le `FICHIER_TECHNIQUE.md` pour **reconstruire** le projet dans le code ? 
+
+La méthode repose sur l'**Alignement Architectural** (Architecture Alignment) en 3 étapes :
+
+### Étape 1 : Le "Pourquoi" (La Boussole)
+- **Document à utiliser :** `GENESE_DU_PROJET.md`
+- **Méthode :** Ce document est notre *Product Requirements Document* (PRD) ou Cahier des Charges. Avant de coder une fonctionnalité, on regarde le tableau des "8 Vulnérabilités de l'État". Si une ligne de code ne répond pas à l'une de ces vulnérabilités, elle ne doit pas exister.
+
+### Étape 2 : Le "Quoi" (La Transformation en Backlog)
+- **Document à utiliser :** `EVALUATION_DEPERDITION.md`
+- **Méthode :** Ce document de déperdition sert de "Roadmap" ou de "Backlog Jira". Chaque élément listé dans "Ce qui était perdu" devient un *Ticket de développement*. 
+  - *Exemple de Ticket 1* : "Coder la Couche E (Moteur DPIA) pour bloquer les profilages illégaux."
+  - *Exemple de Ticket 2* : "Intégrer le Time-To-Live (Droit à l'oubli) sur les arêtes Neo4j."
+
+### Étape 3 : Le "Comment" (L'Implémentation Code)
+- **Document à utiliser :** `FICHIER_TECHNIQUE.md`
+- **Méthode :** C'est le plan d'ingénierie pur. Quand on ouvre notre IDE pour coder, c'est ce fichier qu'on regarde. Il nous dicte :
+  - L'ontologie exacte de Neo4j (Créer des Nodes `[Contexte_Spatio_Social]`).
+  - Les mathématiques à appliquer (Utiliser la `Cosine Similarity` dans le GNN, appliquer un `Confidence Score` de 0.1 pour une rumeur et 1.0 pour une plainte).
+
+**En résumé :** 
+1. Vous lisez la `GENESE` pour vérifier que vous résolvez le bon problème humain.
+2. Vous regardez l'`ÉVALUATION` pour savoir quelle faille combler aujourd'hui.
+3. Vous appliquez le `FICHIER TECHNIQUE` pour dicter la syntaxe exacte au code final.

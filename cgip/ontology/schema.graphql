@@ -1,20 +1,51 @@
-Node:
-  Event:
-    properties:
-      id: string
-      type: string
-      timestamp: datetime
-      source: string
+# Civic Graph Intelligence Platform (CGIP) - Ontology Schema
 
-  Case:
-    properties:
-      id: string
+type Person {
+  id: ID!
+  hashed_identifier: String!
+  roles: [String] # Suspect, Victim, Witness
+}
 
-Edge:
-  RELATES_TO:
-    from: Event
-    to: Event
+type Event {
+  id: ID!
+  timestamp: DateTime!
+  source_agency: String! # Education, Police, Justice, Social
+  is_official_judicial_procedure: Boolean!
+  severity_index: Float
+}
 
-  BELONGS_TO:
-    from: Event
-    to: Case
+type ContextNode {
+  id: ID!
+  type: String! # School, Home, Public_Space, Organization
+  name_hashed: String
+}
+
+type Case {
+  case_id: ID!
+  status: String # OPEN, CLOSED, ESCALATED
+}
+
+# --- EDGES (Relations) ---
+
+# Person -> Event
+# weight is derived dynamically based on confidence_score and time_to_live
+type VISE_PAR @relation {
+  confidence_score: Float! # 1.0 (condamnation), 0.8 (plainte), 0.4 (signalement), 0.1 (rumeur)
+  time_to_live_days: Int! # Respect de la prescription
+}
+
+# Person -> ContextNode
+type EVOLUE_DANS @relation {
+  start_date: DateTime
+  end_date: DateTime
+}
+
+# Event -> ContextNode
+type HAPPENED_IN @relation {
+  certainty: Float
+}
+
+# Event -> Case
+type TRIGGERS_ALERT @relation {
+  automated: Boolean
+}
