@@ -1,0 +1,26 @@
+justice-knowledge-system/
+├── README.md
+├── docs/
+│   ├── epistemology.md
+│   ├── methodology.md
+│   ├── ontology.md
+│   ├── assumptions.md
+│   ├── limitations.md
+│   └── roadmap.md
+├── data/
+│   ├── raw/
+│   ├── processed/
+│   ├── normalized/
+│   ├── graph/
+│   └── synthetic/
+├── schemas/
+├── ontology/
+├── extraction/
+├── normalization/
+├── timeline/
+├── graph/
+├── analytics/
+├── ml/
+├── gnn/
+├── notebooks/
+└── tests/

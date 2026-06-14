@@ -1,0 +1,20 @@
+Node:
+  Event:
+    properties:
+      id: string
+      type: string
+      timestamp: datetime
+      source: string
+
+  Case:
+    properties:
+      id: string
+
+Edge:
+  RELATES_TO:
+    from: Event
+    to: Event
+
+  BELONGS_TO:
+    from: Event
+    to: Case
