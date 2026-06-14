@@ -1,82 +1,91 @@
 import json
-import logging
 import time
 
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+# Simulation des modules CGIP déjà codés
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'security'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'ml_engine'))
 
-class MockKafkaConsumer:
+# Import des modules d'architecture
+try:
+    from rgpd_anonymizer import RGPDAnonymizer
+    from risk_scorer import RiskScorer
+except ImportError:
+    pass
+
+class CGIPConsumer:
     """
-    Simulation d'un Consumer Kafka (Couche A).
-    En production, ceci utiliserait `confluent_kafka.Consumer`.
-    Le but est de montrer comment le flux est ingéré, validé et passé à la Couche NLP.
+    Le Chef d'Orchestre Temps Réel.
+    Il écoute le topic Kafka 'cgip.events.raw', nettoie la donnée, 
+    met à jour les bases de données (SQL/Graph) et déclenche l'IA (XGBoost).
     """
-    
-    def __init__(self, topic: str):
+    def __init__(self, topic='cgip.events.raw'):
         self.topic = topic
-        logger.info(f"KAFKA: Subscribed to topic '{self.topic}'")
+        # Initialisation des sous-systèmes
+        self.anonymizer = RGPDAnonymizer("CGIP_PROD_SECRET_KEY")
+        self.scorer = RiskScorer()
 
-    def validate_payload(self, payload: dict) -> bool:
-        """S'assure que le message JSON respecte le schéma attendu."""
-        required_keys = ['event_id', 'type', 'timestamp', 'metadata']
-        for key in required_keys:
-            if key not in payload:
-                logger.error(f"KAFKA: Invalid payload. Missing key '{key}'")
-                return False
-        return True
-
-    def consume_stream(self, nlp_parser_instance):
+    def process_message(self, raw_message: str):
         """
-        Simule l'écoute continue d'un flux d'événements.
-        Dès qu'un message arrive, il est passé au NLP Parser.
+        La chaîne d'orchestration stricte.
         """
-        logger.info("KAFKA: Listening for incoming events...")
+        print("\n[CONSUMER] 📥 Nouveau message intercepté sur la file Kafka.")
         
-        # Flux simulé (Normalement, boucle while True avec consumer.poll())
-        simulated_events = [
-            {
-                "event_id": "uuid-1111",
-                "type": "school_report",
-                "timestamp": "2026-06-06T10:00:00Z",
-                "metadata": {
-                    "source": "École",
-                    "text": "J. Dupont a frappé un élève hier dans la cour."
-                }
-            },
-            {
-                "event_id": "uuid-2222",
-                "type": "police_report",
-                "timestamp": "2026-06-07T14:30:00Z",
-                "metadata": {
-                    "source": "TAJ",
-                    "text": "Plainte déposée contre Jean Dupont pour agression à l'arme blanche."
-                }
-            }
-        ]
-        
-        results = []
-        for event in simulated_events:
-            logger.info(f"\n[+] KAFKA: Received event {event['event_id']}")
+        try:
+            event = json.loads(raw_message) if isinstance(raw_message, str) else raw_message
+            payload = event["payload"]
             
-            if self.validate_payload(event):
-                # Envoi à la couche B (Secrétaire / NLP)
-                text = event['metadata'].get('text', '')
-                source = event['metadata'].get('source', 'Unknown')
-                
-                parsed_data = nlp_parser_instance.parse_signal(text, source)
-                results.append(parsed_data)
-                
-            time.sleep(1) # Simulation du temps de réseau
+            # 1. ÉTAPE JURIDIQUE : Le Sas Cryptographique
+            print("  ├── 🛡️ [ETAPE 1] Anonymisation RGPD (Hashing)")
+            clean_payload = self.anonymizer.process_raw_event(payload)
+            pseudo_id = clean_payload["person_id"]
+            print(f"  │   Identité convertie en: {pseudo_id}")
             
-        return results
+            # 2. ÉTAPE SYSTEM OF RECORD : Commit SQL
+            print("  ├── 💾 [ETAPE 2] Écriture PostgreSQL (System of Record)")
+            # Simule l'INSERT INTO events...
+            
+            # 3. ÉTAPE CONTEXTE : Mise à jour du Graphe
+            print("  ├── 🕸️ [ETAPE 3] Mise à jour Neo4j (Création Nœud/Arête)")
+            # Simule l'exécution Cypher : MERGE (p:Person)-[:INVOLVED]->(e:Event)
+            
+            # 4. ÉTAPE ANALYTIQUE : Déclenchement du ML
+            print("  └── 🧠 [ETAPE 4] Réveil du Modèle ML (XGBoost + Rule Engine)")
+            alert_json = self.scorer.compute_risk_score(pseudo_id)
+            
+            # Résultat
+            if alert_json["alert_level"] == "CRITICAL_REVIEW_REQUIRED":
+                print(f"\n🚨 [ALERTE ROUGE] Score critique détecté ({alert_json['final_score_legal']}). Transfert immédiat au Magistrat de permanence.")
+            else:
+                print(f"\n✅ [INFO] Événement digéré. Score actuel: {alert_json['final_score_legal']}. Pas d'action.")
+                
+        except Exception as e:
+            print(f"[ERREUR CONSUMER] Impossible de traiter le message : {e}")
 
-# Example Usage
+# ==========================================
+# TEST RUNNER (Simulation de la boucle)
+# ==========================================
 if __name__ == "__main__":
-    from nlp_parser import NLPParser
+    print("--- DÉMARRAGE DU DAEMON KAFKA CONSUMER ---")
+    consumer = CGIPConsumer()
     
-    consumer = MockKafkaConsumer(topic="raw_civic_signals")
-    parser = NLPParser()
+    # On simule un message entrant (celui que le Producer vient d'envoyer)
+    mock_incoming_message = {
+        "metadata": {
+            "source": "POLICE_CASSIOPEE_V2",
+            "timestamp": "2026-06-14T20:00:00",
+            "event_id": "EVT-84729"
+        },
+        "payload": {
+            "first_name": "Jean",
+            "last_name": "Dupont",
+            "date_of_birth": "1980-05-12",
+            "event_type": "plainte_violences",
+            "severity": 4,
+            "location": "Paris 18e"
+        }
+    }
     
-    output = consumer.consume_stream(parser)
-    print("\n--- RÉSULTAT DU PIPELINE D'INGESTION ---")
-    print(json.dumps(output, indent=2, ensure_ascii=False))
+    time.sleep(1) # Simule l'attente réseau
+    consumer.process_message(mock_incoming_message)

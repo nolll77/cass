@@ -365,3 +365,16 @@ Le schéma global du système intègre l'écosystème Big Data industriel :
 3. **Feature Store (Spark / Feast)** : Stocke les vecteurs d'apprentissage.
 4. **Graph DB (Neo4j)** & **ML Training (XGBoost/RF)** : S'alimentent sur le Feature Store.
 5. **Risk Scoring Engine** (Batch + Streaming).
+
+## XI. Architecture Streaming Temps Réel (Event-Driven)
+
+La CGIP n'est pas un système de traitement par lots (Batch). C'est une **Architecture Orientée Événements** basée sur Apache Kafka. Dès qu'un acteur de terrain enregistre une information, celle-ci est propulsée dans le système nerveux central.
+
+### Le Pipeline de Consommation Asynchrone
+Le `Consumer` Kafka (Script : `kafka_consumer.py`) intercepte le message et orchestre la cascade suivante en millisecondes :
+1. **Étape Juridique** : Passage dans le Sas Cryptographique (`rgpd_anonymizer.py`).
+2. **Étape System of Record** : Le hachage et l'événement sont validés dans la base **PostgreSQL**.
+3. **Étape Contexte** : Les nouveaux nœuds et arêtes sont ajoutés au **Graphe Neo4j**.
+4. **Étape Analytique** : Une fois la "vérité" figée, le modèle **XGBoost** (`risk_scorer.py`) est réveillé pour recalculer le score global de l'individu ciblé.
+
+**Orchestration Stricte** : L'IA ne tourne jamais en amont. Elle est toujours la dernière étape de la chaîne, garantissant qu'elle calcule son score sur la topologie la plus fraîche et sécurisée possible.
