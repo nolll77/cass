@@ -11,6 +11,9 @@
 ---
 
 ## 📖 TABLE DES MATIÈRES
+- 🧭 **[NOUVEAU ? LISEZ LE GUIDE DE LECTURE ICI](GUIDE_DE_LECTURE.md)**
+- 📖 **[CONSULTEZ LE GLOSSAIRE DE LA CGIP](GLOSSAIRE.md)**
+
 1. [Manifeste Épistémologique : La Rupture des Silos](#1-manifeste-épistémologique--la-rupture-des-silos)
 2. [L'Équilibre et l'IA Constitutionnelle](#2-léquilibre-et-lia-constitutionnelle)
 3. [L'Architecture de la CGIP (Couches A à H)](#3-larchitecture-de-la-cgip-couches-a-à-h)

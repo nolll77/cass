@@ -1,5 +1,10 @@
 # Socle Mathématique et Algorithmique (Formulaire CGIP)
 
+> **Abstract (Résumé Exécutif)**
+> Ce document est le "Formulaire Légal" du projet. Il fige les équations et les limites algorithmiques de nos modèles d'IA (XGBoost, GraphSAGE). Son but est de prouver mathématiquement qu'aucune décision individuelle automatique (illégale au sens de l'Art. 22 du RGPD) n'est jamais prise. La machine calcule des probabilités de *liens entre dossiers*, jamais des probabilités de *culpabilité individuelle*.
+
+
+
 > **GUIDE DE CONSTRUCTION (MANIFESTE DU SOCLE)**
 > 
 > **Qu'est-ce qu'un Socle (ou Lexique Formel) ?**

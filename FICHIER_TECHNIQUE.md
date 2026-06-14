@@ -1,5 +1,10 @@
 # RÉFÉRENTIEL TECHNIQUE CONTINU
 
+> **Abstract (Résumé Exécutif)**
+> Ce document est la "Vue Architecte" de la plateforme CGIP. Il traduit la doctrine légale et philosophique du projet en spécifications informatiques pures (Bases de données, pipelines Kafka, schéma Neo4j). Il décrit l'infrastructure à 6 couches (Le "Modèle Hybride Européen") qui permet de briser les silos administratifs tout en respectant l'AI Act.
+
+
+
 Ce document a pour but d'extraire et de synthétiser toutes les exigences techniques, les architectures de données et les règles d'ingénierie qui émergent de la genèse du projet. Il complète le README et le socle mathématique en se basant sur les cas réels.
 
 ---
