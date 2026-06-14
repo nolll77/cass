@@ -74,6 +74,6 @@ Il s'agit du "frigo" intellectuel du projet CGIP. Lorsqu'un sujet est exploré, 
 - [ ] Réaliser le dump importable "Neo4j Complet" du dataset synthétique
 
 - [ ] Concevoir l'architecture Kafka streaming temps réel (Event-driven)
-- [ ] Détailler le modèle GNN (Graph Neural Network) pour les liens criminels
+- [x] Détailler le modèle GNN (Graph Neural Network) pour les liens criminels
 - [x] Rédiger un document de design "Compatible CNIL / RGPD strict"
 - [ ] Créer une simulation visuelle complète E2E d'un cas (Timeline + Scoring + Graph)

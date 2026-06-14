@@ -330,3 +330,27 @@ model = xgb.XGBClassifier(
     learning_rate=0.05   # Apprentissage conservateur
 )
 ```
+
+
+## XI. Équations du Graph Neural Network (GraphSAGE)
+
+Pour extraire l'ADN social des suspects (Centralité et Proximité Criminelle) de manière prédictive, la CGIP utilise l'algorithme **GraphSAGE**. Contrairement à un GCN transductif, GraphSAGE permet de générer des vecteurs d'apprentissage (Embeddings) "à la volée" pour de nouveaux profils sans ré-entraîner toute la base de données.
+
+### 1. L'Équation d'Agrégation (Message Passing)
+Un individu s'imprègne du risque de son entourage direct. À chaque itération $k$, l'algorithme agrège les vecteurs des voisins $\mathcal{N}(v)$ de la personne $v$ :
+
+$$ h_{\mathcal{N}(v)}^{k} = 	ext{AGGREGATE}_{k} \Big( \{ h_u^{k-1}, orall u \in \mathcal{N}(v) \} \Big) $$
+
+*(La fonction AGGREGATE peut être une moyenne (`Mean`), un réseau de neurones (`Pool`), ou un LSTM. La CGIP utilise la moyenne pour l'explicabilité juridique).*
+
+### 2. L'Équation de Mise à Jour (Update)
+Une fois les "messages" du voisinage reçus, on fusionne l'ancienne signature criminelle de l'individu avec la nouvelle, via une matrice de poids $W^k$ et une fonction d'activation non-linéaire $\sigma$ (ex: ReLU) :
+
+$$ h_v^k = \sigma \Big( W^k \cdot 	ext{CONCAT} ig( h_v^{k-1}, h_{\mathcal{N}(v)}^k ig) \Big) $$
+
+### 3. La Synthèse Absolue (Vector[128])
+Après $K=2$ itérations (pour voir "l'ami de l'ami"), le vecteur final $z_v$ contient toute l'information topologique. Il a une dimension exacte de 128.
+
+$$ z_v = h_v^K \quad 	ext{avec} \quad z_v \in \mathbb{R}^{128} $$
+
+**Règle d'Encapsulation** : $z_v$ n'est pas un score de condamnation. C'est un vecteur mathématique neutre qui est ensuite passé au **XGBoost Classifier** (Chapitre X), seul habilité à formuler la probabilité, elle-même soumise au **Bouclier Légal**.
