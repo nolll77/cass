@@ -21,13 +21,13 @@ L'objectif est d'organiser le projet open-source / institutionnel en séparant c
 - **Périmètre Gouvernance (Réservé à l'Auteur) :** Verrouillage IAM strict : ce Data Lake contient la donnée non anonymisée.
 
 ## MILESTONE : Couche A - Socle Ontologique (Neo4j)
-### Issue — [Data] #003 — Implémentation du Schéma GraphQL / Cypher
+### Issue — [Data] #003 — Implémentation du Schéma GraphQL / Cypher ✅ [FERMÉE]
 **Labels:** ontology, database, difficulty: medium
 - **Contexte Analytique :** Définir la structure des nœuds (`Person`, `Event`, `ContextNode`) et des relations (`VISE_PAR`, `HAPPENED_IN`).
 - **Périmètre Technique (Ouvert aux contributions) :** Scripts Python/Cypher pour contraindre la base de données (Indexes, Unique Constraints).
 - **Périmètre Gouvernance (Réservé à l'Auteur) :** Validation finale des champs autorisés pour garantir qu'aucune donnée ethno-raciale ou interdite ne peut être stockée dans le schéma.
 
-### Issue — [Data] #004 — Ingestion Sécurisée et Hachage (Privacy)
+### Issue — [Data] #004 — Ingestion Sécurisée et Hachage (Privacy) ✅ [FERMÉE]
 **Labels:** security, pipeline, difficulty: hard
 - **Contexte Analytique :** Les identifiants réels ne doivent pas transiter en clair dans le système de machine learning.
 - **Périmètre Technique (Ouvert aux contributions) :** Développement d'un pipeline d'ingestion qui hache l'identité (SHA-256 avec sel) avant l'insertion en base.
@@ -46,20 +46,20 @@ L'objectif est d'organiser le projet open-source / institutionnel en séparant c
 - **Périmètre Gouvernance (Réservé à l'Auteur) :** Définir le standard de consentement RGPD (Opt-in) pour qu'une victime accepte que son journal "Mémo de Vie" soit scanné par la CGIP à la recherche de signaux de risque.
 
 ## MILESTONE : Couches E & F - Gouvernance & Privacy by Design
-### Issue — [Gov] #005 — Moteur de Time Decay (Droit à l'oubli algorithmique)
+### Issue — [Gov] #005 — Moteur de Time Decay (Droit à l'oubli algorithmique) ✅ [FERMÉE]
 **Labels:** governance, math, difficulty: medium
 - **Contexte Analytique :** Implémenter mathématiquement la prescription légale. Le lien entre un acteur et un événement doit s'estomper avec le temps.
 - **Périmètre Technique (Ouvert aux contributions) :** Code de la décroissance exponentielle `C(t) = C0 * e^(-lambda * t)` applicable sur les relations `VISE_PAR`.
 - **Périmètre Gouvernance (Réservé à l'Auteur) :** Paramétrage strict de la demi-vie (`lambda`) en fonction de la loi (ex: prescription de 10 ans pour les délits majeurs).
 
-### Issue — [Gov] #006 — Moteur DPIA et Kill-Switch
+### Issue — [Gov] #006 — Moteur DPIA et Kill-Switch ✅ [FERMÉE]
 **Labels:** governance, security, difficulty: hard
 - **Contexte Analytique :** Le système doit s'auto-bloquer s'il risque de générer un profilage interdit.
 - **Périmètre Technique (Ouvert aux contributions) :** Écriture du `kill_switch.py` qui intercepte les requêtes Python et lève une exception `DPIABlockError` si le score de risque légal dépasse un seuil.
 - **Périmètre Gouvernance (Réservé à l'Auteur) :** Définition de la matrice de risque (Qu'est-ce qui constitue un "High Risk" ?).
 
 ## MILESTONE : Couches B & D - Inférence IA & Causalité
-### Issue — [ML] #007 — Identity Resolution Layer (Dédoublonnage Bayesien)
+### Issue — [ML] #007 — Identity Resolution Layer (Dédoublonnage Bayesien) ✅ [FERMÉE]
 **Labels:** ai, nlp, difficulty: hard
 - **Contexte Analytique :** C'est le cœur de la bascule "Dossier" vers "Individu". Savoir que "Jérôme B." (dossier Police) et "J.B." (signalement école) sont la même entité.
 - **Périmètre Technique (Ouvert aux contributions) :** Implémentation d'algorithmes de Probabilistic Matching (ex: Jaro-Winkler, Bayesian Record Linkage, Embeddings LLM) pour fusionner les identités hachées.
@@ -78,19 +78,19 @@ L'objectif est d'organiser le projet open-source / institutionnel en séparant c
 - **Périmètre Gouvernance (Réservé à l'Auteur) :** Note éthique stipulant que ce calcul ne vaut pas preuve légale, mais uniquement outil d'orientation pour l'enquêteur.
 
 ## MILESTONE : Couche G - Modèles de Risque & Alerting
-### Issue — [ML] #009 — Détection de l'escalade (Processus de Hawkes)
+### Issue — [ML] #009 — Détection de l'escalade (Processus de Hawkes) ✅ [FERMÉE]
 **Labels:** ai, math, difficulty: hard
 - **Contexte Analytique :** Modéliser la fréquence et l'accélération d'événements liés à un profil (ex: 1 événement en 2017, puis 2 en 2020, = accélération).
 - **Périmètre Technique (Ouvert aux contributions) :** Implémentation du processus de Hawkes.
 - **Périmètre Gouvernance (Réservé à l'Auteur) :** Validation fonctionnelle.
 
-### Issue — [ML] #010 — Moteur d'Agrégation (Cumulative Vulnerability Score)
+### Issue — [ML] #010 — Moteur d'Agrégation (Cumulative Vulnerability Score) ✅ [FERMÉE]
 **Labels:** ai, scoring, difficulty: medium
 - **Contexte Analytique :** Calculer un score de risque cumulatif basé sur des "Trigger Events" (Sentinelles) plutôt qu'une boîte noire incompréhensible (Deep Learning).
 - **Périmètre Technique (Ouvert aux contributions) :** Implémentation d'une fonction d'accumulation (ex: Signalement +1, Plainte +3, Répétition +2) et définition des seuils de basculement (0-2: OK, 3-4: Revue, 5+: Alerte).
 - **Périmètre Gouvernance (Réservé à l'Auteur) :** S'assurer que le système renvoie la string explicite `REVUE_HUMAINE_RECOMMANDEE` et déporte la décision finale sur le magistrat, sans présumer de la culpabilité.
 
-### Issue — [ML] #010b — Entraînement du Modèle Baseline Tabulaire (XGBoost)
+### Issue — [ML] #010b — Entraînement du Modèle Baseline Tabulaire (XGBoost) ✅ [FERMÉE]
 **Labels:** ai, ml-model, difficulty: medium
 - **Contexte Analytique :** L'entraînement du premier algorithme prédictif (Gradient Boosting) basé sur la matrice `person_event_window` pour estimer la probabilité d'escalade.
 - **Périmètre Technique (Ouvert aux contributions) :** Script d'entraînement Python (XGBoostClassifier) avec calibration, validation croisée, et extraction des features (temporelles, comportementales, graphe, géo).
@@ -110,13 +110,13 @@ L'objectif est d'organiser le projet open-source / institutionnel en séparant c
 - **Périmètre Gouvernance (Réservé à l'Auteur) :** Le bouton d'action doit être un "Kill-Switch" d'invalidation humaine pour forcer l'IA à apprendre de ses erreurs.
 
 ## MILESTONE : Couche Temps Réel (Event-Driven)
-### Issue — [Data] #012 — Ingestion Streaming (Kafka)
+### Issue — [Data] #012 — Ingestion Streaming (Kafka) ✅ [FERMÉE]
 **Labels:** data-engineering, streaming, difficulty: hard
 - **Contexte Analytique :** Remplacer les requêtes batch (Dossiers) par un flux continu (Événements).
 - **Périmètre Technique (Ouvert aux contributions) :** Setup d'un topic Kafka pour ingérer en temps réel les signaux de la Civil Tech ou de l'École et déclencher la pipeline d'Entity Resolution à la volée.
 - **Périmètre Gouvernance (Réservé à l'Auteur) :** Gestion de la surcharge (Rate limiting) pour éviter des attaques DDoS via faux signalements civils.
 
-### Issue — [ML] #013 — Moteur Anomaly Detection Temps Réel
+### Issue — [ML] #013 — Moteur Anomaly Detection Temps Réel ✅ [FERMÉE]
 **Labels:** ml, anomaly-detection, difficulty: medium
 - **Contexte Analytique :** Lever une alerte avant même que le modèle temporel lourd n'ait convergé.
 - **Périmètre Technique :** Modèle `Isolation Forest` sur le flux Kafka.
@@ -142,17 +142,17 @@ L'objectif est d'organiser le projet open-source / institutionnel en séparant c
 - **Contexte Analytique :** Construire le moteur de prédiction principal (Zone Jaune) qui lira les Features générées par l'Issue #016.
 - **Périmètre Technique :** Entraînement du modèle `XGBClassifier` sur des données historiques. Implémentation de la librairie `shap` pour générer le diagramme de force (*Force Plot*) justifiant légalement chaque alerte pour le magistrat.
 
-### Issue — [Graph] #021 — Déploiement de l'Ontologie Cypher (Zone Verte vs Jaune)
+### Issue — [Graph] #021 — Déploiement de l'Ontologie Cypher (Zone Verte vs Jaune) ✅ [FERMÉE]
 **Labels:** graph-db, data-engineering, difficulty: medium
 - **Contexte Analytique :** Inscrire le "Privacy by Design" en dur dans la structure Neo4j.
 - **Périmètre Technique :** Script d'initialisation Cypher (`CREATE CONSTRAINT`). Mise en place des nœuds `OfficialEvent` et `AdminSignal`. Création de l'index TTL (`Time-To-Live`) automatique sur les arêtes latentes générées par le ML pour assurer l'oubli automatique des fausses suspicions.
 
-### Issue — [Legal] #017 — Moteur de Conformité (Garde-Fou Zone Rouge)
+### Issue — [Legal] #017 — Moteur de Conformité (Garde-Fou Zone Rouge) ✅ [FERMÉE]
 **Labels:** legal, security, difficulty: hard
 - **Contexte Analytique :** Empêcher techniquement l'IA de prendre une décision ou de "prédire" une personne.
 - **Périmètre Technique :** Implémentation du `kill_switch.py`. L'algorithme doit bloquer toute requête tentant d'exécuter une sanction automatique ou un profilage individuel non supervisé.
 
-### Issue — [Legal] #018 — Gouvernance et Contrôle d'Accès (RBAC Multi-Agences)
+### Issue — [Legal] #018 — Gouvernance et Contrôle d'Accès (RBAC Multi-Agences) ✅ [FERMÉE]
 **Labels:** legal, security, infrastructure, difficulty: medium
 - **Contexte Analytique :** Définir "Qui a le droit de voir quoi ?" pour éviter le Registre National Orwellien.
 - **Périmètre Technique :** Implémenter un système de *Role-Based Access Control* stricts au-dessus du Graph. Un policier ne voit pas les notes du psychologue scolaire, il ne voit que le "Niveau d'Alerte" global de la situation.
@@ -168,7 +168,7 @@ L'objectif est d'organiser le projet open-source / institutionnel en séparant c
 - **Périmètre Technique (Ouvert aux contributions) :** Création des endpoints REST (`/api/cases`, `/api/alerts`, `/api/graph`).
 - **Périmètre Gouvernance (Réservé à l'Auteur) :** Imposer les JWT Tokens et RBAC (Role-Based Access Control) interdisant à un agent administratif de voir les détails judiciaires.
 
-### Issue — [Front] #012 — Dashboard Graphe Interactif (React / D3.js)
+### Issue — [Front] #012 — Dashboard Graphe Interactif (React / D3.js) ✅ [FERMÉE]
 **Labels:** frontend, dataviz, difficulty: medium
 - **Contexte Analytique :** Permettre à un magistrat de visualiser *pourquoi* le système a levé une alerte (Explainable AI).
 - **Périmètre Technique (Ouvert aux contributions) :** Interface React utilisant D3.js ou React Flow pour afficher les nœuds suspects et leurs liens de manière lisible.
@@ -198,7 +198,7 @@ L'objectif est d'organiser le projet open-source / institutionnel en séparant c
 **Labels:** data-engineering, cloud, difficulty: medium
 - **Contexte Analytique :** Déployer les buckets de stockage `/raw/` et `/processed/`.
 
-### Issue — [ML] #023 — Expérimentation Node2Vec / GNN
+### Issue — [ML] #023 — Expérimentation Node2Vec / GNN ✅ [FERMÉE]
 **Labels:** ai, deep-learning, difficulty: hard
 - **Contexte Analytique :** Tester des modèles Graph Neural Networks vs la Baseline XGBoost.
 
