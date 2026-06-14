@@ -98,6 +98,6 @@ Il s'agit du "frigo" intellectuel du projet CGIP. Lorsqu'un sujet est exploré, 
 - [ ] Analyser pourquoi l'AI Act européen bloque spécifiquement le "Crime Prediction System".
 - [ ] Comparaison technique précise : Cassiopée (France) vs UK Crown Prosecution Service systems.
 
-- [ ] Modéliser le Schéma Neo4j complet (Tables SQL + Edges/Relations réelles).
+- [x] Modéliser le Schéma Neo4j complet (Tables SQL + Edges/Relations réelles).
 - [ ] Comparaison architecturale poussée avec les systèmes Palantir-like (US/UK Police Tech).
 - [ ] Analyser techniquement pourquoi l'interopérabilité casse en pratique dans l'administration.

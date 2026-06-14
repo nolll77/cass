@@ -452,3 +452,56 @@ L'architecture est structurée en 6 couches (Layers) strictes :
 - **Couche 4 (ML Non Décisionnel)** : Modèles de liaison (GNN, Clustering) et modèles de risque populationnel agrégé.
 - **Couche 5 (Firewall Légal)** : Le "Rule Engine" qui bloque physiquement toute décision ou sanction automatique.
 - **Couche 6 (Interface)** : L'interface Magistrat (Explicabilité obligatoire par l'AI Act).
+
+## XVIII. Ontologie du Graphe Neo4j (Schéma Complet)
+
+Le schéma Cypher complet d'initialisation de la base (Contraintes, Index, et MERGE patterns) est stocké dans le fichier exécutable **`src/db/neo4j_schema.cypher`**.
+
+### 1. Diagramme Entité-Relation (Mermaid)
+
+Voici la représentation visuelle de l'ontologie. 
+*Note : La temporalité est obligatoire sur TOUTES les arêtes (`timestamp` ou `start_date`), permettant l'analyse temporelle dynamique par le GNN (TGN).*
+
+```mermaid
+erDiagram
+    PERSON {
+        string pseudo_id "Haché (RGPD)"
+        string age_band "Ex: 30-40"
+        string risk_flag "Manuel"
+    }
+    EVENT {
+        string event_id "Identifiant unique"
+        string type "Ex: PLAINTE, AUDITION"
+        int severity "1 à 5"
+        datetime timestamp "Obligatoire"
+    }
+    CASE {
+        string case_id "Dossier Judiciaire"
+        string status "OPEN/CLOSED"
+        string legal_basis "Article Code Pénal"
+    }
+    LOCATION {
+        string loc_id
+        string type "Ex: DOMICILE, ECOLE"
+        string geo_hash "Index Spatial"
+    }
+    INSTITUTION {
+        string inst_id
+        string ministry "Intérieur, Justice"
+    }
+    DOCUMENT {
+        string doc_id
+        string classification_level
+    }
+
+    PERSON ||--o{ EVENT : "INVOLVED_IN {role, timestamp}"
+    EVENT ||--o{ CASE : "TRIGGERS {delay_hours, timestamp}"
+    EVENT }o--|| LOCATION : "OCCURRED_AT {timestamp}"
+    PERSON }o--o{ PERSON : "ASSOCIATED_WITH {relation_type, start_date}"
+    CASE }o--o{ CASE : "RELATED_TO {confidence_score, timestamp}"
+    PERSON }o--o{ DOCUMENT : "MENTIONED_IN {timestamp}"
+    EVENT }o--|| INSTITUTION : "REPORTED_BY {timestamp}"
+```
+
+### 2. Le Choix d'Architecture (Temporalité Forcée)
+L'obligation d'horodater chaque arête de relation (même les liens sociaux `ASSOCIATED_WITH`) transforme la base de données en **Temporal Graph**. Cela permet au modèle GNN d'ingérer non seulement le réseau statique, mais aussi le *flux d'événements* (streaming), donnant la capacité de calculer "l'accélération d'une crise" (ex: 5 plaintes reliées au même domicile en 48 heures).
