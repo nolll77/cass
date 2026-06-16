@@ -1,0 +1,34 @@
+name: MLOps Bias Detection & Shadow Deployment
+# Pipeline CI/CD Éthique pour le Modèle IA de la CGIP.
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/ml_engine/models/**'
+
+jobs:
+  fairness-audit:
+    runs-on: self-hosted-secnumcloud
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Lancer le Disparate Impact Analysis (Équité)
+        run: |
+          python src/mlops/fairness_auditor.py --model_path=models/latest_gnn.pkl
+          # Le script doit retourner un code 0.
+          # S'il détecte que le modèle génère 5% de Faux Positifs en plus 
+          # pour le "Quartier Nord" par rapport au "Quartier Sud", le build ECHOUE (Exit 1).
+
+  shadow-deployment:
+    needs: fairness-audit
+    runs-on: self-hosted-secnumcloud
+    steps:
+      - name: Déployer le Modèle en Shadow Mode
+        run: |
+          echo "Le modèle V_NEXT est déployé sur Kafka en mode Shadow."
+          echo "Il écoutera le flux de production et générera des scores,"
+          echo "MAIS ces scores ne seront pas visibles par les Magistrats pendant 3 mois."
+          kubectl apply -f k8s/deployments/gnn-shadow.yml

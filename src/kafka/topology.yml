@@ -1,0 +1,69 @@
+version: '1'
+# Topologie Kafka (Définition des Topics et Rétention)
+# Cet outil définit l'Event-Driven Architecture de la CGIP.
+
+topics:
+  # ---------------------------------------------------------
+  # ZONE D'INGESTION BRUTE (DMZ)
+  # ---------------------------------------------------------
+  - name: cgip.raw.reports
+    partitions: 12
+    replicationFactor: 3
+    configs:
+      retention.ms: 86400000 # 24 heures maximum (RGPD: minimization)
+      cleanup.policy: delete
+      message.timestamp.type: CreateTime
+
+  - name: cgip.raw.penal_events
+    partitions: 6
+    replicationFactor: 3
+    configs:
+      retention.ms: 604800000 # 7 jours
+      cleanup.policy: delete
+
+  # ---------------------------------------------------------
+  # ZONE DE TRAITEMENT ML (Cerveau NLP & Entity Resolution)
+  # ---------------------------------------------------------
+  - name: cgip.ml.ner.completed
+    partitions: 12
+    replicationFactor: 3
+    configs:
+      retention.ms: 86400000 # 24 heures
+      cleanup.policy: delete
+
+  # ---------------------------------------------------------
+  # ZONE DE SYNCHRONISATION DES BASES DE DONNÉES
+  # ---------------------------------------------------------
+  - name: cgip.db.sql.upsert
+    partitions: 6
+    replicationFactor: 3
+    configs:
+      retention.ms: -1 # Rétention infinie (Log compacted pour PostgreSQL)
+      cleanup.policy: compact
+
+  - name: cgip.db.graph.mutations
+    partitions: 12
+    replicationFactor: 3
+    configs:
+      retention.ms: 259200000 # 3 jours (Temps pour Neo4j de synchroniser)
+      cleanup.policy: delete
+
+  # ---------------------------------------------------------
+  # ZONE D'ALERTE (Dashboard Magistrat)
+  # ---------------------------------------------------------
+  - name: cgip.alerts.critical
+    partitions: 3
+    replicationFactor: 3
+    configs:
+      retention.ms: 604800000 # 7 jours pour que le Magistrat la traite
+      cleanup.policy: delete
+
+  # ---------------------------------------------------------
+  # ZONE DE RÉSILIENCE (Dead Letter Queue)
+  # ---------------------------------------------------------
+  - name: cgip.dlq.unparsable_events
+    partitions: 3
+    replicationFactor: 3
+    configs:
+      retention.ms: 2592000000 # 30 jours (Pour audit technique et débogage)
+      cleanup.policy: delete

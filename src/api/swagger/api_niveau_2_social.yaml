@@ -1,0 +1,51 @@
+openapi: 3.0.3
+info:
+  title: CGIP - Ingestion API (Niveau 2 - Social/Éducation)
+  version: 1.0.0
+  description: >
+    Endpoint "Chambre Noire" (Write-Only) pour les acteurs sociaux et éducatifs.
+    Les données doivent être chiffrées en JWE (JSON Web Encryption) côté client.
+    Le serveur ne renvoie aucune information sur l'existence ou non d'un dossier pénal.
+security:
+  - mutual_tls: []
+paths:
+  /v1/ingest/social/report:
+    post:
+      summary: Soumettre un signalement non judiciarisé (Signal Faible)
+      operationId: ingestSocialReport
+      requestBody:
+        required: true
+        content:
+          application/jose+json:
+            schema:
+              type: object
+              description: Payload JWE (RFC 7516) contenant le rapport.
+              properties:
+                protected:
+                  type: string
+                iv:
+                  type: string
+                ciphertext:
+                  type: string
+                tag:
+                  type: string
+      responses:
+        '202':
+          description: Rapport reçu et mis en file d'attente Kafka (Ack aveugle).
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "accepted"
+                  receipt_id:
+                    type: string
+                    example: "urn:uuid:123e4567-e89b-12d3-a456-426614174000"
+        '401':
+          description: Certificat client (mTLS) invalide ou révoqué.
+components:
+  securitySchemes:
+    mutual_tls:
+      type: mutualTLS

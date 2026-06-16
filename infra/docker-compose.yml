@@ -1,0 +1,90 @@
+version: '3.8'
+
+# Architecture d'Isolation Réseau (Air-Gapped Simulation)
+# Prouve la viabilité SecNumCloud par un cloisonnement strict des couches.
+
+networks:
+  net_ingestion_dmz:
+    driver: bridge
+    internal: false # Seul réseau autorisé à communiquer avec l'extérieur
+  net_ml_compute:
+    driver: bridge
+    internal: true  # Isolé (Accès GPU local uniquement)
+  net_core_data:
+    driver: bridge
+    internal: true  # Le bunker de données (Aucun internet)
+
+services:
+  # --------------------------------------------------
+  # COUCHE D'INGESTION (Exposée)
+  # --------------------------------------------------
+  api_gateway:
+    image: cgip/api-gateway:latest
+    ports:
+      - "443:443"
+    networks:
+      - net_ingestion_dmz
+      - net_ml_compute
+    environment:
+      - REQUIRE_MTLS=true
+      
+  kafka_broker:
+    image: confluentinc/cp-kafka:7.3.0
+    networks:
+      - net_ingestion_dmz
+      - net_ml_compute
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+  # --------------------------------------------------
+  # COUCHE ML & COMPUTE (Air-Gapped)
+  # --------------------------------------------------
+  nlp_engine:
+    image: cgip/nlp-neuro-symbolic:latest
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    networks:
+      - net_ml_compute
+      - net_core_data
+    depends_on:
+      - kafka_broker
+
+  # --------------------------------------------------
+  # COUCHE DE VÉRITÉ & AUDIT (Bunker / Air-Gapped)
+  # --------------------------------------------------
+  postgres_sovereign:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: admin_sys
+      POSTGRES_PASSWORD_FILE: /run/secrets/pg_pass
+    networks:
+      - net_core_data
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+      - ../src/db/sql/01_schema_niveau_0.sql:/docker-entrypoint-initdb.d/01_schema.sql
+
+  neo4j_graph:
+    image: neo4j:5.5.0-enterprise
+    environment:
+      NEO4J_ACCEPT_LICENSE_AGREEMENT: "yes"
+      NEO4J_AUTH: "neo4j/very_secure_password"
+    networks:
+      - net_core_data
+    volumes:
+      - neo4j_data:/data
+      - ../src/db/neo4j/01_init_graph.cypher:/var/lib/neo4j/scripts/01_init_graph.cypher
+
+  hyperledger_audit:
+    image: hyperledger/fabric-peer:latest
+    networks:
+      - net_core_data
+
+volumes:
+  pg_data:
+  neo4j_data:

@@ -1,0 +1,58 @@
+openapi: 3.0.3
+info:
+  title: CGIP - Ingestion API (Niveau 1 - Police/Justice)
+  version: 1.0.0
+  description: >
+    Endpoint pour les acteurs régaliens (TAJ, Cassiopée).
+    La donnée est structurée et typée formellement en JSON.
+security:
+  - mutual_tls: []
+paths:
+  /v1/ingest/penal/record:
+    post:
+      summary: Ingérer un acte de procédure officielle
+      operationId: ingestPenalRecord
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - system_source
+                - procedure_id
+                - involved_persons
+                - penal_code_natinf
+                - timestamp
+              properties:
+                system_source:
+                  type: string
+                  enum: [TAJ, CASSIOPEE, FIJAIS]
+                procedure_id:
+                  type: string
+                  description: "UUID de la procédure dans la base source."
+                involved_persons:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      first_name:
+                        type: string
+                      last_name:
+                        type: string
+                      role:
+                        type: string
+                        enum: [MIS_EN_CAUSE, VICTIME, TEMOIN]
+                penal_code_natinf:
+                  type: string
+                  description: "Code NATINF de l'infraction (ex: 28975 pour violences volontaires)."
+                timestamp:
+                  type: string
+                  format: date-time
+      responses:
+        '201':
+          description: Acte ingéré et streamé vers Kafka.
+components:
+  securitySchemes:
+    mutual_tls:
+      type: mutualTLS
