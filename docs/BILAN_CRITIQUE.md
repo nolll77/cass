@@ -171,3 +171,194 @@ L'analyse qui précède est valide sur le fond :
 **Sur les Non-implémentables (Le mur du réel)** : Cette limite est fondamentale. Le paradoxe Privacy vs Linkability constitue une loi mathématique incontournable. Il est impossible de croiser parfaitement des bases de données à l'échelle nationale pour découvrir des liens latents, tout en garantissant un anonymat absolu au niveau individuel. Par ailleurs, souligner que l'absence d'API entre les ministères relève d'un problème légal et institutionnel, et non technique, caractérise une véritable démarche d'Architecture Système. Un cloisonnement institutionnel (TAJ/Cassiopée/Éducation) ne se résout pas par une solution logicielle.
 
 **En conclusion** : Cette critique permet d'extraire le projet de son cadre théorique pour le confronter aux contraintes opérationnelles réelles. Elle démontre que le véritable défi de CASS ne réside pas dans l'implémentation de réseaux de neurones, mais dans la modélisation mathématique du Droit et de la Vérité au sein d'un système asynchrone.
+
+---
+
+## 4. SÉPARATION ARCHITECTURALE : V1 vs V3
+
+Il convient d'établir une séparation stricte en deux systèmes distincts, car l'architecture initiale superpose deux niveaux incompatibles d'un point de vue opérationnel :
+
+* **V1 = Système Réaliste** (implémentable immédiatement selon l'ingénierie et les contraintes juridiques actuelles).
+* **V3 = Vision Étendue** (recherche, R&D avancée, supposant la levée ou la transformation des contraintes institutionnelles).
+
+Le projet initial souffrait d'une superposition de ces deux niveaux sans frontière explicite, générant des contradictions structurelles.
+
+---
+
+### 4.1. V1 — SYSTÈME RÉALISTE (Implémentable Immédiatement)
+
+#### 🎯 Objectif réel de V1
+> Fusionner des données multi-sources **sans identité universelle**, produire des **signaux d’analyse**, et fournir une **aide à la décision humaine traçable**.
+
+⚠️ **Point crucial** : V1 ne "détecte pas de criminels" ; il **organise des événements et relations observables**.
+
+#### 🧠 Principe fondamental V1
+`V1 = Event Intelligence System`
+
+L'approche repose sur :
+* ✔ La gestion d'événements
+* ✔ Des relations probabilistes
+* ✔ L'agrégation de signaux faibles
+
+Elle exclut formellement :
+* ❌ La notion de "graphe criminel" (criminal graph)
+* ❌ La prédiction d'actes individuels
+
+#### 🧱 Architecture V1 (Corrigée)
+```text
+[SOURCES]
+   ↓
+[INGESTION (Kafka + API Gateway)]
+   ↓
+[NORMALISATION]
+   ↓
+[ENTITY RESOLUTION PROBABILISTE (NON UNIQUE)]
+   ↓
+[EVENT STORE (PostgreSQL)]
+   ↓
+[GRAPH STORE (Neo4j - PARTIEL)]
+   ↓
+[FEATURE STORE]
+   ↓
+[MODELS]
+   ↓
+[EXPLANATION LAYER]
+   ↓
+[DASHBOARD HUMAIN]
+```
+
+#### 📦 Composants V1 détaillés
+
+1. **SOURCES** (Police, Justice, Social, Éducation)
+   * ❗ **Contrainte** : Accès via API ou export batch, sans accès direct aux silos internes.
+
+2. **INGESTION (Kafka)**
+   * **Fonction réelle** : Bufferisation, standardisation des flux, gestion des retards institutionnels.
+   * **Implémentabilité** : Totale.
+
+3. **NORMALISATION (Nouvelle Couche)**
+   * **Fonction** : Transformer des chaînes hétérogènes ("Jean D.", "J. Dupont") en objets structurés (`{ "entity_candidates": [...] }`).
+   * **Important** : Uniquement basé sur des probabilités, aucune fusion définitive (❌).
+
+4. **ENTITY RESOLUTION (Version V1)**
+   * **Modèle V1 réaliste** : Évaluation probabiliste (ex: `P(A == B) = 0.82`).
+   * **Sortie** : Graphe probabiliste (non déterministe).
+
+5. **STOCKAGE**
+   * **PostgreSQL (vérité événementielle)** : Événements horodatés, audit légal, log immuable.
+   * **Neo4j (graph analytique)** : Relations probables, contextes, sans identité stable.
+
+6. **FEATURE STORE**
+   * Contient uniquement : Agrégats temporels, densité d’événements, co-occurrences, fréquence de signalement.
+   * ❌ Ne contient aucune identité fusionnée.
+
+7. **MODELS (V1 réaliste)**
+   * **Composants** : Isolation Forest (anomalies globales), Hawkes (intensité événementielle), GNN simple (link prediction).
+   * ❌ Aucune causalité forte, ni notion de "danger individuel".
+
+8. **EXPLANATION LAYER (Critique en V1)**
+   * SHAP, règles simples, traçabilité des décisions.
+   * 👉 Indispensable juridiquement.
+
+9. **DASHBOARD**
+   * Affiche des clusters d’événements, zones de densité, relations probables, alertes.
+   * ❌ Ne qualifie aucun individu de "suspect" ou "criminel probable". Seulement des "patterns atypiques".
+
+#### ⚖️ Limites Structurelles V1
+V1 ne peut PAS accomplir :
+❌ D'identité unique globale
+❌ De prédiction individuelle fiable
+❌ D'inférence de causalité criminelle
+❌ De décision automatique
+
+---
+
+### 4.2. V3 — VISION ÉTENDUE (Recherche / Futur / Institutionnel)
+
+#### 🎯 Objectif V3
+> Reconstruire une **représentation quasi-complète des dynamiques sociales multi-institutionnelles en un graphe causal temporel**.
+
+#### 🧠 Principe fondamental V3
+`V3 = Causal Socio-Graph Intelligence System`
+
+L'approche passe de la gestion d'événements à l'analyse de **trajectoires sociales causales**.
+
+#### 🧱 Architecture V3
+```text
+[SOURCES FÉDÉRÉES + ACCÈS UNIFIÉ]
+   ↓
+[ENTITY RESOLUTION GLOBAL IDENTITY LAYER]
+   ↓
+[TEMPORAL GRAPH DATABASE CONTINU]
+   ↓
+[CAUSAL MODELING ENGINE (DoWhy + Structural Causal Models)]
+   ↓
+[GRAPH NEURAL NETWORKS TEMPORAL (TGN)]
+   ↓
+[DECISION SUPPORT AI]
+   ↓
+[HUMAN + LEGAL SUPERVISION LAYER]
+```
+
+#### 🧬 Différences fondamentales V3 vs V1
+
+1. **IDENTITÉ**
+   * **V1** : Identité probabiliste, multi-hypothèses.
+   * **V3** : Identité unifiée stabilisée (nécessite un cadre légal renforcé et un identifiant fédéré ou système cryptographique).
+
+2. **TEMPS**
+   * **V1** : Fenêtres temporelles.
+   * **V3** : Flux continu dynamique (TGN).
+
+3. **CAUSALITÉ**
+   * **V1** : Corrélation.
+   * **V3** : Causalité structurée (Modèles de Pearl / SCM).
+
+4. **GRAPHE**
+   * **V1** : Graphe statique enrichi.
+   * **V3** : Graphe vivant dynamique (continuous-time graph).
+
+5. **IA**
+   * **V1** : Modèles indépendants.
+   * **V3** : Système unifié neuro-symbolique.
+
+#### 🧠 Apports réels de la V3
+1. **Système réflexif** : Le Kill-switch évolue vers un audit continu de dérive et une auto-correction.
+2. **Cryptographie computationnelle** : Informatique homomorphe réelle et Secure Multi-Party Computation.
+3. **Explicabilité contre-factuelle** : Simulation de scénarios alternatifs.
+
+#### ⚠️ Limites Structurelles V3
+V3 est impossible sans :
+❌ Réforme institutionnelle profonde.
+❌ Nouveau cadre légal.
+❌ Identifiant inter-silos.
+❌ Acceptation politique d'un graphe social global.
+
+---
+
+### 4.3. TABLE DE SYNTHÈSE
+
+| Dimension | V1 (Réaliste) | V3 (Vision) |
+| --- | --- | --- |
+| **Identité** | Probabiliste | Unifiée |
+| **Graphe** | Analytique | Causal dynamique |
+| **IA** | Modèles séparés | Système unifié |
+| **Décision** | Humaine | Assistée avancée |
+| **Loi** | Externe au système | Intégrée au calcul |
+| **Causalité**| Non garantie | Explicite |
+| **Déploiement**| Immédiat | Recherche institutionnelle |
+
+---
+
+### 4.4. CONCLUSION DE L'ARCHITECTURE INITIALE
+
+Le projet initial constituait une superposition de ces deux paradigmes (environ 70% de vision V3 et 30% de composants V1), générant une architecture où des composants V3 (vision globale, causalité, identité unifiée) étaient appliqués à des contraintes V1 (données imparfaites, silos, probabilités).
+
+**Conclusion finale :**
+* **V1** s'avère techniquement faisable, industrialisable, testable et gouvernable.
+* **V3** reste cohérent conceptuellement, mais strictement dépendant d'une refonte du cadre institutionnel.
+
+**Orientations possibles pour l'industrialisation :**
+1. Transformer V1 en architecture de production (Docker, microservices, schémas, APIs).
+2. Formaliser V3 en un modèle mathématique rigoureux (variables, fonctions, contraintes, axiomes).
+3. Définir une feuille de route de transition V1 → V2 → V3 sur une échelle décennale.
